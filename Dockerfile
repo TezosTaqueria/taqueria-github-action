@@ -23,8 +23,7 @@ RUN chown --recursive 1000:1000 \
     /taqueria
 USER 1000:998
 
-# Change working directory to /app to make mounting easier
-WORKDIR /taqueria
+ENTRYPOINT [ "/bin/taq" ]
 
 # TODO: surpress the npm notice for new versions
 # TODO: we potentially need a default project with all of the dependencies already installed if this dockerfile is used for the the GitHub action
