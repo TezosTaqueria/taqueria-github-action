@@ -18,7 +18,9 @@ jobs:
         with:
           project-name: 'test-project'
           task: 'init'
+
       - name: initialize node
         run: |
           cd test-project
-          npm init -y
+          id
+          sudo npm init -y
