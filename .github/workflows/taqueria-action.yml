@@ -23,4 +23,4 @@ jobs:
         run: |
           cd test-project
           id
-          sudo npm init -y
+          npm init -y

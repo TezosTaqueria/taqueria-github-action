@@ -23,6 +23,9 @@ RUN chmod +x /bin/taq
 #     /taqueria
 # USER 1000:998
 
+# Set user and group to runner:docker
+USER 1001:121
+
 # ENTRYPOINT [ "/bin/taq" ]
 
 ENV PATH="/bin:{$PATH}"
