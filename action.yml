@@ -8,7 +8,7 @@ inputs:
   task:
     description: 'The task for taqueria to run with `init` being the default task'
     required: false
-    default: 'init -p ${{ inputs.project-name }}'
+    default: 'init'
 runs:
   using: 'docker'
   image: 'Dockerfile'

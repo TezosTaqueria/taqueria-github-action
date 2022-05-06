@@ -16,14 +16,19 @@ ADD https://github.com/ecadlabs/taqueria/releases/download/v0.3.0/taq-linux /bin
 # Make the binary executable
 RUN chmod +x /bin/taq
 
-# Change ownership of key files and folders to the user with id 1000 and switch users 
-RUN chown --recursive 1000:1000 \
-    /bin/taq \
-    /deno \
-    /taqueria
-USER 1000:998
+# Change ownership of key files and folders to the user with id 1000 and switch users. This does not work with github-actions
+# RUN chown --recursive 1000:1000 \
+#     /bin/taq \
+#     /deno \
+#     /taqueria
+# USER 1000:998
 
-ENTRYPOINT [ "/bin/taq" ]
+# ENTRYPOINT [ "/bin/taq" ]
+
+ENV PATH="/bin:{$PATH}"
+
+COPY entrypoint.sh /bin/entrypoint.sh
+ENTRYPOINT [ "entrypoint.sh" ]
 
 # TODO: surpress the npm notice for new versions
 # TODO: we potentially need a default project with all of the dependencies already installed if this dockerfile is used for the the GitHub action
