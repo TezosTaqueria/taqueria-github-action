@@ -5,8 +5,20 @@ jobs:
     runs-on: ubuntu-latest
     name: Initialize a taqueria project
     steps:
+
+      - name: Setup repo
+        uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16.13.x
+
       - name: taq init step
         uses: ecadlabs/taqueria-github-action@v0.0.1-rc1
         with:
           project-name: 'test-project'
           task: 'init'
+      - name: initialize node
+        runs: |
+          cd test-project
+          npm init -y
