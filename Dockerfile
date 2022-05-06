@@ -24,7 +24,7 @@ RUN chmod +x /bin/taq
 # USER 1000:998
 
 # Set user and group to runner:docker
-USER 1001:121
+# USER 1001:121
 
 # ENTRYPOINT [ "/bin/taq" ]
 
