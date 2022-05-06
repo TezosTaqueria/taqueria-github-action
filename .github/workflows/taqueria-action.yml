@@ -19,6 +19,6 @@ jobs:
           project-name: 'test-project'
           task: 'init'
       - name: initialize node
-        runs: |
+        run: |
           cd test-project
           npm init -y
