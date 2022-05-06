@@ -23,4 +23,5 @@ jobs:
         run: |
           cd test-project
           id
+          ls -ltra ./
           npm init -y
