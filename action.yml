@@ -12,7 +12,7 @@ inputs:
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  options: -v $(pwd):$(pwd)
+  options: -v /home/runner/work/taqueria-github-action/taqueria-github-action/test-project:/home/runner/work/taqueria-github-action/taqueria-github-action/test-project
   args:
     - ${{ inputs.project-name }}
     - ${{ inputs.task }}
