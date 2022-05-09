@@ -15,7 +15,6 @@ jobs:
 
       - name: taq init step
         uses: ecadlabs/taqueria-github-action@v0.0.1-rc1
-        volume: "/workspace:/workspace"
         with:
           project-name: 'test-project'
           task: 'init'
