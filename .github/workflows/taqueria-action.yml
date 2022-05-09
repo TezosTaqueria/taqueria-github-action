@@ -16,30 +16,23 @@ jobs:
       - name: taq init step
         uses: ecadlabs/taqueria-github-action@v0.0.1-rc1
         with:
-          project-name: 'test-project'
+          project-name: '/github/workspace'
           task: 'init'
-          args: '-v "/github:/github"'
 
       - name: initialize node
         run: |
-          sudo chown -R runner:docker test-project
-          cp contracts/counter.jsligo test-project/contracts/
-          cd test-project
-          id
+          sudo chown -R runner:docker /github/workspace
           ls -ltra ./
           npm init -y
-          cd ..
 
       - name: install the ligo
         uses: ecadlabs/taqueria-github-action@v0.0.1-rc1
         with:
-          project-name: 'test-project'
+          project-name: '/github/workspace'
           task: 'install @taqueria/plugin-ligo'
-          args: '-v "/github:/github"'
 
       - name: install the ligo
         uses: ecadlabs/taqueria-github-action@v0.0.1-rc1
         with:
-          project-name: 'test-project'
+          project-name: '/github/workspace'
           task: 'compile'
-          args: '-v "/github:/github"'
