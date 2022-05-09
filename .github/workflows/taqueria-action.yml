@@ -21,7 +21,8 @@ jobs:
 
       - name: initialize node
         run: |
-          cp contracts/counter.jsligo test-project/contracts/
+          ls -ltra ./
+          sudo cp contracts/counter.jsligo test-project/contracts/
           cd test-project
           id
           ls -ltra ./
