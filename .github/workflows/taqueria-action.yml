@@ -18,7 +18,7 @@ jobs:
         with:
           project-name: 'test-project'
           task: 'init'
-          args: '-v "$(pwd):$(pwd)"'
+          args: '-v "/github:/github"'
 
       - name: initialize node
         run: |
@@ -35,9 +35,11 @@ jobs:
         with:
           project-name: 'test-project'
           task: 'install @taqueria/plugin-ligo'
+          args: '-v "/github:/github"'
 
       - name: install the ligo
         uses: ecadlabs/taqueria-github-action@v0.0.1-rc1
         with:
           project-name: 'test-project'
           task: 'compile'
+          args: '-v "/github:/github"'
