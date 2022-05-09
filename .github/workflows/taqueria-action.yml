@@ -18,7 +18,8 @@ jobs:
         with:
           project-name: 'test-project'
           task: 'init'
-
+          options: '-v /home/runner/work/taqueria-github-action/taqueria-github-action/test-project:/home/runner/work/taqueria-github-action/taqueria-github-action/test-project'
+          
       - name: initialize node
         run: |
           sudo chown -R runner:docker test-project
@@ -34,9 +35,11 @@ jobs:
         with:
           project-name: 'test-project'
           task: 'install @taqueria/plugin-ligo'
+          options: '-v /home/runner/work/taqueria-github-action/taqueria-github-action/test-project:/home/runner/work/taqueria-github-action/taqueria-github-action/test-project'
 
       - name: install the ligo
         uses: ecadlabs/taqueria-github-action@v0.0.1-rc1
         with:
           project-name: 'test-project'
           task: 'compile'
+          options: '-v /home/runner/work/taqueria-github-action/taqueria-github-action/test-project:/home/runner/work/taqueria-github-action/taqueria-github-action/test-project'
