@@ -19,15 +19,14 @@ jobs:
           project-name: 'test-project'
           task: 'init'
           options: '-v /home/runner/work/taqueria-github-action/taqueria-github-action/test-project:/home/runner/work/taqueria-github-action/taqueria-github-action/test-project'
-          
+
       - name: initialize node
         run: |
-          sudo chown -R runner:docker test-project
           cp contracts/counter.jsligo test-project/contracts/
           cd test-project
           id
           ls -ltra ./
-          npm init -y
+          sudo npm init -y
           cd ..
 
       - name: install the ligo
