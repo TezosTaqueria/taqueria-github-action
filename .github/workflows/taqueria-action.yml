@@ -18,6 +18,7 @@ jobs:
         with:
           project-name: 'test-project'
           task: 'init'
+          args: '-v "$(pwd):$(pwd)"'
 
       - name: initialize node
         run: |
