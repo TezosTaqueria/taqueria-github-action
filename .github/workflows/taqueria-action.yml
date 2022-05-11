@@ -14,7 +14,7 @@ jobs:
           node-version: 16.13.x
 
       - name: taq init step
-        uses: ecadlabs/taqueria-github-action@v0.0.1-rc1
+        uses: ./
         with:
           project-name: 'test-project'
           task: 'init'
@@ -29,14 +29,14 @@ jobs:
           ls -l ./
           cd ..
       - name: install the ligo plugin
-        uses: ecadlabs/taqueria-github-action@v0.0.1-rc1
+        uses: ./
         with:
           project-name: 'test-project'
           # task: 'install @taqueria/plugin-ligo-0.0.0-pr-704-cbcdf9ce'
           task: 'install @taqueria/plugin-ligo@0.0.0-pr-704-cbcdf9ce'
 
       - name: compile the contracts
-        uses: ecadlabs/taqueria-github-action@v0.0.1-rc1
+        uses: ./
         with:
           project-name: 'test-project'
           task: 'compile'
