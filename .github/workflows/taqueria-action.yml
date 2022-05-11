@@ -40,7 +40,5 @@ jobs:
         with:
           project-name: 'test-project'
           task: 'compile'
-        run: |
-          ls -ltr ./
         env:
           PROJECT_DIR: /home/runner/work/taqueria-github-action/taqueria-github-action/new-plugin-project
