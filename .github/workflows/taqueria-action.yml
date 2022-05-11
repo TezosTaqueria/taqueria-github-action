@@ -27,13 +27,12 @@ jobs:
           id
           ls -ltra ./
           sudo npm init -y
-          cd ..
 
       - name: install the ligo
         uses: ecadlabs/taqueria-github-action@v0.0.1-rc1
         with:
           project-name: 'test-project'
-          task: 'install @taqueria/plugin-ligo'
+          task: 'install @taqueria/plugin-ligo-0.0.0-pr-704-cbcdf9ce'
 
       - name: install the ligo
         uses: ecadlabs/taqueria-github-action@v0.0.1-rc1
