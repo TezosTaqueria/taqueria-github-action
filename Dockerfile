@@ -33,8 +33,8 @@ RUN chmod +x /bin/taq
 ENV PATH="/bin:{$PATH}"
 
 # COPY entrypoint.sh /bin/entrypoint.sh
-# COPY entrypoint.sh /entrypoint.sh
-# ENTRYPOINT [ "/entrypoint.sh" ]
+COPY entrypoint.sh /entrypoint.sh
+ENTRYPOINT [ "/entrypoint.sh" ]
 
 # TODO: surpress the npm notice for new versions
 # TODO: we potentially need a default project with all of the dependencies already installed if this dockerfile is used for the the GitHub action
