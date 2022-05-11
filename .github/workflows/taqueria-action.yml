@@ -21,8 +21,9 @@ jobs:
 
       - name: copy contract
         run: |
-          cp contracts/counter.jsligo test-project/contracts/
-
+          ls -l ./ 
+          sudo cp contracts/counter.jsligo test-project/contracts/
+          ls -l test-project/
       - name: install the ligo plugin
         uses: ecadlabs/taqueria-github-action@v0.0.1-rc1
         with:
