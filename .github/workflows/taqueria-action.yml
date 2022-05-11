@@ -26,7 +26,7 @@ jobs:
           cd test-project
           sudo npm init -y
           sudo chown -R runner:docker ./
-          ls -l test-project/
+          ls -l ./
           cd ..
       - name: install the ligo plugin
         uses: ecadlabs/taqueria-github-action@v0.0.1-rc1
