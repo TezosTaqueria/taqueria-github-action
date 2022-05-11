@@ -19,14 +19,9 @@ jobs:
           project-name: 'test-project'
           task: 'init'
 
-      - name: initialize node
+      - name: copy contract
         run: |
-          ls -ltra ./
-          sudo cp contracts/counter.jsligo test-project/contracts/
-          cd test-project
-          id
-          ls -ltra ./
-          sudo npm init -y
+          cp contracts/counter.jsligo test-project/contracts/
 
       - name: install the ligo plugin
         uses: ecadlabs/taqueria-github-action@v0.0.1-rc1
