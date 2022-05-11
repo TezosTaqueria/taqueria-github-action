@@ -35,10 +35,10 @@ jobs:
           # task: 'install @taqueria/plugin-ligo-0.0.0-pr-704-cbcdf9ce'
           task: 'install @taqueria/plugin-ligo@0.0.0-pr-704-cbcdf9ce'
 
-      - name: install the ligo
+      - name: compile the contracts
         uses: ecadlabs/taqueria-github-action@v0.0.1-rc1
         with:
           project-name: 'test-project'
           task: 'compile'
         env:
-          PROJECT_DIR: $GITHUB_WORKSPACE/test-project
+          PROJECT_DIR: /home/runner/work/taqueria-github-action/taqueria-github-action
