@@ -7,7 +7,6 @@ elif [ "$2" = "init" ]; then
     taq -p $1 $2
     cd $1
     npm init -y
-    chown -R $USER:$USER ../$1
 else
     cd $1
     export PROJECT_DIR="$GITHUB_WORKSPACE/$1"
