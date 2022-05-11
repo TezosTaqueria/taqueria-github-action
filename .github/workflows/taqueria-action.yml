@@ -36,4 +36,4 @@ jobs:
           project-name: 'test-project'
           task: 'compile'
         env:
-          PROJECT_DIR: /github/workspace
+          PROJECT_DIR: /home/runner/work/taqueria-github-action/taqueria-github-action/new-plugin-project
