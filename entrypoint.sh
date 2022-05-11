@@ -9,7 +9,6 @@ if [ "$2" = "init" ]; then
     npm init -y
 else
     cd $1
-    export PROJECT_DIR="$GITHUB_WORKSPACE/$1"
     ls -ltr
     taq $2
     echo $PROJECT_DIR   
