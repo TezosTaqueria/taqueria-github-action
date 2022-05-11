@@ -3,7 +3,7 @@ FROM debian:bullseye
 FROM node:16.13
 
 # Set the DENO_DIR environment variable to controll where the cache is built
-RUN mkdir taqueria deno
+RUN mkdir deno
 ENV DENO_DIR=/deno
 
 COPY --from=docker:dind /usr/local/bin/docker /bin/docker
@@ -17,18 +17,6 @@ ADD https://github.com/ecadlabs/taqueria/releases/download/v0.3.0/taq-linux /bin
 
 # Make the binary executable
 RUN chmod +x /bin/taq
-
-# Change ownership of key files and folders to the user with id 1000 and switch users. This does not work with github-actions
-# RUN chown --recursive 1000:1000 \
-#     /bin/taq \
-#     /deno \
-#     /taqueria
-# USER 1000:998
-
-# Set user and group to runner:docker
-# USER 1001:121
-
-# ENTRYPOINT [ "/bin/taq" ]
 
 ENV PATH="/bin:{$PATH}"
 

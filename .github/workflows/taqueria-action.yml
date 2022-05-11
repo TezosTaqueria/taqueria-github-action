@@ -4,6 +4,8 @@ jobs:
   taqueria-init-job:
     runs-on: ubuntu-latest
     name: Initialize a taqueria project
+    env:
+      PROJECT_DIR: /home/runner/work/taqueria-github-action/taqueria-github-action/new-plugin-project
     steps:
 
       - name: Setup repo
@@ -40,5 +42,3 @@ jobs:
         with:
           project-name: 'test-project'
           task: 'compile'
-        env:
-          PROJECT_DIR: /home/runner/work/taqueria-github-action/taqueria-github-action/new-plugin-project
