@@ -25,6 +25,7 @@ jobs:
         run: |
           ls -l ./ 
           sudo cp contracts/counter.jsligo test-project/contracts/
+          ls -l test-project/contracts/
       - name: install the ligo plugin
         uses: ./
         with:
