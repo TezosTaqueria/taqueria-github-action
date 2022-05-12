@@ -9,6 +9,8 @@ if [ "$2" == "init" ]; then
     taq -p $1 $2
     cd $1
     npm init -y
+elif [ "$2" == "compile" ]; then
+    taq -p $1 compile --logPluginRequests
 else
     ls -la
     echo $PROJECT_DIR
