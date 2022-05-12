@@ -13,7 +13,9 @@ elif [ "$2" == "compile" ]; then
     taq -p $1 compile --logPluginRequests
 else
     ls -la
-    ls -ltr /home/runner/work/taqueria-github-action/taqueria-github-action
+    sudo ls -ltr /home/runner/work/taqueria-github-action/taqueria-github-action
+    sudo ls -ltr /home/runner/work/taqueria-github-action/taqueria-github-action
+    sudo ls -ltr /home/runner/work/taqueria-github-action/taqueria-github-action
     echo "The value of -p is $1"
     echo $PROJECT_DIR
     taq -p $1 $2
