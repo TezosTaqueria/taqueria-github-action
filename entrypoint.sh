@@ -11,8 +11,6 @@ if [ "$2" == "init" ]; then
     npm init -y
 else
     ls -la
-    cd $1
-    ls -la
     echo $PROJECT_DIR
-    taq $2
+    taq -p $1 $2
 fi
