@@ -11,18 +11,17 @@ if [ "$2" == "init" ]; then
     npm init -y
 elif [ "$2" == "compile" ]; then
     ls -la
-    sudo ls -ltr /home/runner/work/taqueria-github-action/taqueria-github-action
-    sudo ls -ltr /home/runner/work/taqueria-github-action/taqueria-github-action
-    sudo ls -ltr /home/runner/work/taqueria-github-action/taqueria-github-action
     echo "The value of -p is $1"
     echo $PROJECT_DIR
+    echo "Try the old way"
+    cd $1
+    taq compile
+    echo "Try the new way"
+    cd ..
     taq -p $1 compile --logPluginRequests
     ls -ltr ./test-project/artifacts
 else
     ls -la
-    sudo ls -ltr /home/runner/work/taqueria-github-action/taqueria-github-action
-    sudo ls -ltr /home/runner/work/taqueria-github-action/taqueria-github-action
-    sudo ls -ltr /home/runner/work/taqueria-github-action/taqueria-github-action
     echo "The value of -p is $1"
     echo $PROJECT_DIR
     taq -p $1 $2
