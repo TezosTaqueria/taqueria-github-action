@@ -15,10 +15,10 @@ elif [ "$2" == "compile" ]; then
     echo $PROJECT_DIR
     echo "Try the old way"
     cd $1
-    taq compile --logPluginRequests
+    taq compile
     echo "Try the new way"
     cd ..
-    taq -p $1 compile --logPluginRequests
+    taq -p $1 compile
     ls -ltr ./test-project/artifacts
 else
     ls -la
