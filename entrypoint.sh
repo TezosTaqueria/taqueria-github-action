@@ -4,6 +4,7 @@
 # if [ "$2" = "bash" ]; then
 #     /bin/bash
 echo "The initial value of PROJECT_DIR is: $PROJECT_DIR"
+echo "The initial value of PROJECT_DIR is: $TEST_DIR"
 export PROJECT_DIR=/home/runner/work/taqueria-github-action/taqueria-github-action/test-project
 
 if [ "$2" == "init" ]; then
