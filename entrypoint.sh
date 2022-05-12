@@ -15,7 +15,7 @@ elif [ "$2" == "compile" ]; then
     echo $PROJECT_DIR
     echo "Try the old way"
     cd $1
-    taq compile
+    taq compile --logPluginRequests
     echo "Try the new way"
     cd ..
     taq -p $1 compile --logPluginRequests
