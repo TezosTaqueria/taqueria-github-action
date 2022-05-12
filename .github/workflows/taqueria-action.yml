@@ -25,17 +25,13 @@ jobs:
         run: |
           ls -l ./ 
           sudo cp contracts/counter.jsligo test-project/contracts/
-          cd test-project
-          sudo npm init -y
-          sudo chown -R runner:docker ./
-          ls -l ./
-          cd ..
       - name: install the ligo plugin
         uses: ./
         with:
           project-name: 'test-project'
           # task: 'install @taqueria/plugin-ligo-0.0.0-pr-704-cbcdf9ce'
-          task: 'install @taqueria/plugin-ligo@0.0.0-pr-704-cbcdf9ce'
+          # task: 'install @taqueria/plugin-ligo@0.0.0-pr-704-cbcdf9ce'
+          task: 'install @taqueria/plugin-ligo'
 
       - name: compile the contracts
         uses: ./
