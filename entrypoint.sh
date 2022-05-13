@@ -15,7 +15,7 @@ if [ -z "$INPUT_PROJECT_NAME" ];then
         taq "$INPUT_TASK"
     fi
 else
-    PROJECT_DIR=$RUNNER_WORKSPACE/${GITHUB_REPOSITORY#*/}/$INPUT_PROJECT_NAME
+    export PROJECT_DIR=$RUNNER_WORKSPACE/${GITHUB_REPOSITORY#*/}/$INPUT_PROJECT_NAME
     # When the taq command is init
     if [ "$INPUT_TASK" == "init" ]; then
         taq -p "$INPUT_PROJECT_NAME" "$INPUT_TASK"
