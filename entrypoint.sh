@@ -24,6 +24,6 @@ else
     else
         echo "$PROJECT_DIR"
         echo "taq -p $INPUT_PROJECT_NAME $INPUT_TASK"
-        taq -p "$INPUT_PROJECT_NAME" "$INPUT_TASK"
+        taq -p $1 $2
     fi
 fi
