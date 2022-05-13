@@ -16,24 +16,21 @@ jobs:
       - name: taq init step
         uses: ./
         with:
-          project-name: 'test-project'
+          project_name: 'test-project'
           task: 'init'
 
       - name: copy contract
         run: |
-          ls -l ./ 
           sudo cp contracts/counter.jsligo test-project/contracts/
-          ls -l test-project/contracts/
+          
       - name: install the ligo plugin
         uses: ./
         with:
-          project-name: 'test-project'
+          project_name: 'test-project'
           task: 'install @taqueria/plugin-ligo@0.0.0-pr-704-cbcdf9ce'
-          # task: 'install @taqueria/plugin-ligo@0.0.0-pr-704-ae8b20bc'
-          # task: 'install @taqueria/plugin-ligo'
 
       - name: compile the contracts
         uses: ./
         with:
-          project-name: 'test-project'
+          project_name: 'test-project'
           task: 'compile'
