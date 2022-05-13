@@ -15,5 +15,6 @@ else
     echo $GITHUB_WORKSPACE
     echo $GITHUB_ENV
     cat $(GITHUB_ENV)
+    cat /github/file_commands
     taq -p $1 $2
 fi
