@@ -5,7 +5,12 @@
 #     /bin/bash
 # export PROJECT_DIR=/home/runner/work/taqueria-github-action/taqueria-github-action/test-project
 # export PROJECT_DIR=/home/gino/Documents/Repositories/taqueria-github-action/new-plugin-project
-export PROJECT_DIR=$RUNNER_TEMP
+
+# If PROJECT_DIR is empty 
+if [ -z "$PROJECT_DIR" ];then
+    export PROJECT_DIR=$RUNNER_WORKSPACE/${GITHUB_REPOSITORY#*/}/$1
+fi 
+
 if [ "$2" == "init" ]; then
     ls -la
     taq -p $1 $2
@@ -13,12 +18,5 @@ if [ "$2" == "init" ]; then
     npm init -y
 else
     echo $PROJECT_DIR
-    echo $GITHUB_WORKSPACE
-    echo $GITHUB_ENV
-    echo $GITHUB_REPOSITORY
-    echo $RUNNER_WORKSPACE
-    echo $RUNNER_NAME
-    echo $RUNNER_TEMP
-    cat /github/file_commands
     taq -p $1 $2
 fi
