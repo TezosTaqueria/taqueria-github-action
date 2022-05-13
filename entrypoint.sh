@@ -6,7 +6,7 @@ if [ -z "$INPUT_PROJECT_NAME" ] && [ -z "$INPUT_TASK" ];then
 fi
 
 if [ -z "$INPUT_PROJECT_NAME" ];then
-    PROJECT_DIR=$RUNNER_WORKSPACE/${GITHUB_REPOSITORY#*/}
+    export PROJECT_DIR=$RUNNER_WORKSPACE/${GITHUB_REPOSITORY#*/}
     if [ "$INPUT_TASK" == "init" ]; then
         taq "$INPUT_TASK"
         npm init -y
@@ -24,6 +24,6 @@ else
     else
         echo "$PROJECT_DIR"
         echo "taq -p $INPUT_PROJECT_NAME $INPUT_TASK"
-        taq -p $1 $2
+        taq -p $INPUT_PROJECT_NAME $INPUT_TASK
     fi
 fi
