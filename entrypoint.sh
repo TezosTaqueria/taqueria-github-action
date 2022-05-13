@@ -13,5 +13,6 @@ if [ "$2" == "init" ]; then
 else
     echo $PROJECT_DIR
     echo $GITHUB_WORKSPACE
+    echo $GITHUB_ENV
     taq -p $1 $2
 fi
