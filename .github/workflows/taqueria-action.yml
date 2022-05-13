@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Initialize a taqueria project
     env:
-      TEST_DIR: /home/runner/work/taqueria-github-action/taqueria-github-action/new-plugin-project
+      TEST_DIR: '/home/runner/work/taqueria-github-action/taqueria-github-action/new-plugin-project'
     steps:
 
       - name: Setup repo
@@ -30,8 +30,7 @@ jobs:
         uses: ./
         with:
           project-name: 'test-project'
-          task: 'install @taqueria/plugin-ligo@0.0.0-pr-704-cbcdf9ce'
-          # task: 'install @taqueria/plugin-ligo@0.0.0-pr-704-ae8b20bc'
+          task: 'install @taqueria/plugin-ligo@0.0.0-pr-704-db506596'
           # task: 'install @taqueria/plugin-ligo'
 
       - name: compile the contracts

@@ -3,10 +3,8 @@
 # if $2 is equal to "compile", then run the following
 # if [ "$2" = "bash" ]; then
 #     /bin/bash
-echo "The initial value of PROJECT_DIR is: $PROJECT_DIR"
-echo "The initial value of PROJECT_DIR is: $TEST_DIR"
-export PROJECT_DIR=/home/runner/work/taqueria-github-action/taqueria-github-action/test-project
-
+# export PROJECT_DIR=/home/runner/work/taqueria-github-action/taqueria-github-action/test-project
+# export PROJECT_DIR=/home/gino/Documents/Repositories/taqueria-github-action/new-plugin-project
 if [ "$2" == "init" ]; then
     ls -la
     taq -p $1 $2
