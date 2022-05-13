@@ -4,6 +4,8 @@ jobs:
   taqueria-init-job:
     runs-on: ubuntu-latest
     name: Initialize a taqueria project
+    env:
+      PROJECT_DIR: '/home/runner/work/taqueria-github-action'
     steps:
 
       - name: Setup repo
@@ -24,13 +26,12 @@ jobs:
           ls -l ./ 
           sudo cp contracts/counter.jsligo test-project/contracts/
           ls -l test-project/contracts/
-          echo "Manually set the env variable"
-          echo "PROJECT_DIR=/home/runner/work/taqueria-github-action/taqueria-github-action" >> $GITHUB_ENV
       - name: install the ligo plugin
         uses: ./
         with:
           project-name: 'test-project'
-          task: 'install @taqueria/plugin-ligo@0.0.0-pr-704-db506596'
+          task: 'install @taqueria/plugin-ligo@0.0.0-pr-704-cbcdf9ce'
+          # task: 'install @taqueria/plugin-ligo@0.0.0-pr-704-ae8b20bc'
           # task: 'install @taqueria/plugin-ligo'
 
       - name: compile the contracts
