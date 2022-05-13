@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Initialize a taqueria project
     env:
-      PROJECT_DIR: 'This is a random string'
+      PROJECT_DIR: '/home/runner/work/taqueria-github-action/taqueria-github-action'
     steps:
 
       - name: Setup repo
