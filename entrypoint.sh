@@ -14,5 +14,6 @@ else
     echo $PROJECT_DIR
     echo $GITHUB_WORKSPACE
     echo $GITHUB_ENV
+    cat $GITHUB_ENV
     taq -p $1 $2
 fi
