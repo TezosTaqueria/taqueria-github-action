@@ -1,4 +1,5 @@
 #!/bin/bash
+echo "$INPUT_TASK"
 if [ -z "$INPUT_PROJECT_NAME" ] && [ -z "$TASK_NAME" ];then
     echo "No project name or task name provided"
     exit 1
