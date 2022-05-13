@@ -1,22 +1,17 @@
 #!/bin/bash
 
-# if $2 is equal to "compile", then run the following
-# if [ "$2" = "bash" ]; then
-#     /bin/bash
-# export PROJECT_DIR=/home/runner/work/taqueria-github-action/taqueria-github-action/test-project
-# export PROJECT_DIR=/home/gino/Documents/Repositories/taqueria-github-action/new-plugin-project
-
 # If PROJECT_DIR is empty 
 if [ -z "$PROJECT_DIR" ];then
-    export PROJECT_DIR=$RUNNER_WORKSPACE/${GITHUB_REPOSITORY#*/}/$1
-fi 
+    export PROJECT_DIR=$RUNNER_WORKSPACE/${GITHUB_REPOSITORY#*/}/$INPUT_PROJECT_NAME
+fi
 
+# When the taq command is init
 if [ "$2" == "init" ]; then
     ls -la
-    taq -p $1 $2
+    taq -p $INPUT_PROJECT_NAME $INPUT_TASK
     cd $1
     npm init -y
 else
     echo $PROJECT_DIR
-    taq -p $1 $2
+    taq -p $INPUT_PROJECT_NAME $INPUT_TASK
 fi
