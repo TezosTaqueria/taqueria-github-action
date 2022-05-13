@@ -14,7 +14,7 @@ else
     echo $PROJECT_DIR
     echo $GITHUB_WORKSPACE
     echo $GITHUB_ENV
-    cat $(GITHUB_ENV)
+    echo $RUNNER_WORKSPACE
     cat /github/file_commands
     taq -p $1 $2
 fi
