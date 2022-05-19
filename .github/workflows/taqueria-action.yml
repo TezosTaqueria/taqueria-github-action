@@ -48,7 +48,7 @@ jobs:
           task: 'compile'
 
       - name: package artifacts
-        run: zip -r artifacts.zip /test-project/artifacts/*
+        run: zip -r artifacts.zip ./test-project/artifacts/*
 
       - name: upload artifacts
         uses: actions/upload-artifact@v3
