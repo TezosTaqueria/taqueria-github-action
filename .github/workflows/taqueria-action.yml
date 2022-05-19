@@ -1,5 +1,9 @@
 on: [push]
 
+concurrency:
+  group: ${{ github.ref_name || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   taqueria-init-job:
     runs-on: ubuntu-latest
@@ -44,11 +48,11 @@ jobs:
           task: 'compile'
 
       - name: package artifacts
-        run: zip -r artifacts.zip ./artifacts/*
+        run: zip -r artifacts.zip artifacts/counter.tz
 
       - name: upload artifacts
         uses: actions/upload-artifact@v3
         with:
           name: artifacts.zip
           path: artifacts.zip
-          retention-days: 5
+          retention-days: 1
