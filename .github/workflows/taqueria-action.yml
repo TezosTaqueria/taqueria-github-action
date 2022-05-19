@@ -27,7 +27,7 @@ jobs:
         uses: ./
         with:
           project_name: 'test-project'
-          task: 'install @taqueria/plugin-ligo@0.0.0-pr-704-edcf22c3'
+          task: 'install @taqueria/plugin-ligo@0.0.0-pr-704-cbcdf9ce'
 
       - name: compile the contracts
         uses: ./
