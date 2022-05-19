@@ -33,6 +33,9 @@ jobs:
               @taqueria/plugin-smartpy@0.0.0-pr-704-edcf22c3
               @taqueria/plugin-taquito@0.0.0-pr-704-edcf22c3
               @taqueria/plugin-flextesa@0.0.0-pr-704-edcf22c3
+              @taqueria/plugin-contract-types@0.0.0-pr-704-edcf22c3
+              @taqueria/plugin-archetype@0.0.0-pr-704-edcf22c3
+              @taqueria/plugin-tezos-client@0.0.0-pr-704-edcf22c3
           
       # - name: install the ligo plugin
       #   uses: ./
