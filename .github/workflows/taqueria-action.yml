@@ -29,7 +29,6 @@ jobs:
           project_name: 'test-project'
           task: >-
               install 
-              @taqueria/node-sdk@0.0.0-pr-704-edcf22c3
               @taqueria/plugin-ligo@0.0.0-pr-704-edcf22c3
           
       # - name: install the ligo plugin
