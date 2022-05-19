@@ -48,7 +48,9 @@ jobs:
           task: 'compile'
 
       - name: package artifacts
-        run: zip -r artifacts.zip artifacts/counter.tz
+        run: |
+          ls -ltr
+          zip -r artifacts.zip artifacts/counter.tz
 
       - name: upload artifacts
         uses: actions/upload-artifact@v3
