@@ -47,12 +47,12 @@ jobs:
           project_name: 'test-project'
           task: 'compile'
 
-      - name: package artifacts
-        run: zip -r artifacts.zip ./test-project/artifacts/*
+      # - name: package artifacts
+      #   run: zip -r artifacts.zip ./test-project/artifacts/*
 
       - name: upload artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: artifacts.zip
-          path: artifacts.zip
+          name: artifacts
+          path: ./test-project/artifacts/*
           retention-days: 1
