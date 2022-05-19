@@ -36,15 +36,19 @@ jobs:
               @taqueria/plugin-contract-types@0.0.0-pr-704-edcf22c3
               @taqueria/plugin-archetype@0.0.0-pr-704-edcf22c3
               @taqueria/plugin-tezos-client@0.0.0-pr-704-edcf22c3
-          
-      # - name: install the ligo plugin
-      #   uses: ./
-      #   with:
-      #     project_name: 'test-project'
-      #     task: 'install @taqueria/plugin-ligo@0.0.0-pr-704-edcf22c3'
 
       - name: compile the contracts
         uses: ./
         with:
           project_name: 'test-project'
           task: 'compile'
+
+      - name: package artifacts
+        run: zip -r artifacts.zip ./artifacts/*
+
+      - name: upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: artifacts.zip
+          path: artifacts.zip
+          retention-days: 5
