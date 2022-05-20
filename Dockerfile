@@ -19,6 +19,8 @@ RUN chmod +x /bin/taq
 ENV PATH="/bin:{$PATH}"
 
 COPY entrypoint.sh /entrypoint.sh
+# Uncomment below for running locally
+# RUN chown -R 1000:998 /entrypoint.sh
 ENTRYPOINT [ "/entrypoint.sh" ]
 
 # TODO: surpress the npm notice for new versions

@@ -1,4 +1,15 @@
 #!/bin/bash
+
+# Uncomment for local development
+# if [ -z "$INPUT_PROJECT_NAME" ] && [ -z "$INPUT_TASK" ]; then
+#     # TODO: These are for testing and should be removed after
+#     INPUT_PROJECT_NAME=$1
+#     INPUT_TASK=$2
+#     if [ "$INPUT_TASK" == "bash" ]; then
+#         /bin/bash
+#     fi
+# fi
+
 echo "$INPUT_TASK"
 if [ -z "$INPUT_PROJECT_NAME" ] && [ -z "$INPUT_TASK" ]; then
     echo "No project name or task name provided"

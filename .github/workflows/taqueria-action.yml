@@ -47,6 +47,12 @@ jobs:
           project_name: 'test-project'
           task: 'compile'
 
+      - name: start local sandbox
+        uses: ./
+        with:
+          project_name: 'test-project'
+          task: 'start sandbox local'
+
       # - name: package artifacts
       #   run: zip -r artifacts.zip ./test-project/artifacts/*
 
