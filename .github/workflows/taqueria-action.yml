@@ -51,6 +51,12 @@ jobs:
           project_name: 'test-project'
           task: 'start sandbox local'
 
+      - name: list accounts
+        uses: ./
+        with:
+          project_name: 'test-project'
+          task: 'list accounts local'
+
       # - name: package artifacts
       #   run: zip -r artifacts.zip ./test-project/artifacts/*
 
