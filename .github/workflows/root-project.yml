@@ -21,10 +21,6 @@ jobs:
         uses: ./
         with:
           task: 'init'
-
-      - name: copy contract
-        run: |
-          sudo cp contracts/counter.jsligo test-project/contracts/
           
       - name: install ligo plugin
         uses: ./
