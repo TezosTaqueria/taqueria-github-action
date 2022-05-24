@@ -42,10 +42,10 @@ jobs:
         with:
           task: 'compile'
 
-      - name: start local sandbox
-        uses: ./
-        with:
-          task: 'start sandbox local'
+      # - name: start local sandbox
+      #   uses: ./
+      #   with:
+      #     task: 'start sandbox local'
 
       - name: list accounts
         uses: ./
