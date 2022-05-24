@@ -11,7 +11,9 @@
             "sandboxes": [
                 "local"
             ],
-            "storage": {}
+            "storage": {
+                "counter.tz": 42
+            }
         }
     },
     "sandbox": {

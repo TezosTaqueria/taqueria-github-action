@@ -59,5 +59,10 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: artifacts
-          path: ./test-project/artifacts/*
+          path: ./artifacts/*
           retention-days: 1
+
+      - name: originate the contract
+        uses: ./
+        with:
+          task: 'originate'
