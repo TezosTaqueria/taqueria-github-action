@@ -1,7 +1,4 @@
 #!/bin/bash
-echo $GITHUB_WORKSPACE
-echo $RUNNER_WORKSPACE
-ls -ltr
 # Uncomment for local development
 if [ -z "$INPUT_PROJECT_DIRECTORY" ] && [ -z "$INPUT_TASK" ]; then
     # TODO: These are for testing and should be removed after
@@ -34,7 +31,6 @@ else
     # When the taq command is init
     if [ "$INPUT_TASK" == "init" ]; then
         taq -p $INPUT_PROJECT_DIRECTORY init
-        echo "command exit code is $?"
         cd "$INPUT_PROJECT_DIRECTORY" || exit 1
         npm init -y
     elif [[ "$INPUT_TASK" == "bootstrap" ]]; then
@@ -42,11 +38,7 @@ else
         cd "$INPUT_PROJECT_DIRECTORY" || exit 1
         npm init -y
         taq install @taqueria/plugin-ligo@0.0.0-pr-741-86f0b45e
-        taq install @taqueria/plugin-flextesa@0.0.0-pr-741-86f0b45e
-        taq install @taqueria/plugin-taquito@0.0.0-pr-741-86f0b45e
-        taq start sandbox local
     else
         taq -p $INPUT_PROJECT_DIRECTORY $INPUT_TASK
-        echo "command exit code is $?"
     fi
 fi
