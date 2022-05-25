@@ -15,13 +15,19 @@ jobs:
 
       - uses: actions/setup-node@v2
         with:
-          node-version: 16.13.x
+          node-version: 16.13.2
 
-      - name: install modules
-        run: |
-          cd example-projects/initialized-project
-          npm install
-          sudo chown -R root:root ../
+      # - name: install modules
+      #   run: |
+      #     cd example-projects/initialized-project
+      #     npm install
+      #     sudo chown -R root:root ../
+
+      - name: init
+        uses: ./
+        with:
+          project_directory: 'example-projects/initialized-project'
+          task: 'init'
 
       - name: install the ligo plugin
         uses: ./
