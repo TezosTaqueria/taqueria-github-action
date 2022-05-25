@@ -21,7 +21,7 @@ jobs:
         run: |
           cd example-projects/initialized-project
           npm install
-          sudo chown -R root:root example-projects
+          sudo chown -R root:root ../
 
       - name: compile counter.jsligo
         uses: ./
