@@ -25,17 +25,17 @@ jobs:
       - name: install ligo plugin
         uses: ./
         with:
-          task: install @taqueria/plugin-ligo@0.0.0-pr-741-86f0b45e
+          task: install @taqueria/plugin-ligo@0.0.0-pr-741-61c0b945
 
       - name: install flextesa plugin
         uses: ./
         with:
-          task: install @taqueria/plugin-flextesa@0.0.0-pr-741-86f0b45e
+          task: install @taqueria/plugin-flextesa@0.0.0-pr-741-61c0b945
 
       - name: install taquito plugin
         uses: ./
         with:
-          task: install @taqueria/plugin-taquito@0.0.0-pr-741-86f0b45e
+          task: install @taqueria/plugin-taquito@0.0.0-pr-741-61c0b945
 
       - name: compile the contracts
         uses: ./
