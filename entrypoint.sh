@@ -1,6 +1,7 @@
 #!/bin/bash
 echo $GITHUB_WORKSPACE
 echo $RUNNER_WORKSPACE
+ls -ltr
 # Uncomment for local development
 if [ -z "$INPUT_PROJECT_NAME" ] && [ -z "$INPUT_TASK" ]; then
     # TODO: These are for testing and should be removed after

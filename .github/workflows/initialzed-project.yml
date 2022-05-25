@@ -4,14 +4,13 @@ concurrency:
   group: ${{ github.ref_name || github.ref }}
   cancel-in-progress: true
 
-defaults:
-  run:
-    working-directory: example-projects
-
 jobs:
   compile-and-deploy-local:
     runs-on: ubuntu-latest
     name: Compiles and deploys the counter.jsligo contract to a local sandbox
+    defaults:
+      run:
+        working-directory: example-projects
     steps:
 
       - name: Setup repo
