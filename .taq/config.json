@@ -8,6 +8,10 @@
         {
             "name": "@taqueria/plugin-taquito",
             "type": "npm"
+        },
+        {
+            "name": "@taqueria/plugin-ligo",
+            "type": "npm"
         }
     ],
     "contractsDir": "contracts",

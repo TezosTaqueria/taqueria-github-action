@@ -25,7 +25,7 @@ jobs:
       - name: install ligo plugin
         uses: ./
         with:
-          task: install @taqueria/plugin-ligo@0.0.0-pr-741-86f0b45e
+          task: install @taqueria/plugin-ligo@0.0.0-pr-704-edcf22c3
 
       - name: install flextesa plugin
         uses: ./
