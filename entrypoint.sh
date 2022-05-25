@@ -1,5 +1,5 @@
 #!/bin/bash
-
+echo "The value of NETWORK_OPTION is $NETWORK_OPTION"
 # Uncomment for local development
 if [ -z "$INPUT_PROJECT_NAME" ] && [ -z "$INPUT_TASK" ]; then
     # TODO: These are for testing and should be removed after
