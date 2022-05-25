@@ -20,7 +20,7 @@ fi
 
 if [ -z "$INPUT_PROJECT_DIRECTORY" ]; then
     export PROJECT_DIR=$RUNNER_WORKSPACE/${GITHUB_REPOSITORY#*/}
-    # export NETWORK_OPTION="--network host"
+    echo $PROJECT_DIR
     if [ "$INPUT_TASK" == "init" ]; then
         taq init
         npm init -y
@@ -29,10 +29,11 @@ if [ -z "$INPUT_PROJECT_DIRECTORY" ]; then
     fi
 else
     export PROJECT_DIR=$RUNNER_WORKSPACE/${GITHUB_REPOSITORY#*/}/$INPUT_PROJECT_DIRECTORY
-    # export NETWORK_OPTION="--network host"
+    echo $PROJECT_DIR
     # When the taq command is init
     if [ "$INPUT_TASK" == "init" ]; then
         taq -p $INPUT_PROJECT_DIRECTORY init
+        echo "command exit code is $?"
         cd "$INPUT_PROJECT_DIRECTORY" || exit 1
         npm init -y
     # elif [[ "$INPUT_TASK" == *"start sandbox"* ]]; then
@@ -40,5 +41,6 @@ else
     #     taq start sandbox local
     else
         taq -p $INPUT_PROJECT_DIRECTORY $INPUT_TASK
+        echo "command exit code is $?"
     fi
 fi
