@@ -47,11 +47,11 @@ jobs:
           project_directory: 'example-projects/initialized-project'
           task: 'start sandbox local'
 
-      - name: originate counter.tz to local sandbox
+      - name: list accounts
         uses: ./
         with:
           project_directory: 'example-projects/initialized-project'
-          task: 'originate'
+          task: 'list accounts local'
 
       # - name: package artifacts
       #   run: zip -r artifacts.zip ./test-project/artifacts/*
