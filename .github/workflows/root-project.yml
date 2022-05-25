@@ -4,9 +4,6 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
-env:
-  NETWORK_OPTION: "--network ${{ job.container.network }}"
-
 jobs:
   taqueria-init-job:
     runs-on: ubuntu-latest
@@ -49,6 +46,8 @@ jobs:
         uses: ./
         with:
           task: 'start sandbox local'
+        env:
+          NETWORK_OPTION: "--network ${{ job.container.network }}"
 
       - name: list accounts
         uses: ./
