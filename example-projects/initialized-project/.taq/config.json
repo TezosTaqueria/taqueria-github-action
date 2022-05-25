@@ -24,7 +24,9 @@
             "sandboxes": [
                 "local"
             ],
-            "storage": {}
+            "storage": {
+                "counter.tz": 42
+            }
         }
     },
     "sandbox": {
@@ -49,7 +51,7 @@
             },
             "label": "Local Tezos Sandbox",
             "protocol": "Psithaca2MLRFYargivpo7YvUr7wUDqyxrdhC5CQq78mRvimz6A",
-            "rpcUrl": "http://localhost:20000"
+            "rpcUrl": "http://172.17.0.1:20000"
         }
     },
     "network": {}

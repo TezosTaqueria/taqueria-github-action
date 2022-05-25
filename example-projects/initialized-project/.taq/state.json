@@ -2,9 +2,13 @@
 {
     "build": "3071fd4",
     "configHash": {
-        "value": "e43dfd7c206babb6e088ff551afedcb7b10aebd6e9c4cbb306b9f10cc021f2d5"
+        "value": "50cd18de41d15669b1ba52faba72b4d4d78b027dc91d1d2216c36728887aedf0"
     },
     "tasks": {
+        "deploy": {
+            "name": "@taqueria/plugin-taquito",
+            "type": "npm"
+        },
         "compile": {
             "name": "@taqueria/plugin-ligo",
             "type": "npm"
@@ -20,14 +24,41 @@
         "list accounts": {
             "name": "@taqueria/plugin-flextesa",
             "type": "npm"
-        },
-        "deploy": {
-            "name": "@taqueria/plugin-taquito",
-            "type": "npm"
         }
     },
     "networks": [],
     "plugins": [
+        {
+            "alias": "taquito",
+            "name": "@taqueria/plugin-taquito",
+            "schema": "1.0",
+            "version": "0.1",
+            "tasks": [
+                {
+                    "task": {
+                        "value": "deploy"
+                    },
+                    "command": {
+                        "value": "deploy [contract]"
+                    },
+                    "aliases": [
+                        {
+                            "value": "originate"
+                        }
+                    ],
+                    "description": "Deploy a smart contract to a particular environment",
+                    "options": [],
+                    "handler": "proxy",
+                    "hidden": false,
+                    "positionals": [],
+                    "encoding": "application/json"
+                }
+            ],
+            "hooks": [],
+            "scaffolds": [],
+            "networks": [],
+            "sandboxes": []
+        },
         {
             "alias": "ligo",
             "name": "@taqueria/plugin-ligo",
@@ -178,37 +209,6 @@
                         }
                     ],
                     "encoding": "json"
-                }
-            ],
-            "hooks": [],
-            "scaffolds": [],
-            "networks": [],
-            "sandboxes": []
-        },
-        {
-            "alias": "taquito",
-            "name": "@taqueria/plugin-taquito",
-            "schema": "1.0",
-            "version": "0.1",
-            "tasks": [
-                {
-                    "task": {
-                        "value": "deploy"
-                    },
-                    "command": {
-                        "value": "deploy [contract]"
-                    },
-                    "aliases": [
-                        {
-                            "value": "originate"
-                        }
-                    ],
-                    "description": "Deploy a smart contract to a particular environment",
-                    "options": [],
-                    "handler": "proxy",
-                    "hidden": false,
-                    "positionals": [],
-                    "encoding": "application/json"
                 }
             ],
             "hooks": [],
