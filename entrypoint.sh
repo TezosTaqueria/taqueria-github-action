@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "The value of NETWORK_OPTION is $NETWORK_OPTION"
-ip -a
+ip a
 # Uncomment for local development
 if [ -z "$INPUT_PROJECT_NAME" ] && [ -z "$INPUT_TASK" ]; then
     # TODO: These are for testing and should be removed after
@@ -19,7 +19,7 @@ fi
 
 if [ -z "$INPUT_PROJECT_NAME" ]; then
     export PROJECT_DIR=$RUNNER_WORKSPACE/${GITHUB_REPOSITORY#*/}
-    export NETWORK_OPTION="--network host"
+    # export NETWORK_OPTION="--network host"
     if [ "$INPUT_TASK" == "init" ]; then
         taq init
         npm init -y
@@ -28,7 +28,7 @@ if [ -z "$INPUT_PROJECT_NAME" ]; then
     fi
 else
     export PROJECT_DIR=$RUNNER_WORKSPACE/${GITHUB_REPOSITORY#*/}/$INPUT_PROJECT_NAME
-    export NETWORK_OPTION="--network host"
+    # export NETWORK_OPTION="--network host"
     # When the taq command is init
     if [ "$INPUT_TASK" == "init" ]; then
         taq -p $INPUT_PROJECT_NAME init
