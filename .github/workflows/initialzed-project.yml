@@ -17,6 +17,13 @@ jobs:
       - name: Setup repo
         uses: actions/checkout@v2
 
+      - name: taq init step
+        uses: ./
+        with:
+          project_name: 'initialized-project'
+          task: 'init'
+        working-directory: example-projects
+
       - name: compile counter.jsligo
         uses: ./
         with:
@@ -44,3 +51,35 @@ jobs:
           name: artifacts
           path: ./initialized-project/artifacts/*
           retention-days: 1
+
+      # - uses: actions/setup-node@v2
+      #   with:
+      #     node-version: 16.13.x
+
+      # - name: taq init step
+      #   uses: ./
+      #   with:
+      #     project_name: 'test-project'
+      #     task: 'init'
+
+      # - name: copy contract
+      #   run: |
+      #     sudo cp contracts/counter.jsligo test-project/contracts/
+          
+      # - name: install ligo plugin
+      #   uses: ./
+      #   with:
+      #     project_name: 'test-project'
+      #     task: install @taqueria/plugin-ligo@0.0.0-pr-704-edcf22c3
+
+      # - name: install flextesa plugin
+      #   uses: ./
+      #   with:
+      #     project_name: 'test-project'
+      #     task: install @taqueria/plugin-flextesa@0.0.0-pr-741-00ab80d0
+
+      # - name: install taquito plugin
+      #   uses: ./
+      #   with:
+      #     project_name: 'test-project'
+      #     task: install @taqueria/plugin-taquito@0.0.0-pr-741-00ab80d0
