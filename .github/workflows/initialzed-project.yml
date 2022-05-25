@@ -13,11 +13,12 @@ jobs:
       - name: Setup repo
         uses: actions/checkout@v2
 
-      - name: taq init step
-        uses: ./
+      - uses: actions/setup-node@v2
         with:
-          project_directory: 'example-projects/initialized-project'
-          task: 'init'
+          node-version: 16.13.x
+
+      - name: install modules
+        runs: cd example-projects/initialized-project && npm install
 
       - name: compile counter.jsligo
         uses: ./
