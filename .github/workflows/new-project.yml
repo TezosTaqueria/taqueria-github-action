@@ -29,7 +29,7 @@ jobs:
         uses: ./
         with:
           project_directory: 'test-project'
-          task: 'install @taqueria/plugin-ligo@0.0.0-pr-704-cbcdf9ce'
+          task: 'install @taqueria/plugin-ligo@0.0.0-pr-741-86f0b45e'
 
       - name: compile the contracts
         uses: ./
