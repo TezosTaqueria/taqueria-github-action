@@ -7,10 +7,10 @@ concurrency:
 jobs:
   compile-and-deploy-local:
     runs-on: ubuntu-latest
-    name: Compiles and deploys the counter.jsligo contract to a local sandbox
     defaults:
       run:
         working-directory: example-projects
+    name: Compiles and deploys the counter.jsligo contract to a local sandbox
     steps:
 
       - name: Setup repo
@@ -21,7 +21,6 @@ jobs:
         with:
           project_name: 'initialized-project'
           task: 'init'
-        working-directory: example-projects
 
       - name: compile counter.jsligo
         uses: ./
