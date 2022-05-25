@@ -18,7 +18,10 @@ jobs:
           node-version: 16.13.x
 
       - name: install modules
-        run: cd example-projects/initialized-project && npm install
+        run: |
+          chown -R root:root example-projects
+          cd example-projects/initialized-project
+          npm install
 
       - name: compile counter.jsligo
         uses: ./
