@@ -19,7 +19,7 @@ jobs:
 
       - name: install modules
         run: |
-          sudp chown -R root:root example-projects
+          sudo chown -R root:root example-projects
           cd example-projects/initialized-project
           npm install
 
