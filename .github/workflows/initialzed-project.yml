@@ -7,9 +7,6 @@ concurrency:
 jobs:
   compile-and-deploy-local:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: example-projects
     name: Compiles and deploys the counter.jsligo contract to a local sandbox
     steps:
 
@@ -17,28 +14,27 @@ jobs:
         uses: actions/checkout@v2
 
       - name: taq init step
-        working-directory: ./example-projects
         uses: ./
         with:
-          project_name: 'initialized-project'
+          project_directory: 'example-projects/initialized-project'
           task: 'init'
 
       - name: compile counter.jsligo
         uses: ./
         with:
-          project_name: 'initialized-project'
+          project_directory: 'example-projects/initialized-project'
           task: 'compile'
 
       - name: start local sandbox
         uses: ./
         with:
-          project_name: 'initialized-project'
+          project_directory: 'example-projects/initialized-project'
           task: 'start sandbox local'
 
       - name: list accounts
         uses: ./
         with:
-          project_name: 'initialized-project'
+          project_directory: 'example-projects/initialized-project'
           task: 'list accounts local'
 
       # - name: package artifacts
@@ -48,7 +44,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: artifacts
-          path: ./initialized-project/artifacts/*
+          path: example-projects/initialized-project/artifacts/*
           retention-days: 1
 
       # - uses: actions/setup-node@v2
@@ -58,7 +54,7 @@ jobs:
       # - name: taq init step
       #   uses: ./
       #   with:
-      #     project_name: 'test-project'
+      #     project_directory: 'test-project'
       #     task: 'init'
 
       # - name: copy contract
@@ -68,17 +64,17 @@ jobs:
       # - name: install ligo plugin
       #   uses: ./
       #   with:
-      #     project_name: 'test-project'
+      #     project_directory: 'test-project'
       #     task: install @taqueria/plugin-ligo@0.0.0-pr-704-edcf22c3
 
       # - name: install flextesa plugin
       #   uses: ./
       #   with:
-      #     project_name: 'test-project'
+      #     project_directory: 'test-project'
       #     task: install @taqueria/plugin-flextesa@0.0.0-pr-741-00ab80d0
 
       # - name: install taquito plugin
       #   uses: ./
       #   with:
-      #     project_name: 'test-project'
+      #     project_directory: 'test-project'
       #     task: install @taqueria/plugin-taquito@0.0.0-pr-741-00ab80d0
