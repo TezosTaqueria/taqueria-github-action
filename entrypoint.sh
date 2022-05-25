@@ -28,7 +28,8 @@ if [ -z "$INPUT_PROJECT_DIRECTORY" ]; then
         taq $INPUT_TASK
     fi
 else
-    export PROJECT_DIR=$RUNNER_WORKSPACE/${GITHUB_REPOSITORY#*/}/$INPUT_PROJECT_DIRECTORY
+    # export PROJECT_DIR=$RUNNER_WORKSPACE/${GITHUB_REPOSITORY#*/}/$INPUT_PROJECT_DIRECTORY
+    export PROJECT_DIR=/home/runner/work/taqueria-github-action/taqueria-github-action
     echo $PROJECT_DIR
     # When the taq command is init
     if [ "$INPUT_TASK" == "init" ]; then
