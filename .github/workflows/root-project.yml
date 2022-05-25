@@ -4,6 +4,9 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+env:
+  NETWORK_OPTION: "--network ${{ job.container.network }}"
+
 jobs:
   taqueria-init-job:
     runs-on: ubuntu-latest
@@ -25,27 +28,27 @@ jobs:
       - name: install ligo plugin
         uses: ./
         with:
-          task: install @taqueria/plugin-ligo@0.0.0-pr-704-edcf22c3
+          task: install @taqueria/plugin-ligo
 
       - name: install flextesa plugin
         uses: ./
         with:
-          task: install @taqueria/plugin-flextesa@0.0.0-pr-741-00ab80d0
+          task: install @taqueria/plugin-flextesa@0.0.0-pr-741-86f0b45e
 
       - name: install taquito plugin
         uses: ./
         with:
-          task: install @taqueria/plugin-taquito@0.0.0-pr-741-00ab80d0
+          task: install @taqueria/plugin-taquito@0.0.0-pr-741-86f0b45e
 
       - name: compile the contracts
         uses: ./
         with:
           task: 'compile'
 
-      # - name: start local sandbox
-      #   uses: ./
-      #   with:
-      #     task: 'start sandbox local'
+      - name: start local sandbox
+        uses: ./
+        with:
+          task: 'start sandbox local'
 
       - name: list accounts
         uses: ./
