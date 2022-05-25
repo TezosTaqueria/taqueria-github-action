@@ -1,0 +1,46 @@
+on: [push]
+
+concurrency:
+  group: ${{ github.ref_name || github.ref }}
+  cancel-in-progress: true
+
+defaults:
+  run:
+    working-directory: example-projects
+
+jobs:
+  compile-and-deploy-local:
+    runs-on: ubuntu-latest
+    name: Compiles and deploys the counter.jsligo contract to a local sandbox
+    steps:
+
+      - name: Setup repo
+        uses: actions/checkout@v2
+
+      - name: compile counter.jsligo
+        uses: ./
+        with:
+          project_name: 'initialized-project'
+          task: 'compile'
+
+      - name: start local sandbox
+        uses: ./
+        with:
+          project_name: 'initialized-project'
+          task: 'start sandbox local'
+
+      - name: list accounts
+        uses: ./
+        with:
+          project_name: 'initialized-project'
+          task: 'list accounts local'
+
+      # - name: package artifacts
+      #   run: zip -r artifacts.zip ./test-project/artifacts/*
+
+      - name: upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: artifacts
+          path: ./initialized-project/artifacts/*
+          retention-days: 1
