@@ -2,7 +2,7 @@
 {
     "build": "3071fd4",
     "configHash": {
-        "value": "fbd1dd11c565884b4a81bad3bc687e4339c4637dd5ef9f75ac43dd741b14754b"
+        "value": "e43dfd7c206babb6e088ff551afedcb7b10aebd6e9c4cbb306b9f10cc021f2d5"
     },
     "tasks": {
         "compile": {
@@ -19,6 +19,10 @@
         },
         "list accounts": {
             "name": "@taqueria/plugin-flextesa",
+            "type": "npm"
+        },
+        "deploy": {
+            "name": "@taqueria/plugin-taquito",
             "type": "npm"
         }
     },
@@ -174,6 +178,37 @@
                         }
                     ],
                     "encoding": "json"
+                }
+            ],
+            "hooks": [],
+            "scaffolds": [],
+            "networks": [],
+            "sandboxes": []
+        },
+        {
+            "alias": "taquito",
+            "name": "@taqueria/plugin-taquito",
+            "schema": "1.0",
+            "version": "0.1",
+            "tasks": [
+                {
+                    "task": {
+                        "value": "deploy"
+                    },
+                    "command": {
+                        "value": "deploy [contract]"
+                    },
+                    "aliases": [
+                        {
+                            "value": "originate"
+                        }
+                    ],
+                    "description": "Deploy a smart contract to a particular environment",
+                    "options": [],
+                    "handler": "proxy",
+                    "hidden": false,
+                    "positionals": [],
+                    "encoding": "application/json"
                 }
             ],
             "hooks": [],
