@@ -51,5 +51,5 @@ jobs:
           name: artifacts
           path: |
             example-projects/hello-tacos/artifacts/*
-            example-project/hello-tacos/.taq/state.json
+            example-projects/hello-tacos/.taq/state.json
           retention-days: 1
