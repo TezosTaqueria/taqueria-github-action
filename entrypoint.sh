@@ -30,6 +30,15 @@ if [ -z "$INPUT_PROJECT_DIRECTORY" ]; then
         taq start sandbox $INPUT_SANDBOX_NAME
     fi
 
+
+    if [ -n "$INPUT_TAQUITO_COMMAND" ]; then
+        if [ "$INPUT_TAQUITO_COMMAND" != "originate" ]; then
+            echo "The command $INPUT_TAQUITO_COMMAND is not supported yet. Only 'origintate' is currently supported"
+            exit 1
+        fi
+        taq -p $INPUT_PROJECT_DIRECTORY $INPUT_TAQUITO_COMMAND
+    fi
+
     if [ -n "$INPUT_TASK" ]; then
         echo "Running task: $INPUT_TASK"
         taq $INPUT_TASK
@@ -64,6 +73,14 @@ else
 
     if [ -n "$INPUT_SANDBOX_NAME" ]; then
         taq -p $INPUT_PROJECT_DIRECTORY start sandbox $INPUT_SANDBOX_NAME
+    fi
+
+    if [ -n "$INPUT_TAQUITO_COMMAND" ]; then
+        if [ "$INPUT_TAQUITO_COMMAND" != "originate" ]; then
+            echo "The command $INPUT_TAQUITO_COMMAND is not supported yet. Only 'origintate' is currently supported"
+            exit 1
+        fi
+        taq -p $INPUT_PROJECT_DIRECTORY $INPUT_TAQUITO_COMMAND
     fi
 
     if [ -n "$INPUT_TASK" ]; then

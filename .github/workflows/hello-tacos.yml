@@ -38,7 +38,7 @@ jobs:
         uses: ./
         with:
           project_directory: 'example-projects/hello-tacos'
-          task: 'originate'
+          taquito_command: 'originate'
 
       - name: run tests
         run: |

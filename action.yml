@@ -16,10 +16,10 @@ inputs:
   compile_command:
     description: 'A command to compile the contracts'
     required: false
-  originate_network:
-    description: 'Which network/s if any to originate to. Use a comma seperated list for multiple networks'
+  taquito_command:
+    description: 'The Taquito command to use. Currently only supports originate'
     required: false
-    
+
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -29,4 +29,4 @@ runs:
     - ${{ inputs.sandbox_name }}
     - ${{ inputs.plugins }}
     - ${{ inputs.compile_command }}
-    - ${{ inputs.originate_network }}
+    - ${{ inputs.taquito_command }}
