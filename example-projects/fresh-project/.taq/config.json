@@ -12,8 +12,8 @@
                 "local"
             ],
             "storage": {
-	    	"counter.tz": 42
-	    }
+	    	    "counter.tz": 42
+	        }
         }
     },
     "sandbox": {
