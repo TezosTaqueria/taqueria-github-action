@@ -26,7 +26,7 @@ jobs:
         uses: ./
         with:
           project_directory: 'example-projects/hello-tacos'
-          task: 'compile'
+          compile_command: 'compile'
 
       - name: start local sandbox
         uses: ./

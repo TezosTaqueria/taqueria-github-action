@@ -5,15 +5,18 @@ inputs:
     description: 'The name of the project to create'
     required: false
   task:
-    description: 'The task for taqueria to run. Defaults to compile'
-    required: true
-    default: compile
+    description: 'The task for taqueria to run'
+    required: false
   plugins:
     description: 'A comma seperated list of plugins to install'
     required: false
-  # sandbox_name:
-  #   description: 'The name of the sandbox if any'
-  #   required: false
+  sandbox_name:
+    description: 'The name of the sandbox if any'
+    required: false
+  compile_command:
+    description: 'A command to compile the contracts'
+    required: false
+
   # originate_network:
   #   description: 'Which network/s if any to originate to. Use a comma seperated list for multiple networks'
   #   required: false

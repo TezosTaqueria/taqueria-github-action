@@ -11,21 +11,19 @@ if [ -z "$INPUT_PROJECT_DIRECTORY" ]; then
     fi
 
     taq init
-
-    # The project will be initialized each time there is a task unless the task itself is to initialize the project
-    if [ "$INPUT_TASK" == "init" ]; then
-        npm init -y &> '/dev/null'
-    else
-        taq $INPUT_TASK
-    fi
+    npm init -y &> '/dev/null'
 
     if [ -n "$INPUT_PLUGINS" ]; then
         # for each plugin in the comma separated INPUT_PLUGINS install the plugin
-        npm init -y &> '/dev/null'
         for plugin in $(echo $INPUT_PLUGINS | tr "," "\n"); do
             echo "Installing plugin $plugin"
             taq install $plugin
         done
+    fi
+
+    if [ -n "$INPUT_COMPILE_COMMAND" ]; then
+        echo "Compiling contracts using the command $INPUT_COMPILE_COMMAND"
+        taq $INPUT_COMPILE_COMMAND
     fi
 
 else
@@ -37,16 +35,9 @@ else
     fi
 
     taq -p $INPUT_PROJECT_DIRECTORY init
-
-    # The project will be initialized each time there is a task unless the task itself is to initialize the project
-    if [ "$INPUT_TASK" == "init" ]; then
-        cd "$INPUT_PROJECT_DIRECTORY" || exit 1
-        npm init -y &> '/dev/null'
-        cd $WORKDIR || exit 1
-    else
-        taq -p $INPUT_PROJECT_DIRECTORY $INPUT_TASK
-    fi
-
+    cd "$INPUT_PROJECT_DIRECTORY" || exit 1
+    npm init -y &> '/dev/null'
+    cd $WORKDIR || exit 1
 
     if [ -n "$INPUT_PLUGINS" ]; then
         # for each plugin in the comma separated INPUT_PLUGINS install the plugin
@@ -56,6 +47,10 @@ else
             taq -p $INPUT_PROJECT_DIRECTORY install $plugin
         done
     fi
-    
+
+    if [ -n "$INPUT_COMPILE_COMMAND" ]; then
+        echo "Compiling contracts using the command $INPUT_COMPILE_COMMAND"
+        taq -p $INPUT_PROJECT_DIRECTORY $INPUT_COMPILE_COMMAND
+    fi
 fi
     
