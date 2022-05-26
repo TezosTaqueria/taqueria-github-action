@@ -19,6 +19,15 @@ if [ -z "$INPUT_PROJECT_DIRECTORY" ]; then
         taq $INPUT_TASK
     fi
 
+    if [ -z "$INPUT_PLUGINS" ]; then
+        # for each plugin in the comma separated INPUT_PLUGINS install the plugin
+        npm init -y &> '/dev/null'
+        for plugin in $(echo $INPUT_PLUGINS | tr "," "\n"); do
+            echo "Installing plugin $plugin"
+            taq install $plugin
+        done
+    fi
+
 else
 
     # Set the PROJECT_DIR variable if it has not already been set
@@ -36,6 +45,16 @@ else
         cd $WORKDIR || exit 1
     else
         taq -p $INPUT_PROJECT_DIRECTORY $INPUT_TASK
+    fi
+
+
+    if [ -z "$INPUT_PLUGINS" ]; then
+        # for each plugin in the comma separated INPUT_PLUGINS install the plugin
+        npm init -y &> '/dev/null'
+        for plugin in $(echo $INPUT_PLUGINS | tr "," "\n"); do
+            echo "Installing plugin $plugin"
+            taq -p $INPUT_PROJECT_DIRECTORY install $plugin
+        done
     fi
     
 fi

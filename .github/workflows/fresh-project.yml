@@ -21,21 +21,22 @@ jobs:
         uses: ./
         with:
           task: 'init'
+          plugins: '@taqueria/plugin-ligo@0.0.0-pr-741-86f0b45e, @taqueria/plugin-flextesa@0.0.0-pr-741-86f0b45e, @taqueria/plugin-taquito@0.0.0-pr-741-86f0b45e'
 
-      - name: install the ligo plugin
-        uses: ./
-        with:
-          task: 'install @taqueria/plugin-ligo@0.0.0-pr-741-86f0b45e'
+      # - name: install the ligo plugin
+      #   uses: ./
+      #   with:
+      #     task: 'install @taqueria/plugin-ligo@0.0.0-pr-741-86f0b45e'
 
-      - name: install the flextesa plugin
-        uses: ./
-        with:
-          task: 'install @taqueria/plugin-flextesa@0.0.0-pr-741-86f0b45e'
+      # - name: install the flextesa plugin
+      #   uses: ./
+      #   with:
+      #     task: 'install @taqueria/plugin-flextesa@0.0.0-pr-741-86f0b45e'
 
-      - name: install the taquito plugin
-        uses: ./
-        with:
-          task: 'install @taqueria/plugin-taquito@0.0.0-pr-741-86f0b45e'
+      # - name: install the taquito plugin
+      #   uses: ./
+      #   with:
+      #     task: 'install @taqueria/plugin-taquito@0.0.0-pr-741-86f0b45e'
 
       - name: compile contracts
         uses: ./
