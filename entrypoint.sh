@@ -10,29 +10,29 @@
 # fi
 
 # echo "$INPUT_TASK"
+WORKDIR=$(pwd)
+
 if [ -z "$INPUT_PROJECT_DIRECTORY" ] && [ -z "$INPUT_TASK" ]; then
     echo "No project name or task name provided"
     exit 1
 fi
 
 if [ -z "$INPUT_PROJECT_DIRECTORY" ]; then
-    export PROJECT_DIR=$RUNNER_WORKSPACE/${GITHUB_REPOSITORY#*/}
-    echo $PROJECT_DIR
-    if [ "$INPUT_TASK" == "init" ]; then
-        taq init
-        npm init -y
-    else
-        taq $INPUT_TASK
+    if [ -z "$PROJECT_DIR" ]; then
+        export PROJECT_DIR=$RUNNER_WORKSPACE/${GITHUB_REPOSITORY#*/}
     fi
+    echo $PROJECT_DIR
+    taq init
+    npm init -y
+    taq $INPUT_TASK
 else
-    export PROJECT_DIR=$RUNNER_WORKSPACE/${GITHUB_REPOSITORY#*/}/$INPUT_PROJECT_DIRECTORY
-    # export PROJECT_DIR=/home/gino/Documents/Repositories/taqueria-github-action/$INPUT_PROJECT_DIRECTORY
-    echo $PROJECT_DIR
-    if [ "$INPUT_TASK" == "init" ]; then
-        taq -p $INPUT_PROJECT_DIRECTORY init
-        cd "$INPUT_PROJECT_DIRECTORY" || exit 1
-        npm init -y
-    else
-        taq -p $INPUT_PROJECT_DIRECTORY $INPUT_TASK
+    if [ -z "$PROJECT_DIR" ]; then
+        export PROJECT_DIR=$RUNNER_WORKSPACE/${GITHUB_REPOSITORY#*/}/$INPUT_PROJECT_DIRECTORY
     fi
+    echo $PROJECT_DIR
+    taq -p $INPUT_PROJECT_DIRECTORY init
+    cd "$INPUT_PROJECT_DIRECTORY" || exit 1
+    npm init -y
+    cd $WORKDIR || exit 1
+    taq -p $INPUT_PROJECT_DIRECTORY $INPUT_TASK
 fi

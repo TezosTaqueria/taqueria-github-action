@@ -21,13 +21,6 @@ jobs:
         run: |
           cd example-projects/hello-tacos
           npm ci
-          npm init -y
-
-      # - name: init
-      #   uses: ./
-      #   with:
-      #     project_directory: 'example-projects/hello-tacos'
-      #     task: 'init'
 
       - name: compile contracts
         uses: ./
