@@ -40,6 +40,11 @@ jobs:
           project_directory: 'example-projects/hello-tacos'
           task: 'originate'
 
+      - name: run tests
+        run: |
+          cd example-projects/hello-tacos
+          npm run test
+
       - name: upload artifacts
         uses: actions/upload-artifact@v3
         with:

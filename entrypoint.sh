@@ -23,7 +23,7 @@ if [ -z "$INPUT_PROJECT_DIRECTORY" ]; then
     fi
     echo $PROJECT_DIR
     taq init
-    npm init -y
+    npm init -y &> '/dev/null'
     taq $INPUT_TASK
 else
     if [ -z "$PROJECT_DIR" ]; then
@@ -32,7 +32,7 @@ else
     echo $PROJECT_DIR
     taq -p $INPUT_PROJECT_DIRECTORY init
     cd "$INPUT_PROJECT_DIRECTORY" || exit 1
-    npm init -y
+    npm init -y &> '/dev/null'
     cd $WORKDIR || exit 1
     taq -p $INPUT_PROJECT_DIRECTORY $INPUT_TASK
 fi
