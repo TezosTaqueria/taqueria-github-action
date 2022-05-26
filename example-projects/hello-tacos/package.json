@@ -1,0 +1,28 @@
+{
+  "name": "hello-tacos",
+  "version": "1.0.0",
+  "description": "Hello world contract in Ligo",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest ./tests/hello-tacos.test.js",
+    "compile-contract-to-json": "ligo compile-contract ./contract/hello-tacos.mligo main > ./contract/contract.json --michelson-format=json",
+    "ligo-test": "ligo run test ./contract/hello-tacos-test.mligo",
+    "originate": "taq originate | tail -2 | head -1 | cut -d ' ' -f 4 | tee app/src/contract.txt && cp .taq/config.json app/src/"
+  },
+  "keywords": [
+    "Tezos",
+    "Ligo"
+  ],
+  "author": "Claude Barde",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^27.4.4"
+  },
+  "dependencies": {
+    "@taqueria/plugin-flextesa": "^0.1.1",
+    "@taqueria/plugin-ligo": "^0.1.1",
+    "@taqueria/plugin-taquito": "^0.1.1",
+    "@taquito/signer": "^11.0.2",
+    "@taquito/taquito": "^11.0.2"
+  }
+}

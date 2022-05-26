@@ -1,0 +1,73 @@
+on: [push]
+
+concurrency:
+  group: ${{ github.ref_name || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  hello-tacos-compile-and-deploy-local:
+    runs-on: ubuntu-latest
+    name: Compiles and deploys the counter.jsligo contract to a local sandbox
+    steps:
+
+      - name: Setup repo
+        uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16.13.2
+
+      # - name: install modules
+      #   run: |
+      #     cd example-projects/hello-tacos
+      #     npm install
+      #     sudo chown -R root:root ../
+
+      - name: init
+        uses: ./
+        with:
+          project_directory: 'example-projects/hello-tacos'
+          task: 'init'
+
+      - name: install the ligo plugin
+        uses: ./
+        with:
+          project_directory: 'example-projects/hello-tacos'
+          task: 'install @taqueria/plugin-ligo@0.0.0-pr-741-86f0b45e'
+
+      - name: install the flextesa plugin
+        uses: ./
+        with:
+          project_directory: 'example-projects/hello-tacos'
+          task: 'install @taqueria/plugin-flextesa@0.0.0-pr-741-86f0b45e'
+
+      - name: install the taquito plugin
+        uses: ./
+        with:
+          project_directory: 'example-projects/hello-tacos'
+          task: 'install @taqueria/plugin-taquito@0.0.0-pr-741-86f0b45e'
+
+      - name: compile contracts
+        uses: ./
+        with:
+          project_directory: 'example-projects/hello-tacos'
+          task: 'compile'
+
+      - name: start local sandbox
+        uses: ./
+        with:
+          project_directory: 'example-projects/hello-tacos'
+          task: 'start sandbox local'
+
+      - name: originate contracts
+        uses: ./
+        with:
+          project_directory: 'example-projects/hello-tacos'
+          task: 'originate'
+
+      - name: upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: artifacts
+          path: example-projects/hello-tacos/artifacts/*
+          retention-days: 1
