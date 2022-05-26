@@ -33,9 +33,21 @@ jobs:
         uses: ./
         with:
           project_directory: 'example-projects/initialized-project'
-          task: 'install @taqueria/plugin-ligo'
+          task: 'install @taqueria/plugin-ligo@0.0.0-pr-741-86f0b45e'
 
-      - name: compile counter.jsligo
+      - name: install the flextesa plugin
+        uses: ./
+        with:
+          project_directory: 'example-projects/initialized-project'
+          task: 'install @taqueria/plugin-flextesa@0.0.0-pr-741-86f0b45e'
+
+      - name: install the taquito plugin
+        uses: ./
+        with:
+          project_directory: 'example-projects/initialized-project'
+          task: 'install @taqueria/plugin-taquito@0.0.0-pr-741-86f0b45e'
+
+      - name: compile contracts
         uses: ./
         with:
           project_directory: 'example-projects/initialized-project'
@@ -47,14 +59,11 @@ jobs:
           project_directory: 'example-projects/initialized-project'
           task: 'start sandbox local'
 
-      - name: list accounts
+      - name: originate contracts
         uses: ./
         with:
           project_directory: 'example-projects/initialized-project'
-          task: 'list accounts local'
-
-      # - name: package artifacts
-      #   run: zip -r artifacts.zip ./test-project/artifacts/*
+          task: 'originate'
 
       - name: upload artifacts
         uses: actions/upload-artifact@v3
@@ -62,35 +71,3 @@ jobs:
           name: artifacts
           path: example-projects/initialized-project/artifacts/*
           retention-days: 1
-
-      # - uses: actions/setup-node@v2
-      #   with:
-      #     node-version: 16.13.x
-
-      # - name: taq init step
-      #   uses: ./
-      #   with:
-      #     project_directory: 'test-project'
-      #     task: 'init'
-
-      # - name: copy contract
-      #   run: |
-      #     sudo cp contracts/counter.jsligo test-project/contracts/
-          
-      # - name: install ligo plugin
-      #   uses: ./
-      #   with:
-      #     project_directory: 'test-project'
-      #     task: install @taqueria/plugin-ligo@0.0.0-pr-704-edcf22c3
-
-      # - name: install flextesa plugin
-      #   uses: ./
-      #   with:
-      #     project_directory: 'test-project'
-      #     task: install @taqueria/plugin-flextesa@0.0.0-pr-741-00ab80d0
-
-      # - name: install taquito plugin
-      #   uses: ./
-      #   with:
-      #     project_directory: 'test-project'
-      #     task: install @taqueria/plugin-taquito@0.0.0-pr-741-00ab80d0
