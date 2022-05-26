@@ -17,10 +17,10 @@ jobs:
         with:
           node-version: 16.13.2
 
-      # - name: install modules
-      #   run: |
-      #     cd example-projects/hello-tacos
-      #     npm ci
+      - name: install modules
+        run: |
+          cd example-projects/hello-tacos
+          npm ci
 
       - name: init
         uses: ./
