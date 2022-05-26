@@ -22,29 +22,29 @@ jobs:
           cd example-projects/hello-tacos
           npm ci
 
-      - name: init
-        uses: ./
-        with:
-          project_directory: 'example-projects/hello-tacos'
-          task: 'init'
+      # - name: init
+      #   uses: ./
+      #   with:
+      #     project_directory: 'example-projects/hello-tacos'
+      #     task: 'init'
 
-      - name: install the ligo plugin
-        uses: ./
-        with:
-          project_directory: 'example-projects/hello-tacos'
-          task: 'install @taqueria/plugin-ligo@0.0.0-pr-741-86f0b45e'
+      # - name: install the ligo plugin
+      #   uses: ./
+      #   with:
+      #     project_directory: 'example-projects/hello-tacos'
+      #     task: 'install @taqueria/plugin-ligo@0.0.0-pr-741-86f0b45e'
 
-      - name: install the flextesa plugin
-        uses: ./
-        with:
-          project_directory: 'example-projects/hello-tacos'
-          task: 'install @taqueria/plugin-flextesa@0.0.0-pr-741-86f0b45e'
+      # - name: install the flextesa plugin
+      #   uses: ./
+      #   with:
+      #     project_directory: 'example-projects/hello-tacos'
+      #     task: 'install @taqueria/plugin-flextesa@0.0.0-pr-741-86f0b45e'
 
-      - name: install the taquito plugin
-        uses: ./
-        with:
-          project_directory: 'example-projects/hello-tacos'
-          task: 'install @taqueria/plugin-taquito@0.0.0-pr-741-86f0b45e'
+      # - name: install the taquito plugin
+      #   uses: ./
+      #   with:
+      #     project_directory: 'example-projects/hello-tacos'
+      #     task: 'install @taqueria/plugin-taquito@0.0.0-pr-741-86f0b45e'
 
       - name: compile contracts
         uses: ./
