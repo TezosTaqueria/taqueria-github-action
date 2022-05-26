@@ -7,8 +7,14 @@ else
     cd $INPUT_PROJECT_DIRECTORY || exit 1
 fi
 
-taq init
-npm init -y &> '/dev/null'
+if [ "$INPUT_TASK" == "init" ]; then
+    taq init
+    npm init -y
+else
+    taq init &> '/dev/null'
+    npm init -y &> '/dev/null'
+fi
+
 
 if [ -n "$INPUT_PLUGINS" ]; then
     # for each plugin in the comma separated INPUT_PLUGINS install the plugin
