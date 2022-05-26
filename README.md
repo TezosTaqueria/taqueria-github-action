@@ -32,7 +32,7 @@ Currently the only `taquito_command` supported is originate. If this input is sp
 
 ### Single step action
 ```yaml
-    - name: taqueria tasks
+- name: taqueria tasks
     uses: ecadlabs/taqueria-github-action@v0.0.1-rc3
     with:
         plugins: '@taqueria/plugin-ligo@0.0.0-pr-741-86f0b45e, @taqueria/plugin-flextesa@0.0.0-pr-741-86f0b45e, @taqueria/plugin-taquito@0.0.0-pr-741-86f0b45e'
@@ -43,19 +43,19 @@ Currently the only `taquito_command` supported is originate. If this input is sp
 
 ### Multiple step action
 ```yaml
-    - name: compile contracts
+- name: compile contracts
     uses: ./
     with:
         project_directory: 'example-projects/hello-tacos'
         compile_command: 'compile'
 
-    - name: start local sandbox
+- name: start local sandbox
     uses: ./
     with:
         project_directory: 'example-projects/hello-tacos'
         sandbox_name: 'local'
 
-    - name: originate contracts
+- name: originate contracts
     uses: ./
     with:
         project_directory: 'example-projects/hello-tacos'
