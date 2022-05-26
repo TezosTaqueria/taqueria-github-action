@@ -6,11 +6,11 @@
             "type": "npm"
         },
         {
-            "name": "@taqueria/plugin-flextesa",
+            "name": "@taqueria/plugin-taquito",
             "type": "npm"
         },
         {
-            "name": "@taqueria/plugin-taquito",
+            "name": "@taqueria/plugin-flextesa",
             "type": "npm"
         }
     ],
