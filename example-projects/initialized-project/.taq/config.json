@@ -1,11 +1,6 @@
 {
     "language": "en",
-    "plugins": [
-        {
-            "name": "@taqueria/plugin-ligo",
-            "type": "npm"
-        }
-    ],
+    "plugins": [],
     "contractsDir": "contracts",
     "testsDir": "tests",
     "artifactsDir": "artifacts",
@@ -17,8 +12,8 @@
                 "local"
             ],
             "storage": {
-                "counter.tz": 42
-            }
+	    	"counter.tz": 42
+	    }
         }
     },
     "sandbox": {
