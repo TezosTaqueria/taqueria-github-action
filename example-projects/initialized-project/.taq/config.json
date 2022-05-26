@@ -4,14 +4,6 @@
         {
             "name": "@taqueria/plugin-ligo",
             "type": "npm"
-        },
-        {
-            "name": "@taqueria/plugin-flextesa",
-            "type": "npm"
-        },
-        {
-            "name": "@taqueria/plugin-taquito",
-            "type": "npm"
         }
     ],
     "contractsDir": "contracts",
