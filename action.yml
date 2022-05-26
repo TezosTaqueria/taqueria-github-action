@@ -16,16 +16,17 @@ inputs:
   compile_command:
     description: 'A command to compile the contracts'
     required: false
-
-  # originate_network:
-  #   description: 'Which network/s if any to originate to. Use a comma seperated list for multiple networks'
-  #   required: false
+  originate_network:
+    description: 'Which network/s if any to originate to. Use a comma seperated list for multiple networks'
+    required: false
+    
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
     - ${{ inputs.project_directory }}
     - ${{ inputs.task }}
-    # - ${{ inputs.sandbox_name }}
+    - ${{ inputs.sandbox_name }}
     - ${{ inputs.plugins }}
-    # - ${{ inputs.originate_network }}
+    - ${{ inputs.compile_command }}
+    - ${{ inputs.originate_network }}

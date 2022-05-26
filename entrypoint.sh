@@ -26,6 +26,15 @@ if [ -z "$INPUT_PROJECT_DIRECTORY" ]; then
         taq $INPUT_COMPILE_COMMAND
     fi
 
+    if [ -n "$INPUT_SANDBOX_NAME" ]; then
+        taq start sandbox $INPUT_SANDBOX_NAME
+    fi
+
+    if [ -n "$INPUT_TASK" ]; then
+        echo "Running task: $INPUT_TASK"
+        taq $INPUT_TASK
+    fi
+
 else
 
     # Set the PROJECT_DIR variable if it has not already been set
@@ -52,5 +61,15 @@ else
         echo "Compiling contracts using the command $INPUT_COMPILE_COMMAND"
         taq -p $INPUT_PROJECT_DIRECTORY $INPUT_COMPILE_COMMAND
     fi
+
+    if [ -n "$INPUT_SANDBOX_NAME" ]; then
+        taq -p $INPUT_PROJECT_DIRECTORY start sandbox $INPUT_SANDBOX_NAME
+    fi
+
+    if [ -n "$INPUT_TASK" ]; then
+        echo "Running task: $INPUT_TASK"
+        taq -p $INPUT_PROJECT_DIRECTORY $INPUT_TASK
+    fi
+    
 fi
     

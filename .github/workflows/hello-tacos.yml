@@ -32,7 +32,7 @@ jobs:
         uses: ./
         with:
           project_directory: 'example-projects/hello-tacos'
-          task: 'start sandbox local'
+          sandbox_name: 'local'
 
       - name: originate contracts
         uses: ./
