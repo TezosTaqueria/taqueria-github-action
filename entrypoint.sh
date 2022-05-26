@@ -1,47 +1,48 @@
 #!/bin/bash
 
-WORKDIR=$(pwd)
-
-if [ -z "$INPUT_PROJECT_DIRECTORY" ] && [ -z "$INPUT_TASK" ]; then
-    echo "No project name or task name provided"
-    exit 1
-fi
-
 if [ -z "$INPUT_PROJECT_DIRECTORY" ]; then
-
-    # Set the PROJECT_DIR variable if it has not already been set
-    if [ -z "$PROJECT_DIR" ]; then
-        export PROJECT_DIR=$RUNNER_WORKSPACE/${GITHUB_REPOSITORY#*/}
-        echo "PROJECT_DIR has been set to $PROJECT_DIR"
-    fi
-
-    taq init
-
-    # The project will be initialized each time there is a task unless the task itself is to initialize the project
-    if [ "$INPUT_TASK" == "init" ]; then
-        npm init -y &> '/dev/null'
-    else
-        taq $INPUT_TASK
-    fi
-
+    export PROJECT_DIR=$RUNNER_WORKSPACE/${GITHUB_REPOSITORY#*/}   
 else
-
-    # Set the PROJECT_DIR variable if it has not already been set
-    if [ -z "$PROJECT_DIR" ]; then
-        export PROJECT_DIR=$RUNNER_WORKSPACE/${GITHUB_REPOSITORY#*/}/$INPUT_PROJECT_DIRECTORY
-        echo "PROJECT_DIR has been set to $PROJECT_DIR"
-    fi
-
-    taq -p $INPUT_PROJECT_DIRECTORY init
-
-    # The project will be initialized each time there is a task unless the task itself is to initialize the project
-    if [ "$INPUT_TASK" == "init" ]; then
-        cd "$INPUT_PROJECT_DIRECTORY" || exit 1
-        npm init -y &> '/dev/null'
-        cd $WORKDIR || exit 1
-    else
-        taq -p $INPUT_PROJECT_DIRECTORY $INPUT_TASK
-    fi
-    
+    export PROJECT_DIR=$RUNNER_WORKSPACE/${GITHUB_REPOSITORY#*/}/$INPUT_PROJECT_DIRECTORY
+    cd $INPUT_PROJECT_DIRECTORY || exit 1
 fi
-    
+
+if [ "$INPUT_TASK" == "init" ]; then
+    taq init
+    npm init -y
+else
+    taq init &> '/dev/null'
+    npm init -y &> '/dev/null'
+fi
+
+
+if [ -n "$INPUT_PLUGINS" ]; then
+    # for each plugin in the comma separated INPUT_PLUGINS install the plugin
+    for plugin in $(echo $INPUT_PLUGINS | tr "," "\n"); do
+        echo "Installing plugin $plugin"
+        taq install $plugin
+    done
+fi
+
+if [ -n "$INPUT_COMPILE_COMMAND" ]; then
+    echo "Compiling contracts using the command $INPUT_COMPILE_COMMAND"
+    taq $INPUT_COMPILE_COMMAND
+fi
+
+if [ -n "$INPUT_SANDBOX_NAME" ]; then
+    taq start sandbox $INPUT_SANDBOX_NAME
+fi
+
+
+if [ -n "$INPUT_TAQUITO_COMMAND" ]; then
+    if [ "$INPUT_TAQUITO_COMMAND" != "originate" ]; then
+        echo "The command $INPUT_TAQUITO_COMMAND is not supported yet. Only 'origintate' is currently supported"
+        exit 1
+    fi
+    taq $INPUT_TAQUITO_COMMAND
+fi
+
+if [ -n "$INPUT_TASK" ]; then
+    echo "Running task: $INPUT_TASK"
+    taq $INPUT_TASK
+fi

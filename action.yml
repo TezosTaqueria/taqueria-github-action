@@ -5,11 +5,28 @@ inputs:
     description: 'The name of the project to create'
     required: false
   task:
-    description: 'The task for taqueria to run with `init` being the default task'
+    description: 'The task for taqueria to run'
     required: false
+  plugins:
+    description: 'A comma seperated list of plugins to install'
+    required: false
+  sandbox_name:
+    description: 'The name of the sandbox if any'
+    required: false
+  compile_command:
+    description: 'A command to compile the contracts'
+    required: false
+  taquito_command:
+    description: 'The Taquito command to use. Currently only supports originate'
+    required: false
+
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
     - ${{ inputs.project_directory }}
     - ${{ inputs.task }}
+    - ${{ inputs.sandbox_name }}
+    - ${{ inputs.plugins }}
+    - ${{ inputs.compile_command }}
+    - ${{ inputs.taquito_command }}

@@ -26,19 +26,19 @@ jobs:
         uses: ./
         with:
           project_directory: 'example-projects/hello-tacos'
-          task: 'compile'
+          compile_command: 'compile'
 
       - name: start local sandbox
         uses: ./
         with:
           project_directory: 'example-projects/hello-tacos'
-          task: 'start sandbox local'
+          sandbox_name: 'local'
 
       - name: originate contracts
         uses: ./
         with:
           project_directory: 'example-projects/hello-tacos'
-          task: 'originate'
+          taquito_command: 'originate'
 
       - name: run tests
         run: |
