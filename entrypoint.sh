@@ -2,11 +2,6 @@
 
 WORKDIR=$(pwd)
 
-if [ -z "$INPUT_PROJECT_DIRECTORY" ] && [ -z "$INPUT_TASK" ]; then
-    echo "No project name or task name provided"
-    exit 1
-fi
-
 if [ -z "$INPUT_PROJECT_DIRECTORY" ]; then
 
     # Set the PROJECT_DIR variable if it has not already been set

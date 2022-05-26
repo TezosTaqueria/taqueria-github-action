@@ -5,11 +5,24 @@ inputs:
     description: 'The name of the project to create'
     required: false
   task:
-    description: 'The task for taqueria to run with `init` being the default task'
+    description: 'The task for taqueria to run. Defaults to compile'
+    required: true
+    default: compile
+  plugins:
+    description: 'A comma seperated list of plugins to install'
     required: false
+  # sandbox_name:
+  #   description: 'The name of the sandbox if any'
+  #   required: false
+  # originate_network:
+  #   description: 'Which network/s if any to originate to. Use a comma seperated list for multiple networks'
+  #   required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
     - ${{ inputs.project_directory }}
     - ${{ inputs.task }}
+    # - ${{ inputs.sandbox_name }}
+    - ${{ inputs.plugins }}
+    # - ${{ inputs.originate_network }}
