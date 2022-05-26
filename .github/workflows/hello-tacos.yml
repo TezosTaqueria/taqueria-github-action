@@ -28,11 +28,11 @@ jobs:
       #     project_directory: 'example-projects/hello-tacos'
       #     task: 'init'
 
-      # - name: install the ligo plugin
-      #   uses: ./
-      #   with:
-      #     project_directory: 'example-projects/hello-tacos'
-      #     task: 'install @taqueria/plugin-ligo@0.0.0-pr-741-86f0b45e'
+      - name: install the ligo plugin
+        uses: ./
+        with:
+          project_directory: 'example-projects/hello-tacos'
+          task: 'install @taqueria/plugin-ligo@0.0.0-pr-741-86f0b45e'
 
       # - name: install the flextesa plugin
       #   uses: ./
