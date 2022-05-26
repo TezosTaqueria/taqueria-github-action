@@ -10,15 +10,15 @@
             "type": "npm"
         },
         "start sandbox": {
-            "name": "@taqueria/plugin-flextesa@0.0.0-pr-741-86f0b45e",
+            "name": "@taqueria/plugin-flextesa",
             "type": "npm"
         },
         "stop sandbox": {
-            "name": "@taqueria/plugin-flextesa@0.0.0-pr-741-86f0b45e",
+            "name": "@taqueria/plugin-flextesa",
             "type": "npm"
         },
         "list accounts": {
-            "name": "@taqueria/plugin-flextesa@0.0.0-pr-741-86f0b45e",
+            "name": "@taqueria/plugin-flextesa",
             "type": "npm"
         },
         "deploy": {

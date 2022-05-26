@@ -21,7 +21,6 @@ jobs:
         run: |
           cd example-projects/hello-tacos
           npm ci
-      #     sudo chown -R root:root ../
 
       - name: init
         uses: ./
