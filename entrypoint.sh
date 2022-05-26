@@ -37,14 +37,14 @@ else
         echo "command exit code is $?"
         cd "$INPUT_PROJECT_DIRECTORY" || exit 1
         npm init -y
-    elif [[ "$INPUT_TASK" == "bootstrap" ]]; then
-        taq -p $INPUT_PROJECT_DIRECTORY init
-        cd "$INPUT_PROJECT_DIRECTORY" || exit 1
-        npm init -y
-        taq install @taqueria/plugin-ligo@0.0.0-pr-741-86f0b45e
-        taq install @taqueria/plugin-flextesa@0.0.0-pr-741-86f0b45e
-        taq install @taqueria/plugin-taquito@0.0.0-pr-741-86f0b45e
-        taq start sandbox local
+    # elif [[ "$INPUT_TASK" == "bootstrap" ]]; then
+    #     taq -p $INPUT_PROJECT_DIRECTORY init
+    #     cd "$INPUT_PROJECT_DIRECTORY" || exit 1
+    #     npm init -y
+    #     taq install @taqueria/plugin-ligo@0.0.0-pr-741-86f0b45e
+    #     taq install @taqueria/plugin-flextesa@0.0.0-pr-741-86f0b45e
+    #     taq install @taqueria/plugin-taquito@0.0.0-pr-741-86f0b45e
+    #     taq start sandbox local
     else
         taq -p $INPUT_PROJECT_DIRECTORY $INPUT_TASK
         echo "command exit code is $?"
