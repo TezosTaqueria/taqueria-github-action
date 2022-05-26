@@ -48,7 +48,7 @@ else
     fi
 
 
-    if [ -z "$INPUT_PLUGINS" ]; then
+    if [ "$INPUT_PLUGINS" ]; then
         # for each plugin in the comma separated INPUT_PLUGINS install the plugin
         npm init -y &> '/dev/null'
         for plugin in $(echo $INPUT_PLUGINS | tr "," "\n"); do
