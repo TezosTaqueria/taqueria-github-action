@@ -1,0 +1,60 @@
+on: [push]
+
+concurrency: 
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  initialize-new-taqueria-project:
+    runs-on: ubuntu-latest
+    name: This job creates a new taqueria project in the GitHub runner using an existing config.json file only
+    steps:
+
+      - name: Setup repo
+        uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16.13.2
+
+      - name: init
+        uses: ./
+        with:
+          task: 'init'
+
+      - name: install the ligo plugin
+        uses: ./
+        with:
+          task: 'install @taqueria/plugin-ligo@0.0.0-pr-741-86f0b45e'
+
+      - name: install the flextesa plugin
+        uses: ./
+        with:
+          task: 'install @taqueria/plugin-flextesa@0.0.0-pr-741-86f0b45e'
+
+      - name: install the taquito plugin
+        uses: ./
+        with:
+          task: 'install @taqueria/plugin-taquito@0.0.0-pr-741-86f0b45e'
+
+      - name: compile contracts
+        uses: ./
+        with:
+          task: 'compile'
+
+      - name: start local sandbox
+        uses: ./
+        with:
+          task: 'start sandbox local'
+
+      - name: originate contracts
+        uses: ./
+        with:
+          task: 'originate'
+
+      - name: upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: artifacts
+          path: artifacts/*
+          retention-days: 1

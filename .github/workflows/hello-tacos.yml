@@ -1,0 +1,53 @@
+on: [push]
+
+concurrency: 
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  hello-tacos-compile-and-deploy-local:
+    runs-on: ubuntu-latest
+    name: Compiles and deploys the counter.jsligo contract to a local sandbox
+    steps:
+
+      - name: Setup repo
+        uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16.13.2
+
+      - name: install modules
+        run: |
+          cd example-projects/hello-tacos
+          npm ci
+
+      - name: compile contracts
+        uses: ./
+        with:
+          project_directory: 'example-projects/hello-tacos'
+          task: 'compile'
+
+      - name: start local sandbox
+        uses: ./
+        with:
+          project_directory: 'example-projects/hello-tacos'
+          task: 'start sandbox local'
+
+      - name: originate contracts
+        uses: ./
+        with:
+          project_directory: 'example-projects/hello-tacos'
+          task: 'originate'
+
+      - name: run tests
+        run: |
+          cd example-projects/hello-tacos
+          npm run test
+
+      - name: upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: artifacts
+          path: example-projects/hello-tacos/artifacts/*
+          retention-days: 1

@@ -1,17 +1,15 @@
 name: 'taqueria'
 description: 'Do something with taqueria'
 inputs:
-  project_name:
+  project_directory:
     description: 'The name of the project to create'
     required: false
-    default: 'default-project'
   task:
     description: 'The task for taqueria to run with `init` being the default task'
     required: false
-    default: 'init'
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.project_name }}
+    - ${{ inputs.project_directory }}
     - ${{ inputs.task }}

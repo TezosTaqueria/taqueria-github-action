@@ -1,26 +1,47 @@
 #!/bin/bash
-echo "$INPUT_TASK"
-if [ -z "$INPUT_PROJECT_NAME" ] && [ -z "$INPUT_TASK" ];then
+
+WORKDIR=$(pwd)
+
+if [ -z "$INPUT_PROJECT_DIRECTORY" ] && [ -z "$INPUT_TASK" ]; then
     echo "No project name or task name provided"
     exit 1
 fi
 
-if [ -z "$INPUT_PROJECT_NAME" ];then
-    export PROJECT_DIR=$RUNNER_WORKSPACE/${GITHUB_REPOSITORY#*/}
+if [ -z "$INPUT_PROJECT_DIRECTORY" ]; then
+
+    # Set the PROJECT_DIR variable if it has not already been set
+    if [ -z "$PROJECT_DIR" ]; then
+        export PROJECT_DIR=$RUNNER_WORKSPACE/${GITHUB_REPOSITORY#*/}
+        echo "PROJECT_DIR has been set to $PROJECT_DIR"
+    fi
+
+    taq init
+
+    # The project will be initialized each time there is a task unless the task itself is to initialize the project
     if [ "$INPUT_TASK" == "init" ]; then
-        taq $INPUT_TASK
-        npm init -y
+        npm init -y &> '/dev/null'
     else
         taq $INPUT_TASK
     fi
+
 else
-    export PROJECT_DIR=$RUNNER_WORKSPACE/${GITHUB_REPOSITORY#*/}/$INPUT_PROJECT_NAME
-    # When the taq command is init
-    if [ "$INPUT_TASK" == "init" ]; then
-        taq -p $INPUT_PROJECT_NAME $INPUT_TASK
-        cd "$INPUT_PROJECT_NAME" || exit 1
-        npm init -y
-    else
-        taq -p $INPUT_PROJECT_NAME $INPUT_TASK
+
+    # Set the PROJECT_DIR variable if it has not already been set
+    if [ -z "$PROJECT_DIR" ]; then
+        export PROJECT_DIR=$RUNNER_WORKSPACE/${GITHUB_REPOSITORY#*/}/$INPUT_PROJECT_DIRECTORY
+        echo "PROJECT_DIR has been set to $PROJECT_DIR"
     fi
+
+    taq -p $INPUT_PROJECT_DIRECTORY init
+
+    # The project will be initialized each time there is a task unless the task itself is to initialize the project
+    if [ "$INPUT_TASK" == "init" ]; then
+        cd "$INPUT_PROJECT_DIRECTORY" || exit 1
+        npm init -y &> '/dev/null'
+        cd $WORKDIR || exit 1
+    else
+        taq -p $INPUT_PROJECT_DIRECTORY $INPUT_TASK
+    fi
+    
 fi
+    
