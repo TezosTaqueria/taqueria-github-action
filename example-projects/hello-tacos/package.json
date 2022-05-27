@@ -22,5 +22,8 @@
   "dependencies": {
     "@taquito/signer": "^11.0.2",
     "@taquito/taquito": "^11.0.2"
+  },
+  "directories": {
+    "test": "tests"
   }
 }
