@@ -28,6 +28,10 @@ The compile command used to compile the contracts.
 
 Currently the only `taquito_command` supported is originate. If this input is specified, all artifacts will be originated to a network.
 
+### `environment`
+
+This input is used to select the configured environment for `taqueria` to originate to. The default is set to `development`.
+
 ## Example usage
 
 ### Single step action
