@@ -39,7 +39,7 @@ if [ -n "$INPUT_TAQUITO_COMMAND" ]; then
         echo "The command $INPUT_TAQUITO_COMMAND is not supported yet. Only 'origintate' is currently supported"
         exit 1
     fi
-    taq $INPUT_TAQUITO_COMMAND
+    taq $INPUT_TAQUITO_COMMAND --env $INPUT_ENVIRONMENT
 fi
 
 if [ -n "$INPUT_TASK" ]; then

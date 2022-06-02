@@ -1,32 +1,37 @@
 name: 'taqueria'
 description: 'Do something with taqueria'
 inputs:
-  project_directory:
-    description: 'The name of the project to create'
+  compile_command:
+    description: 'A command to compile the contracts'
     required: false
-  task:
-    description: 'The task for taqueria to run'
+  environment:
+    description: 'The environment to execute commands on. The default is "development"'
     required: false
+    default: 'development'
   plugins:
     description: 'A comma seperated list of plugins to install'
+    required: false
+  project_directory:
+    description: 'The name of the project to create'
     required: false
   sandbox_name:
     description: 'The name of the sandbox if any'
     required: false
-  compile_command:
-    description: 'A command to compile the contracts'
-    required: false
   taquito_command:
     description: 'The Taquito command to use. Currently only supports originate'
+    required: false
+  task:
+    description: 'The task for taqueria to run'
     required: false
 
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.project_directory }}
-    - ${{ inputs.task }}
-    - ${{ inputs.sandbox_name }}
-    - ${{ inputs.plugins }}
     - ${{ inputs.compile_command }}
+    - ${{ inputs.environment }}
+    - ${{ inputs.plugins }}
+    - ${{ inputs.project_directory }}
+    - ${{ inputs.sandbox_name }}
     - ${{ inputs.taquito_command }}
+    - ${{ inputs.task }}
