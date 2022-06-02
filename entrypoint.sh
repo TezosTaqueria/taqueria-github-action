@@ -20,17 +20,17 @@ if [ -n "$INPUT_PLUGINS" ]; then
     # for each plugin in the comma separated INPUT_PLUGINS install the plugin
     for plugin in $(echo $INPUT_PLUGINS | tr "," "\n"); do
         echo "Installing plugin $plugin"
-        taq install $plugin
+        taq install $plugin -e $INPUT_ENVIRONMENT
     done
 fi
 
 if [ -n "$INPUT_COMPILE_COMMAND" ]; then
     echo "Compiling contracts using the command $INPUT_COMPILE_COMMAND"
-    taq $INPUT_COMPILE_COMMAND
+    taq $INPUT_COMPILE_COMMAND -e $INPUT_ENVIRONMENT
 fi
 
 if [ -n "$INPUT_SANDBOX_NAME" ]; then
-    taq start sandbox $INPUT_SANDBOX_NAME
+    taq start sandbox $INPUT_SANDBOX_NAME -e $INPUT_ENVIRONMENT
 fi
 
 
@@ -39,10 +39,10 @@ if [ -n "$INPUT_TAQUITO_COMMAND" ]; then
         echo "The command $INPUT_TAQUITO_COMMAND is not supported yet. Only 'origintate' is currently supported"
         exit 1
     fi
-    taq $INPUT_TAQUITO_COMMAND
+    taq $INPUT_TAQUITO_COMMAND -e $INPUT_ENVIRONMENT
 fi
 
 if [ -n "$INPUT_TASK" ]; then
     echo "Running task: $INPUT_TASK"
-    taq $INPUT_TASK
+    taq $INPUT_TASK -e $INPUT_ENVIRONMENT
 fi
