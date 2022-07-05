@@ -8,6 +8,7 @@ else
 fi
 
 if [ "$INPUT_TASK" == "init" ]; then
+    echo "Initializing project..."
     taq init
 fi
 

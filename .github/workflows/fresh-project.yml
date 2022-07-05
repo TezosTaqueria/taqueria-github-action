@@ -17,6 +17,11 @@ jobs:
         with:
           node-version: 16.13.2
 
+      - name: Init taqueria
+        uses: ./
+        with:
+          task: init
+          
       - name: taqueria tasks
         uses: ./
         with:
