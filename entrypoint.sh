@@ -9,10 +9,6 @@ fi
 
 if [ "$INPUT_TASK" == "init" ]; then
     taq init
-    npm init -y
-else
-    taq init &> '/dev/null'
-    npm init -y &> '/dev/null'
 fi
 
 
