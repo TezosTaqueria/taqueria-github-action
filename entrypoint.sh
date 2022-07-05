@@ -10,8 +10,10 @@ fi
 if [ "$INPUT_TASK" == "init" ]; then
     echo "Initializing project..."
     taq init
+else
+    echo "Running task: $INPUT_TASK"
+    taq $INPUT_TASK
 fi
-
 
 if [ -n "$INPUT_PLUGINS" ]; then
     # for each plugin in the comma separated INPUT_PLUGINS install the plugin
