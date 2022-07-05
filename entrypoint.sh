@@ -7,13 +7,17 @@ else
     cd $INPUT_PROJECT_DIRECTORY || exit 1
 fi
 
-if [ "$INPUT_TASK" == "init" ]; then
-    echo "Initializing project..."
-    taq init
-else
-    echo "Running task: $INPUT_TASK"
-    taq $INPUT_TASK
+
+if [ -n "$INPUT_TASK" ]; then
+    if [ "$INPUT_TASK" == "init" ]; then
+        echo "Initializing project..."
+        taq init
+    else
+        echo "Running task: $INPUT_TASK"
+        taq $INPUT_TASK
+    fi
 fi
+
 
 if [ -n "$INPUT_PLUGINS" ]; then
     # for each plugin in the comma separated INPUT_PLUGINS install the plugin
@@ -39,9 +43,4 @@ if [ -n "$INPUT_TAQUITO_COMMAND" ]; then
         exit 1
     fi
     taq $INPUT_TAQUITO_COMMAND --env $INPUT_ENVIRONMENT
-fi
-
-if [ -n "$INPUT_TASK" ]; then
-    echo "Running task: $INPUT_TASK"
-    taq $INPUT_TASK
 fi
