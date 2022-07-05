@@ -29,6 +29,7 @@ fi
 
 if [ -n "$INPUT_COMPILE_COMMAND" ]; then
     ls -lha
+    ls -lha ..
     echo "PROJECT_DIR: $PROJECT_DIR"
     echo "Compiling contracts using the command $INPUT_COMPILE_COMMAND"
     taq $INPUT_COMPILE_COMMAND
