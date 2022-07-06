@@ -38,7 +38,7 @@ jobs:
         uses: ./
         with:
           project_directory: 'example-projects/hello-tacos'
-          originate: 'yes'
+          originate: true
 
       - name: run tests
         run: |

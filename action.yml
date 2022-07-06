@@ -15,9 +15,10 @@ inputs:
     description: 'The name of the project to create'
     required: false
   originate:
-    description: 'Whether or not to originate the contracts. Can be yes or no. The Taquito plgin needs to be installed'
-    required: true
-    default: 'yes'
+    description: 'Enable origination of the contracts. The Taquito plgin needs to be installed'
+    required: false
+    type: boolean
+    default: false
   sandbox_name:
     description: 'The name of the sandbox if any'
     required: false
@@ -41,3 +42,4 @@ runs:
     - ${{ inputs.sandbox_name }}
     - ${{ inputs.originate }}
     - ${{ inputs.task }}
+    - ${{ inputs.tests }}
