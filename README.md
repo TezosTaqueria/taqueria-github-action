@@ -26,7 +26,7 @@ The compile command used to compile the contracts.
 
 ### `originate`
 
-Whether or not to originate the contracts to the target environment. Can be 'yes' or 'no' and defaults to 'yes'. This option makes use of the `taquito` plugin so please make sure to install it. 
+When set to True/true, contracts will be originated to the environment defined with the `environment` variable (leave empty for default). This option makes use of the `taquito` plugin so please make sure to install it. 
 
 ### `environment`
 
@@ -42,7 +42,7 @@ This input is used to select the configured environment for `taqueria` to origin
         plugins: '@taqueria/plugin-ligo@0.0.0-pr-741-86f0b45e, @taqueria/plugin-flextesa@0.0.0-pr-741-86f0b45e, @taqueria/plugin-taquito@0.0.0-pr-741-86f0b45e'
         compile_command: compile 
         sandbox_name: local
-        originate: 'yes'
+        originate: 'true
 ```
 
 ### Multiple step action
@@ -63,5 +63,5 @@ This input is used to select the configured environment for `taqueria` to origin
     uses: ./
     with:
         project_directory: 'example-projects/hello-tacos'
-        originate: 'yes'
+        originate: 'true'
 ```
