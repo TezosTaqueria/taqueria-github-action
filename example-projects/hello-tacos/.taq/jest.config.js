@@ -23,9 +23,6 @@ module.exports = {
     "errorOnDeprecated": false,
     "expand": false,
     "extensionsToTreatAsEsm": [],
-    "fakeTimers": {
-        "enableGlobally": false
-    },
     "forceCoverageMatch": [],
     "globals": {},
     "haste": {
