@@ -69,7 +69,6 @@ module.exports = {
     "slowTestThreshold": 5,
     "snapshotSerializers": [],
     "testEnvironment": "jest-environment-node",
-    "testEnvironmentOptions": {},
     "testFailureExitCode": 1,
     "testLocationInResults": false,
     "testMatch": [
