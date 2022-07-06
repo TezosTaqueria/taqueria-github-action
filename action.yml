@@ -14,16 +14,21 @@ inputs:
   project_directory:
     description: 'The name of the project to create'
     required: false
+  originate:
+    description: 'Whether or not to originate the contracts. Can be yes or no. The Taquito plgin needs to be installed'
+    required: true
+    default: 'yes'
   sandbox_name:
     description: 'The name of the sandbox if any'
     required: false
-  originate:
-    description: 'Whether or not to originate the contracts. Can be yes or no'
-    required: true
-    default: 'yes'
   task:
     description: 'The task for taqueria to run'
     required: false
+  tests:
+    description: 'Enable tests with the Jest plugin. The Jest plugin needs to be installed'
+    required: false
+    type: boolean
+    default: false
 
 runs:
   using: 'docker'

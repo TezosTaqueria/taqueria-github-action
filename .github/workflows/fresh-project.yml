@@ -25,7 +25,7 @@ jobs:
       - name: taqueria tasks
         uses: ./
         with:
-          plugins: '@taqueria/plugin-ligo, @taqueria/plugin-flextesa, @taqueria/plugin-taquito'
+          plugins: '@taqueria/plugin-ligo, @taqueria/plugin-flextesa, @taqueria/plugin-taquito, @taqueria/plugin-jest'
           compile_command: compile 
           sandbox_name: local
           originate: 'yes'
