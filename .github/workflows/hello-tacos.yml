@@ -38,13 +38,13 @@ jobs:
         uses: ./
         with:
           project_directory: 'example-projects/hello-tacos'
-          originate: "fourty two"
+          originate: True
 
       - name: run tests
         uses: ./
         with:
           project_directory: 'example-projects/hello-tacos'
-          tests: true
+          tests: True
 
       - name: upload artifacts
         uses: actions/upload-artifact@v3
