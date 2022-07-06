@@ -28,7 +28,7 @@ jobs:
           plugins: '@taqueria/plugin-ligo, @taqueria/plugin-flextesa, @taqueria/plugin-taquito, @taqueria/plugin-jest'
           compile_command: compile 
           sandbox_name: local
-          originate: 'yes'
+          originate: true
 
       - name: upload artifacts
         uses: actions/upload-artifact@v3
