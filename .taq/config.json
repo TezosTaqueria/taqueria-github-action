@@ -1,9 +1,15 @@
 {
     "language": "en",
-    "plugins": [],
     "contractsDir": "contracts",
-    "testsDir": "tests",
     "artifactsDir": "artifacts",
+    "network": {},
+    "sandbox": {
+        "local": {
+            "label": "Local Tezos Sandbox",
+            "rpcUrl": "http://172.17.0.1:20000",
+            "protocol": "Psithaca2MLRFYargivpo7YvUr7wUDqyxrdhC5CQq78mRvimz6A"
+        }
+    },
     "environment": {
         "default": "development",
         "development": {
@@ -16,30 +22,11 @@
 	        }
         }
     },
-    "sandbox": {
-        "local": {
-            "accounts": {
-                "default": "bob",
-                "bob": {
-                    "initialBalance": "3000000000"
-                },
-                "alice": {
-                    "initialBalance": "2000000000"
-                },
-                "john": {
-                    "initialBalance": "4000000000"
-                },
-                "jane": {
-                    "initialBalance": "5000000000"
-                },
-                "joe": {
-                    "initialBalance": "1000000000"
-                }
-            },
-            "label": "Local Tezos Sandbox",
-            "protocol": "Psithaca2MLRFYargivpo7YvUr7wUDqyxrdhC5CQq78mRvimz6A",
-            "rpcUrl": "http://172.17.0.1:20000"
-        }
-    },
-    "network": {}
+    "accounts": {
+        "bob": "3_000_000_000",
+        "alice": "3_000_000_000",
+        "john": "3_000_000_000",
+        "jane": "3_000_000_000",
+        "joe": "3_000_000_000"
+    }
 }

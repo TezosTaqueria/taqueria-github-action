@@ -17,10 +17,15 @@ jobs:
         with:
           node-version: 16.13.2
 
+      - name: Init taqueria
+        uses: ./
+        with:
+          task: init
+          
       - name: taqueria tasks
         uses: ./
         with:
-          plugins: '@taqueria/plugin-ligo@0.0.0-pr-741-86f0b45e, @taqueria/plugin-flextesa@0.0.0-pr-741-86f0b45e, @taqueria/plugin-taquito@0.0.0-pr-741-86f0b45e'
+          plugins: '@taqueria/plugin-ligo, @taqueria/plugin-flextesa, @taqueria/plugin-taquito'
           compile_command: compile 
           sandbox_name: local
           taquito_command: originate

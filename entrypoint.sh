@@ -7,12 +7,15 @@ else
     cd $INPUT_PROJECT_DIRECTORY || exit 1
 fi
 
-if [ "$INPUT_TASK" == "init" ]; then
-    taq init
-    npm init -y
-else
-    taq init &> '/dev/null'
-    npm init -y &> '/dev/null'
+
+if [ -n "$INPUT_TASK" ]; then
+    if [ "$INPUT_TASK" == "init" ]; then
+        echo "Initializing project..."
+        taq init
+    else
+        echo "Running task: $INPUT_TASK"
+        taq $INPUT_TASK
+    fi
 fi
 
 
@@ -25,6 +28,7 @@ if [ -n "$INPUT_PLUGINS" ]; then
 fi
 
 if [ -n "$INPUT_COMPILE_COMMAND" ]; then
+    echo "PROJECT_DIR: $PROJECT_DIR"
     echo "Compiling contracts using the command $INPUT_COMPILE_COMMAND"
     taq $INPUT_COMPILE_COMMAND
 fi
@@ -40,9 +44,4 @@ if [ -n "$INPUT_TAQUITO_COMMAND" ]; then
         exit 1
     fi
     taq $INPUT_TAQUITO_COMMAND --env $INPUT_ENVIRONMENT
-fi
-
-if [ -n "$INPUT_TASK" ]; then
-    echo "Running task: $INPUT_TASK"
-    taq $INPUT_TASK
 fi

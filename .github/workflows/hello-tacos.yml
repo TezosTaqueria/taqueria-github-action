@@ -20,7 +20,7 @@ jobs:
       - name: install modules
         run: |
           cd example-projects/hello-tacos
-          npm ci
+          npm update
 
       - name: compile contracts
         uses: ./

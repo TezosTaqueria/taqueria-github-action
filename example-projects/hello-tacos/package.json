@@ -14,9 +14,9 @@
   "author": "Claude Barde",
   "license": "ISC",
   "devDependencies": {
-    "@taqueria/plugin-flextesa": "^0.0.0-pr-741-86f0b45e",
-    "@taqueria/plugin-ligo": "^0.0.0-pr-741-86f0b45e",
-    "@taqueria/plugin-taquito": "^0.0.0-pr-741-86f0b45e",
+    "@taqueria/plugin-flextesa": "^0.6.5",
+    "@taqueria/plugin-ligo": "^0.6.5",
+    "@taqueria/plugin-taquito": "^0.6.5",
     "jest": "^27.4.4"
   },
   "dependencies": {
