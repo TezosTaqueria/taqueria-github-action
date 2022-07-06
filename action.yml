@@ -17,9 +17,10 @@ inputs:
   sandbox_name:
     description: 'The name of the sandbox if any'
     required: false
-  taquito_command:
-    description: 'The Taquito command to use. Currently only supports originate'
-    required: false
+  originate:
+    description: 'Whether or not to originate the contracts. Can be yes or no'
+    required: true
+    default: 'yes'
   task:
     description: 'The task for taqueria to run'
     required: false
@@ -33,5 +34,5 @@ runs:
     - ${{ inputs.plugins }}
     - ${{ inputs.project_directory }}
     - ${{ inputs.sandbox_name }}
-    - ${{ inputs.taquito_command }}
+    - ${{ inputs.originate }}
     - ${{ inputs.task }}

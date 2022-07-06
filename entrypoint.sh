@@ -38,10 +38,6 @@ if [ -n "$INPUT_SANDBOX_NAME" ]; then
 fi
 
 
-if [ -n "$INPUT_TAQUITO_COMMAND" ]; then
-    if [ "$INPUT_TAQUITO_COMMAND" != "originate" ]; then
-        echo "The command $INPUT_TAQUITO_COMMAND is not supported yet. Only 'origintate' is currently supported"
-        exit 1
-    fi
-    taq $INPUT_TAQUITO_COMMAND --env $INPUT_ENVIRONMENT
+if [ "$INPUT_ORIGINATE" == "originate" ]; then
+    taq originate --env $INPUT_ENVIRONMENT
 fi

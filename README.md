@@ -24,9 +24,9 @@ The name of the Flextesa sandbox to use. A sandbox will only be created if this 
 
 The compile command used to compile the contracts.
 
-### `taquito_command`
+### `originate`
 
-Currently the only `taquito_command` supported is originate. If this input is specified, all artifacts will be originated to a network.
+Whether or not to originate the contracts to the target environment. Can be 'yes' or 'no' and defaults to 'yes'. This option makes use of the `taquito` plugin so please make sure to install it. 
 
 ### `environment`
 
@@ -42,7 +42,7 @@ This input is used to select the configured environment for `taqueria` to origin
         plugins: '@taqueria/plugin-ligo@0.0.0-pr-741-86f0b45e, @taqueria/plugin-flextesa@0.0.0-pr-741-86f0b45e, @taqueria/plugin-taquito@0.0.0-pr-741-86f0b45e'
         compile_command: compile 
         sandbox_name: local
-        taquito_command: originate
+        originate: 'yes'
 ```
 
 ### Multiple step action
@@ -63,5 +63,5 @@ This input is used to select the configured environment for `taqueria` to origin
     uses: ./
     with:
         project_directory: 'example-projects/hello-tacos'
-        taquito_command: 'originate'
+        originate: 'yes'
 ```
