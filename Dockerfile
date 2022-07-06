@@ -1,6 +1,6 @@
 
 FROM debian:bullseye
-FROM node:16.13
+FROM node:16
 
 # Set the DENO_DIR environment variable to controll where the cache is built
 RUN mkdir deno

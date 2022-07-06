@@ -15,7 +15,7 @@ jobs:
 
       - uses: actions/setup-node@v2
         with:
-          node-version: 16.13.2
+          node-version: 16
 
       - name: Init taqueria
         uses: ./
@@ -25,10 +25,10 @@ jobs:
       - name: taqueria tasks
         uses: ./
         with:
-          plugins: '@taqueria/plugin-ligo, @taqueria/plugin-flextesa, @taqueria/plugin-taquito'
+          plugins: '@taqueria/plugin-ligo, @taqueria/plugin-flextesa, @taqueria/plugin-taquito, @taqueria/plugin-jest'
           compile_command: compile 
           sandbox_name: local
-          originate: 'yes'
+          originate: 'True'
 
       - name: upload artifacts
         uses: actions/upload-artifact@v3

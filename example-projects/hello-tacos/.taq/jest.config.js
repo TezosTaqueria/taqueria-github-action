@@ -23,9 +23,6 @@ module.exports = {
     "errorOnDeprecated": false,
     "expand": false,
     "extensionsToTreatAsEsm": [],
-    "fakeTimers": {
-        "enableGlobally": false
-    },
     "forceCoverageMatch": [],
     "globals": {},
     "haste": {
@@ -72,7 +69,6 @@ module.exports = {
     "slowTestThreshold": 5,
     "snapshotSerializers": [],
     "testEnvironment": "jest-environment-node",
-    "testEnvironmentOptions": {},
     "testFailureExitCode": 1,
     "testLocationInResults": false,
     "testMatch": [

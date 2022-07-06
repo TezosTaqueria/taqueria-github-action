@@ -18,7 +18,9 @@
     "@taqueria/plugin-jest": "^0.6.5",
     "@taqueria/plugin-ligo": "^0.6.5",
     "@taqueria/plugin-taquito": "^0.6.5",
-    "jest": "^27.4.4"
+    "jest-cli": "^28.1.0",
+    "jest-config": "^28.1.0",
+    "jest-environment-jsdom": "^28.1.2"
   },
   "dependencies": {
     "@taquito/signer": "^11.0.2",
