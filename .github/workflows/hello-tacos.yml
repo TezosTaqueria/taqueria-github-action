@@ -41,9 +41,10 @@ jobs:
           originate: false
 
       - name: run tests
-        run: |
-          cd example-projects/hello-tacos
-          npm run test
+        uses: ./
+        with:
+          project_directory: 'example-projects/hello-tacos'
+          tests: true
 
       - name: upload artifacts
         uses: actions/upload-artifact@v3

@@ -8,14 +8,9 @@ else
 fi
 
 
-if [ -n "$INPUT_TASK" ]; then
-    if [ "$INPUT_TASK" == "init" ]; then
+if [ "$INPUT_TASK" == "init" ]; then
         echo "Initializing project..."
         taq init
-    else
-        echo "Running task: $INPUT_TASK"
-        taq $INPUT_TASK
-    fi
 fi
 
 
@@ -40,4 +35,9 @@ fi
 
 if [ "$INPUT_ORIGINATE" ]; then
     taq originate --env $INPUT_ENVIRONMENT
+fi
+
+if [ -n "$INPUT_TASK" ] && [ "$INPUT_TASK" != "init" ]; then
+    echo "Running task: $INPUT_TASK"
+    taq $INPUT_TASK
 fi
