@@ -38,6 +38,6 @@ if [ -n "$INPUT_SANDBOX_NAME" ]; then
 fi
 
 
-if [ "$INPUT_ORIGINATE" == "originate" ]; then
+if [ "$INPUT_ORIGINATE" ]; then
     taq originate --env $INPUT_ENVIRONMENT
 fi
