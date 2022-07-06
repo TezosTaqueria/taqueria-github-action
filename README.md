@@ -28,6 +28,10 @@ The compile command used to compile the contracts.
 
 When set to True/true, contracts will be originated to the environment defined with the `environment` variable (leave empty for default). This option makes use of the `taquito` plugin so please make sure to install it. 
 
+### `tests`
+
+When set to True/true, all tests in the `tests` directory will be run using the Jest plugin. This option makes use of the `jest` plugin so please make sure to install it. 
+
 ### `environment`
 
 This input is used to select the configured environment for `taqueria` to originate to. The default is set to `development`.
@@ -42,7 +46,8 @@ This input is used to select the configured environment for `taqueria` to origin
         plugins: '@taqueria/plugin-ligo@0.0.0-pr-741-86f0b45e, @taqueria/plugin-flextesa@0.0.0-pr-741-86f0b45e, @taqueria/plugin-taquito@0.0.0-pr-741-86f0b45e'
         compile_command: compile 
         sandbox_name: local
-        originate: 'true
+        originate: 'true'
+        tests: 'true'
 ```
 
 ### Multiple step action
@@ -64,4 +69,10 @@ This input is used to select the configured environment for `taqueria` to origin
     with:
         project_directory: 'example-projects/hello-tacos'
         originate: 'true'
+
+- name: originate contracts
+    uses: ./
+    with:
+        project_directory: 'example-projects/hello-tacos'
+        tests: 'true'
 ```
