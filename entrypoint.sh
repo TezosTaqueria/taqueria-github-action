@@ -43,7 +43,7 @@ if [ -n "$INPUT_SANDBOX_NAME" ]; then
     echo "1"
     echo "1"
     echo "Now doing jq..."
-    jq '.sandbox."$INPUT_SANDBOX_NAME".rpcUrl="http://172.17.0.1:20000"' .taq/config.json
+    jq '.sandbox.'$INPUT_SANDBOX_NAME'.rpcUrl="http://172.17.0.1:20000"' .taq/config.json
     echo "1"
     echo "1"
     echo "1"
