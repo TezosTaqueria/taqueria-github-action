@@ -1,5 +1,8 @@
 name: 'taqueria-actions'
 description: 'A docker action that helps simplify and standardize the use of taqueria in GitHub workflows'
+branding:
+  icon: circle
+  color: red
 inputs:
   compile_command:
     description: 'A command to compile the contracts'
