@@ -1,4 +1,4 @@
-name: 'taqueria'
+name: 'taqueria-actions'
 description: 'An docker action that helps simplify and standardize the use of taqueria in GitHub workflows'
 inputs:
   compile_command:
