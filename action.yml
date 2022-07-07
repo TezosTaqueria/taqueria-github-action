@@ -1,5 +1,5 @@
 name: 'taqueria-actions'
-description: 'An docker action that helps simplify and standardize the use of taqueria in GitHub workflows'
+description: 'A docker action that helps simplify and standardize the use of taqueria in GitHub workflows'
 inputs:
   compile_command:
     description: 'A command to compile the contracts'
