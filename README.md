@@ -43,7 +43,7 @@ This input is used to select the configured environment for `taqueria` to origin
 - name: taqueria tasks
     uses: ecadlabs/taqueria-github-action@v0.1.0
     with:
-        plugins: '@taqueria/plugin-ligo@0.0.0-pr-741-86f0b45e, @taqueria/plugin-flextesa@0.0.0-pr-741-86f0b45e, @taqueria/plugin-taquito@0.0.0-pr-741-86f0b45e'
+        plugins: '@taqueria/plugin-ligo, @taqueria/plugin-flextesa, @taqueria/plugin-taquito'
         compile_command: compile 
         sandbox_name: local
         originate: 'true'
