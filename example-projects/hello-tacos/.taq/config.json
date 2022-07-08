@@ -24,7 +24,7 @@
     "sandbox": {
         "local": {
             "label": "Local Tezos Sandbox",
-            "rpcUrl": "http://172.17.0.1:20000",
+            "rpcUrl": "http://localhost:20000",
             "protocol": "Psithaca2MLRFYargivpo7YvUr7wUDqyxrdhC5CQq78mRvimz6A",
             "accounts": {
                 "bob": {

@@ -2,6 +2,8 @@
 FROM debian:bullseye
 FROM node:16
 
+RUN apt update && apt install jq -y
+
 # Set the DENO_DIR environment variable to controll where the cache is built
 RUN mkdir deno
 ENV DENO_DIR=/deno
