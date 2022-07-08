@@ -34,10 +34,6 @@ if [ -n "$INPUT_SANDBOX_NAME" ]; then
     cat <<< "$(jq '.sandbox.'$INPUT_SANDBOX_NAME'.rpcUrl="http://172.17.0.1:20000"' .taq/config.json)" > .taq/config.json
 fi
 
-if [ "$INPUT_TESTS" == "true" ] || [ "$INPUT_TESTS" == "True" ]; then
-    taq test
-fi
-
 if [ "$INPUT_ORIGINATE" == "true" ] || [ "$INPUT_ORIGINATE" == "True" ]; then
     taq originate --env $INPUT_ENVIRONMENT
 fi
@@ -45,4 +41,8 @@ fi
 if [ -n "$INPUT_TASK" ] && [ "$INPUT_TASK" != "init" ]; then
     echo "Running task: $INPUT_TASK"
     taq $INPUT_TASK
+fi
+
+if [ "$INPUT_TESTS" == "true" ] || [ "$INPUT_TESTS" == "True" ]; then
+    taq test
 fi
