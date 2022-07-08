@@ -18,7 +18,7 @@ A comma separated list of plugins to install.
 
 ### `sandbox_name`
 
-The name of the Flextesa sandbox to use. A sandbox will only be created if this input is specified.
+The name of the Flextesa sandbox to use. A sandbox will only be created if this input is specified. When running the sandbox, the action will automatically change the value of `rpcUrl` for the sandbox in `config.json`. This is to enable origination to the local sandbox in CI.
 
 ### `compile_command`
 
@@ -26,7 +26,7 @@ The compile command used to compile the contracts.
 
 ### `originate`
 
-When set to true, contracts will be originated to the environment defined with the `environment` variable (leave empty for default). This option makes use of the `taquito` plugin so please make sure to install it. 
+When set to true, contracts will be originated to the environment defined with the `environment` variable (leave empty for default). This option makes use of the `taquito` plugin so please make sure to install it.
 
 ### `tests`
 
@@ -41,7 +41,7 @@ This input is used to select the configured environment for `taqueria` to origin
 ### Single step action
 ```yaml
 - name: taqueria tasks
-    uses: ecadlabs/taqueria-github-action@v0.1.0
+    uses: ecadlabs/taqueria-github-action@v0.1.1
     with:
         plugins: '@taqueria/plugin-ligo, @taqueria/plugin-flextesa, @taqueria/plugin-taquito'
         compile_command: compile 
@@ -53,25 +53,25 @@ This input is used to select the configured environment for `taqueria` to origin
 ### Multiple step action
 ```yaml
 - name: compile contracts
-    uses: ecadlabs/taqueria-github-action@v0.1.0
+    uses: ecadlabs/taqueria-github-action@v0.1.1
     with:
         project_directory: 'example-projects/hello-tacos'
         compile_command: 'compile'
 
 - name: start local sandbox
-    uses: ecadlabs/taqueria-github-action@v0.1.0
+    uses: ecadlabs/taqueria-github-action@v0.1.1
     with:
         project_directory: 'example-projects/hello-tacos'
         sandbox_name: 'local'
 
 - name: originate contracts
-    uses: ecadlabs/taqueria-github-action@v0.1.0
+    uses: ecadlabs/taqueria-github-action@v0.1.1
     with:
         project_directory: 'example-projects/hello-tacos'
         originate: 'true'
 
 - name: originate contracts
-    uses: ecadlabs/taqueria-github-action@v0.1.0
+    uses: ecadlabs/taqueria-github-action@v0.1.1
     with:
         project_directory: 'example-projects/hello-tacos'
         tests: 'true'
