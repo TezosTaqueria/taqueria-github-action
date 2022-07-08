@@ -41,7 +41,7 @@ This input is used to select the configured environment for `taqueria` to origin
 ### Single step action
 ```yaml
 - name: taqueria tasks
-    uses: ecadlabs/taqueria-github-action@v0.1.1
+    uses: ecadlabs/taqueria-github-action@v0.1.2
     with:
         plugins: '@taqueria/plugin-ligo, @taqueria/plugin-flextesa, @taqueria/plugin-taquito'
         compile_command: compile 
@@ -53,25 +53,25 @@ This input is used to select the configured environment for `taqueria` to origin
 ### Multiple step action
 ```yaml
 - name: compile contracts
-    uses: ecadlabs/taqueria-github-action@v0.1.1
+    uses: ecadlabs/taqueria-github-action@v0.1.2
     with:
         project_directory: 'example-projects/hello-tacos'
         compile_command: 'compile'
 
 - name: start local sandbox
-    uses: ecadlabs/taqueria-github-action@v0.1.1
+    uses: ecadlabs/taqueria-github-action@v0.1.2
     with:
         project_directory: 'example-projects/hello-tacos'
         sandbox_name: 'local'
 
 - name: originate contracts
-    uses: ecadlabs/taqueria-github-action@v0.1.1
+    uses: ecadlabs/taqueria-github-action@v0.1.2
     with:
         project_directory: 'example-projects/hello-tacos'
         originate: 'true'
 
 - name: originate contracts
-    uses: ecadlabs/taqueria-github-action@v0.1.1
+    uses: ecadlabs/taqueria-github-action@v0.1.2
     with:
         project_directory: 'example-projects/hello-tacos'
         tests: 'true'
