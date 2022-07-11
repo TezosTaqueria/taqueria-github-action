@@ -31,6 +31,7 @@ fi
 if [ -n "$INPUT_SANDBOX_NAME" ]; then
     taq start sandbox $INPUT_SANDBOX_NAME
     echo "Setting $INPUT_SANDBOX_NAME sandbox to the correct IP for CICD runs"
+    echo "172.17.0.1       localhost" > /etc/hosts
     cat /etc/hosts
     # cat <<< "$(jq '.sandbox.'$INPUT_SANDBOX_NAME'.rpcUrl="http://172.17.0.1:20000"' .taq/config.json)" > .taq/config.json
 fi
