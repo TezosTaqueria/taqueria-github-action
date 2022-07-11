@@ -7,8 +7,6 @@ RUN apt update && apt install jq -y
 # Set the DENO_DIR environment variable to controll where the cache is built
 RUN mkdir deno
 ENV DENO_DIR=/deno
-RUN rm /etc/hosts
-RUN echo "172.17.0.1       localhost" | tee /etc/hosts > /dev/null
 
 COPY --from=docker:dind /usr/local/bin/docker /bin/docker
 
