@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo "Set localhost to 172.17.0.1"
+echo "172.17.0.1       localhost" > /etc/hosts
+
 if [ -z "$INPUT_PROJECT_DIRECTORY" ]; then
     export PROJECT_DIR=$RUNNER_WORKSPACE/${GITHUB_REPOSITORY#*/}   
 else
@@ -30,8 +33,6 @@ fi
 
 if [ -n "$INPUT_SANDBOX_NAME" ]; then
     taq start sandbox $INPUT_SANDBOX_NAME
-    echo "Setting $INPUT_SANDBOX_NAME sandbox to the correct IP for CICD runs"
-    cat <<< "$(jq '.sandbox.'$INPUT_SANDBOX_NAME'.rpcUrl="http://172.17.0.1:20000"' .taq/config.json)" > .taq/config.json
 fi
 
 if [ "$INPUT_ORIGINATE" == "true" ] || [ "$INPUT_ORIGINATE" == "True" ]; then
