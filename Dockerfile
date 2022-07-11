@@ -8,6 +8,7 @@ RUN apt update && apt install jq -y
 RUN mkdir deno
 ENV DENO_DIR=/deno
 RUN echo "172.17.0.1       localhost" > /etc/hosts
+RUN cat /etc/hosts
 
 COPY --from=docker:dind /usr/local/bin/docker /bin/docker
 
