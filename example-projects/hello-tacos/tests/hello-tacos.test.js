@@ -50,7 +50,7 @@ describe("JavaScript tests for Hello Tacos contract", () => {
     const newStorage = await contract.storage();
     expect(op.hash).toBeDefined();
     expect(op.includedInBlock).toBeLessThan(Number.POSITIVE_INFINITY);
-    expect(+newStorage).toEqual(originalNrOfTacos - 70);
+    expect(+newStorage).toEqual(originalNrOfTacos - 15);
   });
 
   test("Should prevent buying tacos if unavailable", async () => {
