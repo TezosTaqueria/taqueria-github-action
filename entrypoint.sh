@@ -46,5 +46,4 @@ fi
 
 if [ "$INPUT_TESTS" == "true" ] || [ "$INPUT_TESTS" == "True" ]; then
     taq test
-    echo $?
 fi
