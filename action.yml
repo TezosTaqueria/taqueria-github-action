@@ -4,6 +4,9 @@ branding:
   icon: circle
   color: red
 inputs:
+  contracts:
+    description: 'A comma separated list of contracts to be added to the Taqueria project'
+    required: false
   compile_command:
     description: 'A command to compile the contracts'
     required: false

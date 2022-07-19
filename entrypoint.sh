@@ -25,6 +25,14 @@ if [ -n "$INPUT_PLUGINS" ]; then
     done
 fi
 
+if [ -n "$INPUT_CONTRACTS" ]; then
+    # for each contract in the comma separated INPUT_CONTRACTS register the contract
+    for contract in $(echo $INPUT_CONTRACTS | tr "," "\n"); do
+        echo "Registering contract $contract"
+        taq add-contract "$contract"
+    done
+fi
+
 if [ -n "$INPUT_COMPILE_COMMAND" ]; then
     echo "PROJECT_DIR: $PROJECT_DIR"
     echo "Compiling contracts using the command $INPUT_COMPILE_COMMAND"
