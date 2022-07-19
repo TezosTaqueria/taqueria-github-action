@@ -1,4 +1,4 @@
-...
+---
 name: RootProject
 
 on: [push]
