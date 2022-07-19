@@ -6,15 +6,15 @@
             "type": "npm"
         },
         {
+            "name": "@taqueria/plugin-jest",
+            "type": "npm"
+        },
+        {
             "name": "@taqueria/plugin-taquito",
             "type": "npm"
         },
         {
             "name": "@taqueria/plugin-flextesa",
-            "type": "npm"
-        },
-        {
-            "name": "@taqueria/plugin-jest",
             "type": "npm"
         }
     ],
@@ -73,5 +73,11 @@
         "john": "3_000_000_000",
         "jane": "3_000_000_000",
         "joe": "3_000_000_000"
+    },
+    "contracts": {
+        "hello-tacos.mligo": {
+            "sourceFile": "hello-tacos.mligo",
+            "hash": "530f224fb713e4fb6d250f1c94fdc4a10a4cdde16fe02385071021637cc914e6"
+        }
     }
 }
