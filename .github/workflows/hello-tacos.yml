@@ -1,3 +1,6 @@
+---
+name: HelloTacos
+
 on: [push]
 
 concurrency: 
@@ -22,10 +25,11 @@ jobs:
           cd example-projects/hello-tacos
           npm update
 
-      - name: compile contracts
+      - name: register and compile contracts
         uses: ./
         with:
           project_directory: 'example-projects/hello-tacos'
+          contracts: 'hello-tacos.mligo'
           compile_command: 'compile'
 
       - name: start local sandbox

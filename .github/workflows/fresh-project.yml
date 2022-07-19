@@ -1,3 +1,6 @@
+---
+name: RootProject
+
 on: [push]
 
 concurrency: 
@@ -26,6 +29,7 @@ jobs:
         uses: ./
         with:
           plugins: '@taqueria/plugin-ligo, @taqueria/plugin-flextesa, @taqueria/plugin-taquito, @taqueria/plugin-jest'
+          contracts: 'counter.jsligo'
           compile_command: compile 
           sandbox_name: local
           originate: 'True'
