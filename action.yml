@@ -1,4 +1,4 @@
-name: 'taqueria-actions'
+name: 'Taqueria Actions'
 description: 'A docker action that helps simplify and standardize the use of taqueria in GitHub workflows'
 branding:
   icon: circle
