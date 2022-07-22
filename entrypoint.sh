@@ -53,6 +53,7 @@ if [ -n "$INPUT_TASK" ] && [ "$INPUT_TASK" != "init" ]; then
 fi
 
 if [ "$INPUT_TESTS" == "true" ] || [ "$INPUT_TESTS" == "True" ]; then
+    whoami
     chown -R root:root ./*
     taq test
     chown -R 1001:121 ./*
