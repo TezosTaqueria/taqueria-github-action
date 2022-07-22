@@ -53,5 +53,7 @@ if [ -n "$INPUT_TASK" ] && [ "$INPUT_TASK" != "init" ]; then
 fi
 
 if [ "$INPUT_TESTS" == "true" ] || [ "$INPUT_TESTS" == "True" ]; then
+    chown -R root:root "$INPUT_PROJECT_DIRECTORY"
     taq test
+    chown -R 1001:121
 fi
