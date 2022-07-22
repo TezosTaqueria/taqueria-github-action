@@ -52,12 +52,9 @@ if [ -n "$INPUT_TASK" ] && [ "$INPUT_TASK" != "init" ]; then
 fi
 
 if [ "$INPUT_TESTS" == "true" ] || [ "$INPUT_TESTS" == "True" ]; then
-    # chown -R root:root .taq/
     chmod -R 777 ./.taq
-    ls -ltra ./
     taq test
     exit_code=$?
-    # chown -R 1001:121 .taq/
     chmod -R 755 ./.taq
     exit $exit_code
 fi
