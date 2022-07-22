@@ -1,5 +1,4 @@
 #!/bin/bash
-
 echo "Set localhost to 172.17.0.1"
 echo "172.17.0.1       localhost" > /etc/hosts
 
@@ -53,5 +52,9 @@ if [ -n "$INPUT_TASK" ] && [ "$INPUT_TASK" != "init" ]; then
 fi
 
 if [ "$INPUT_TESTS" == "true" ] || [ "$INPUT_TESTS" == "True" ]; then
+    chmod -R 777 ./.taq
     taq test
+    exit_code=$?
+    chmod -R 755 ./.taq
+    exit $exit_code
 fi
