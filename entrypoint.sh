@@ -53,10 +53,11 @@ fi
 
 if [ "$INPUT_TESTS" == "true" ] || [ "$INPUT_TESTS" == "True" ]; then
     # chown -R root:root .taq/
-    chown -R 777 ../
+    chmod -R 777 ../
+    ls -ltra ../
     taq test
     exit_code=$?
     # chown -R 1001:121 .taq/
-    chown -R 755 ../
+    chmod -R 755 ../
     exit $exit_code
 fi
