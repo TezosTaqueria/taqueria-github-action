@@ -1,5 +1,5 @@
 #!/bin/bash
-
+id -un 1001
 echo "Set localhost to 172.17.0.1"
 echo "172.17.0.1       localhost" > /etc/hosts
 
