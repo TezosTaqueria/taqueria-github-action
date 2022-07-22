@@ -1,5 +1,4 @@
 #!/bin/bash
-cat /etc/passwd
 echo "Set localhost to 172.17.0.1"
 echo "172.17.0.1       localhost" > /etc/hosts
 
@@ -53,7 +52,8 @@ if [ -n "$INPUT_TASK" ] && [ "$INPUT_TASK" != "init" ]; then
 fi
 
 if [ "$INPUT_TESTS" == "true" ] || [ "$INPUT_TESTS" == "True" ]; then
-    chown -R root:root "$(pwd)/.taq"
+    pwd
+    ls -ltra
     taq test
     chown -R 1001:121 "$(pwd)/.taq"
 fi
