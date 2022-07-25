@@ -13,7 +13,7 @@ ADD https://github.com/ecadlabs/taqueria/releases/download/v0.8.0/taq-linux /bin
 
 # Make the binary executable
 RUN chmod +x /bin/taq
-RUN chown root:121 /bin/taq
+RUN chown 1001:121 /bin/taq
 
 ENV PATH="/bin:{$PATH}"
 
