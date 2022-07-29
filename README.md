@@ -40,6 +40,10 @@ When set to true, all tests in the `tests` directory will be run using the Jest 
 
 This input is used to select the configured environment for `taqueria` to originate to. The default is set to `development`.
 
+### `taq_consent`
+
+Whether or not to share action utilization data with Taqueria. Defaults to `True`. Set to `False` to opt out.
+
 ## Example usage
 
 ### Single step action

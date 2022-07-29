@@ -32,6 +32,10 @@ inputs:
   tests:
     description: 'Set to True/true to run tests. The Jest plugin needs to be installed'
     required: false
+  taq_consent:
+    description: 'Whether or not to share action utilization data with Taqueria. Defaults to True. Set to False to opt out'
+    required: false
+    default: True
 
 runs:
   using: 'docker'
@@ -45,3 +49,4 @@ runs:
     - ${{ inputs.originate }}
     - ${{ inputs.task }}
     - ${{ inputs.tests }}
+    - ${{ inputs.taq_consent }}
