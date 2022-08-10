@@ -1,5 +1,5 @@
 ---
-name: HelloTacos
+name: Action tests
 
 on: [push]
 
@@ -8,9 +8,44 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  hello-tacos-compile-and-deploy-local:
+  empty-project:
     runs-on: ubuntu-latest
-    name: Compiles and deploys the counter.jsligo contract to a local sandbox
+    name: Empty project
+    description: Initialize, build, and test an empty project
+    steps:
+
+      - name: Setup repo
+        uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
+
+      - name: Init taqueria
+        uses: ./
+        with:
+          task: init
+          
+      - name: taqueria tasks
+        uses: ./
+        with:
+          plugins: '@taqueria/plugin-ligo, @taqueria/plugin-flextesa, @taqueria/plugin-taquito, @taqueria/plugin-jest'
+          contracts: 'counter.jsligo'
+          compile_command: compile 
+          sandbox_name: local
+          originate: 'True'
+
+      - name: upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: artifacts
+          path: artifacts/*
+          retention-days: 1
+
+  hello-tacos:
+    runs-on: ubuntu-latest
+    name: Hello-tacos project
+    description: Build and test the hello-tacos project
     steps:
 
       - name: Setup repo
