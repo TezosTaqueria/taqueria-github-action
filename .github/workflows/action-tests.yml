@@ -11,7 +11,6 @@ jobs:
   empty-project:
     runs-on: ubuntu-latest
     name: Empty project
-    description: Initialize, build, and test an empty project
     steps:
 
       - name: Setup repo
@@ -45,7 +44,6 @@ jobs:
   hello-tacos:
     runs-on: ubuntu-latest
     name: Hello-tacos project
-    description: Build and test the hello-tacos project
     steps:
 
       - name: Setup repo
