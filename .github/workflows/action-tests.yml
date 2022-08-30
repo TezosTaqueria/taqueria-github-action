@@ -1,7 +1,14 @@
 ---
 name: Action tests
 
-on: [push]
+on: 
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  schedule:
+    - cron: '0 0 * * *'
+
 
 concurrency: 
   group: ${{ github.workflow }}-${{ github.ref }}
