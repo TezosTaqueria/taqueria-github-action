@@ -26,6 +26,9 @@ inputs:
   sandbox_name:
     description: 'The name of the sandbox if any'
     required: false
+  taqueria_version:
+    description: 'An input for specifying a different version of the taqueria binary. The version should be in the format of a PR number e.g 1105 or a release version like v0.1.0. Please note that using this option will increase action runtime slightly.'
+    required: false
   task:
     description: 'The task for taqueria to run'
     required: false
@@ -38,10 +41,12 @@ runs:
   image: 'Dockerfile'
   args:
     - ${{ inputs.compile_command }}
+    - ${{ inputs.contracts }}
     - ${{ inputs.environment }}
     - ${{ inputs.plugins }}
     - ${{ inputs.project_directory }}
-    - ${{ inputs.sandbox_name }}
     - ${{ inputs.originate }}
+    - ${{ inputs.sandbox_name }}
+    - ${{ inputs.taqueria_version }}
     - ${{ inputs.task }}
     - ${{ inputs.tests }}

@@ -9,6 +9,21 @@ else
     cd $INPUT_PROJECT_DIRECTORY || exit 1
 fi
 
+if [ -n "$INPUT_TAQUERIA_VERSION" ]; then
+    echo "Removing existing binary"
+    rm /bin/taq
+    echo "Downloading binary from $INPUT_TAQUERIA_VERSION"
+    if [[ $INPUT_TAQUERIA_VERSION =~ ^v([0-9]+)\.([0-9]+)\.([0-9]+)?$ ]]; then
+        curl -o /bin/taq "https://github.com/ecadlabs/taqueria/releases/download/$INPUT_TAQUERIA_VERSION/taq-linux"
+    elif [[ $INPUT_TAQUERIA_VERSION =~ ^[0-9]{0,10}$ ]]; then
+        curl -o /bin/taq "https://storage.googleapis.com/taqueria-artifacts/refs/pull/$INPUT_TAQUERIA_VERSION/merge/taq.x86_64-unknown-linux-gnu"
+    else 
+        echo "$INPUT_TAQUERIA_VERSION is not a valid version number"
+        exit 1
+    fi
+    chmod +x /bin/taq
+    CI=true taq --version
+fi
 
 if [ "$INPUT_TASK" == "init" ]; then
         echo "Initializing project..."
