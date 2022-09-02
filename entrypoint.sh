@@ -42,7 +42,7 @@ if [ -n "$INPUT_SANDBOX_NAME" ]; then
     taq start sandbox $INPUT_SANDBOX_NAME
 fi
 
-if [ "$INPUT_DEPLOY" == "true" ] || [ "$INPUT_DEPLOY" == "True" ]; then
+if [ -n "$INPUT_DEPLOY" ]; then
     taq deploy $INPUT_DEPLOY --env $INPUT_ENVIRONMENT
 fi
 
