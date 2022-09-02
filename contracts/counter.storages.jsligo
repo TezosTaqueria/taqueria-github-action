@@ -1,0 +1,5 @@
+// All storage values must be in this file
+
+// Define storage variable
+
+let storage:storage = 42n

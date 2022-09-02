@@ -36,9 +36,9 @@ jobs:
         uses: ./
         with:
           plugins: '@taqueria/plugin-ligo:preview, @taqueria/plugin-flextesa:preview, @taqueria/plugin-taquito:preview, @taqueria/plugin-jest:preview'
-          compile_command: compile counter.jsligo
+          compile_contracts: counter.jsligo
           sandbox_name: local
-          originate: 'True'
+          deploy_contracts: counter.tz
 
       - name: upload artifacts
         uses: actions/upload-artifact@v3
@@ -64,11 +64,11 @@ jobs:
           cd example-projects/hello-tacos
           npm update
 
-      - name: register and compile contracts
+      - name: compile contracts
         uses: ./
         with:
           project_directory: 'example-projects/hello-tacos'
-          compile_command: 'compile hello-tacos.mligo'
+          compile_contracts: 'hello-tacos.mligo'
 
       - name: start local sandbox
         uses: ./
@@ -80,7 +80,7 @@ jobs:
         uses: ./
         with:
           project_directory: 'example-projects/hello-tacos'
-          deploy: hello-tacos.mligo
+          deploy_contracts: hello-tacos.tz
 
       - name: run tests
         uses: ./
