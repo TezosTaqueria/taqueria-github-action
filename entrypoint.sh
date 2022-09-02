@@ -22,7 +22,7 @@ if [ -n "$INPUT_TAQUERIA_VERSION" ]; then
         exit 1
     fi
     chmod +x /bin/taq
-    CI=true taq --version || exit 1
+    taq --version || exit 1
 fi
 
 if [ "$INPUT_TASK" == "init" ]; then
