@@ -36,8 +36,7 @@ jobs:
         uses: ./
         with:
           plugins: '@taqueria/plugin-ligo, @taqueria/plugin-flextesa, @taqueria/plugin-taquito, @taqueria/plugin-jest'
-          contracts: 'counter.jsligo'
-          compile_command: compile 
+          compile_command: compile counter.jsligo
           sandbox_name: local
           originate: 'True'
 
@@ -69,8 +68,7 @@ jobs:
         uses: ./
         with:
           project_directory: 'example-projects/hello-tacos'
-          contracts: 'hello-tacos.mligo'
-          compile_command: 'compile'
+          compile_command: 'compile hello-tacos.mligo'
 
       - name: start local sandbox
         uses: ./
