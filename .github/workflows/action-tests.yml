@@ -35,7 +35,7 @@ jobs:
       - name: taqueria tasks
         uses: ./
         with:
-          plugins: '@taqueria/plugin-ligo, @taqueria/plugin-flextesa, @taqueria/plugin-taquito, @taqueria/plugin-jest'
+          plugins: '@taqueria/plugin-ligo:preview, @taqueria/plugin-flextesa:preview, @taqueria/plugin-taquito:preview, @taqueria/plugin-jest:preview'
           compile_command: compile counter.jsligo
           sandbox_name: local
           originate: 'True'
@@ -76,11 +76,11 @@ jobs:
           project_directory: 'example-projects/hello-tacos'
           sandbox_name: 'local'
 
-      - name: originate contracts
+      - name: deploy contracts
         uses: ./
         with:
           project_directory: 'example-projects/hello-tacos'
-          originate: True
+          deploy: hello-tacos.mligo
 
       - name: run tests
         uses: ./

@@ -42,8 +42,8 @@ if [ -n "$INPUT_SANDBOX_NAME" ]; then
     taq start sandbox $INPUT_SANDBOX_NAME
 fi
 
-if [ "$INPUT_ORIGINATE" == "true" ] || [ "$INPUT_ORIGINATE" == "True" ]; then
-    taq originate --env $INPUT_ENVIRONMENT
+if [ "$INPUT_DEPLOY" == "true" ] || [ "$INPUT_DEPLOY" == "True" ]; then
+    taq deploy $INPUT_DEPLOY --env $INPUT_ENVIRONMENT
 fi
 
 if [ -n "$INPUT_TASK" ] && [ "$INPUT_TASK" != "init" ]; then
