@@ -7,8 +7,8 @@ inputs:
   compile_contracts:
     description: 'A comma separated list of contracts compiled'
     required: false
-  contracts:
-    description: 'A comma separated list of contracts to be added to the Taqueria project'
+  deploy_contracts:
+    description: 'A comma seperated list of contracts to deploy to a specific environment. The Taquito plugin needs to be installed'
     required: false
   environment:
     description: 'The environment to execute commands on. The default is "development"'
@@ -19,9 +19,6 @@ inputs:
     required: false
   project_directory:
     description: 'The name of the project to create'
-    required: false
-  deploy_contracts:
-    description: 'A comma seperated list of contracts to deploy to a specific environment. The Taquito plugin needs to be installed'
     required: false
   sandbox_name:
     description: 'The name of the sandbox if any'
@@ -37,7 +34,6 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.compile_contracts }}
     - ${{ inputs.environment }}
     - ${{ inputs.plugins }}
     - ${{ inputs.project_directory }}
