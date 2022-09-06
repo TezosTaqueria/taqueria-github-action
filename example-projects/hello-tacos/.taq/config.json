@@ -1,23 +1,5 @@
 {
     "language": "en",
-    "plugins": [
-        {
-            "name": "@taqueria/plugin-ligo",
-            "type": "npm"
-        },
-        {
-            "name": "@taqueria/plugin-jest",
-            "type": "npm"
-        },
-        {
-            "name": "@taqueria/plugin-taquito",
-            "type": "npm"
-        },
-        {
-            "name": "@taqueria/plugin-flextesa",
-            "type": "npm"
-        }
-    ],
     "contractsDir": "contracts",
     "artifactsDir": "artifacts",
     "network": {},
@@ -27,6 +9,7 @@
             "rpcUrl": "http://localhost:20000",
             "protocol": "Psithaca2MLRFYargivpo7YvUr7wUDqyxrdhC5CQq78mRvimz6A",
             "accounts": {
+                "default": "joe",
                 "bob": {
                     "encryptedKey": "edpkurPsQ8eUApnLUJ9ZPDvu98E8VNj4KtJa1aZr16Cr5ow5VHKnz4",
                     "publicKeyHash": "tz1aSkwEot3L2kmUvcoxzjMomb9mvBNuzFK6",
@@ -62,8 +45,10 @@
             "sandboxes": [
                 "local"
             ],
-            "storage": {
-                "hello-tacos.tz": "100"
+            "aliases": {
+                "hello-tacos": {
+                    "address": "KT1H6UfH8pAzg8A5umKbsoZ1M3d7f8DTZwcp"
+                }
             }
         }
     },
@@ -74,10 +59,25 @@
         "jane": "3_000_000_000",
         "joe": "3_000_000_000"
     },
-    "contracts": {
-        "hello-tacos.mligo": {
-            "sourceFile": "hello-tacos.mligo",
-            "hash": "530f224fb713e4fb6d250f1c94fdc4a10a4cdde16fe02385071021637cc914e6"
+    "plugins": [
+        {
+            "name": "@taqueria/plugin-ligo",
+            "type": "npm"
+        },
+        {
+            "name": "@taqueria/plugin-jest",
+            "type": "npm"
+        },
+        {
+            "name": "@taqueria/plugin-taquito",
+            "type": "npm"
+        },
+        {
+            "name": "@taqueria/plugin-flextesa",
+            "type": "npm"
         }
-    }
+    ],
+    "projectDir": "/home/gino/Documents/Repositories/taqueria-github-action/example-projects/hello-tacos",
+    "configFile": "/home/gino/Documents/Repositories/taqueria-github-action/example-projects/hello-tacos/.taq/config.json",
+    "hash": "f67002d5ab749a9c67897943cd738cda94eaf45bd836e639ce52fe83312eb759"
 }

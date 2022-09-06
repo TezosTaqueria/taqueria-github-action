@@ -32,18 +32,26 @@ if [ -n "$INPUT_CONTRACTS" ]; then
     done
 fi
 
-if [ -n "$INPUT_COMPILE_COMMAND" ]; then
+if [ -n "$INPUT_COMPILE_CONTRACTS" ]; then
     echo "PROJECT_DIR: $PROJECT_DIR"
-    echo "Compiling contracts using the command $INPUT_COMPILE_COMMAND"
-    taq $INPUT_COMPILE_COMMAND
+    # for each contract in the comma separated INPUT_CONTRACTS register the contract
+    for contract in $(echo $INPUT_COMPILE_CONTRACTS | tr "," "\n"); do
+        echo "Compiling $contract"
+        taq compile "$contract"
+    done
 fi
 
 if [ -n "$INPUT_SANDBOX_NAME" ]; then
     taq start sandbox $INPUT_SANDBOX_NAME
 fi
 
-if [ "$INPUT_ORIGINATE" == "true" ] || [ "$INPUT_ORIGINATE" == "True" ]; then
-    taq originate --env $INPUT_ENVIRONMENT
+if [ -n "$INPUT_DEPLOY_CONTRACTS" ]; then
+    taq deploy $INPUT_DEPLOY_CONTRACTS --env $INPUT_ENVIRONMENT
+    # for each contract in the comma separated INPUT_CONTRACTS register the contract
+    for contract in $(echo $INPUT_DEPLOY_CONTRACTS | tr "," "\n"); do
+        echo "Deploying $contract"
+        taq deploy "$contract"
+    done
 fi
 
 if [ -n "$INPUT_TASK" ] && [ "$INPUT_TASK" != "init" ]; then
