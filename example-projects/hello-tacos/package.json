@@ -14,10 +14,10 @@
   "author": "Claude Barde",
   "license": "ISC",
   "devDependencies": {
-    "@taqueria/plugin-flextesa": "^0.13.16",
-    "@taqueria/plugin-jest": "^0.13.16",
-    "@taqueria/plugin-ligo": "^0.13.16",
-    "@taqueria/plugin-taquito": "^0.13.16",
+    "@taqueria/plugin-flextesa": "latest",
+    "@taqueria/plugin-jest": "latest",
+    "@taqueria/plugin-ligo": "latest",
+    "@taqueria/plugin-taquito": "latest",
     "jest-cli": "^28.1.0",
     "jest-config": "^28.1.0",
     "jest-environment-jsdom": "^28.1.2"
