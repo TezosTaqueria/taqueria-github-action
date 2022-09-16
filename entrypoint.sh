@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "Set localhost to 172.17.0.1"
+## Because of the docker-in-docker setup for the action we need to set 'localhost' to the host docker IP
 echo "172.17.0.1       localhost" > /etc/hosts
 
 if [ -z "$INPUT_PROJECT_DIRECTORY" ]; then
