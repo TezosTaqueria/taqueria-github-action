@@ -16,10 +16,7 @@
             "networks": [],
             "sandboxes": [
                 "local"
-            ],
-            "storage": {
-	    	    "counter.tz": 42
-	        }
+            ]
         }
     },
     "accounts": {
