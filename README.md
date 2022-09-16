@@ -2,6 +2,9 @@
 
 A docker action that helps simplify and standardize the use of [Taqueria](https://taqueria.io/) in GitHub workflows
 
+## Taqueria version
+`v0.18.0`
+
 ## Inputs
 
 ### `compile_contracts`
@@ -41,7 +44,7 @@ When set to true, all tests in the `tests` directory will be run using the Jest 
 ### Single step action
 ```yaml
 - name: taqueria tasks
-    uses: ecadlabs/taqueria-github-action@v0.4.0
+    uses: ecadlabs/taqueria-github-action@v0.6.0
     with:
         plugins: '@taqueria/plugin-ligo, @taqueria/plugin-flextesa, @taqueria/plugin-taquito, @taqueria/plugin-jest'
         compile_contracts: counter.jsligo
@@ -53,19 +56,19 @@ When set to true, all tests in the `tests` directory will be run using the Jest 
 ### Multiple step action
 ```yaml
 - name: compile contracts
-    uses: ecadlabs/taqueria-github-action@v0.4.0
+    uses: ecadlabs/taqueria-github-action@v0.6.0
     with:
         project_directory: 'example-projects/hello-tacos'
         compile_contracts: 'hello-tacos.mligo'
 
 - name: start local sandbox
-    uses: ecadlabs/taqueria-github-action@v0.4.0
+    uses: ecadlabs/taqueria-github-action@v0.6.0
     with:
         project_directory: 'example-projects/hello-tacos'
         sandbox_name: 'local'
 
 - name: deploy contracts
-    uses: ecadlabs/taqueria-github-action@v0.4.0
+    uses: ecadlabs/taqueria-github-action@v0.6.0
     with:
         project_directory: 'example-projects/hello-tacos'
         deploy_contracts: hello-tacos.tz
