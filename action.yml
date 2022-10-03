@@ -26,18 +26,19 @@ inputs:
   task:
     description: 'The task for taqueria to run'
     required: false
-  tests:
-    description: 'Set to True/true to run tests. The Jest plugin needs to be installed'
+  test_plugin:
+    description: If set, taqueria will run tests with using the specified plugin. Ensure that the specified plugin is installed. These test will always be run after all other jobs.
     required: false
 
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
+    - ${{ inputs.compile_contracts }}
+    - ${{ inputs.deploy_contracts }}
     - ${{ inputs.environment }}
     - ${{ inputs.plugins }}
     - ${{ inputs.project_directory }}
     - ${{ inputs.sandbox_name }}
-    - ${{ inputs.deploy_contracts }}
     - ${{ inputs.task }}
-    - ${{ inputs.tests }}
+    - ${{ inputs.test_plugin }}
