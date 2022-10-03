@@ -86,7 +86,7 @@ jobs:
         uses: ./
         with:
           project_directory: 'example-projects/hello-tacos'
-          tests: True
+          test_plugin: jest
 
       - name: upload artifacts
         uses: actions/upload-artifact@v3
