@@ -3,7 +3,7 @@
 A docker action that helps simplify and standardize the use of [Taqueria](https://taqueria.io/) in GitHub workflows
 
 ## Taqueria version
-`v0.18.0`
+`v0.20.2`
 
 ## Inputs
 
