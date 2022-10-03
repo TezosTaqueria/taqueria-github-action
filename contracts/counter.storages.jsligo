@@ -2,4 +2,4 @@
 
 // Define storage variable
 
-let storage:storage = 42
+const storage:storage = 42
