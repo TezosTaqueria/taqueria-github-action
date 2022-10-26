@@ -2,7 +2,13 @@
     "language": "en",
     "contractsDir": "contracts",
     "artifactsDir": "artifacts",
-    "network": {},
+    "network": {
+        "ghostnet": {
+            "label": "ghostnet",
+            "rpcUrl": "https://ghostnet.ecadinfra.com",
+            "protocol": "PtKathmankSpLLDALzWw7CGD2j2MtyveTwboEYokqUCP4a1LxMg"
+        }
+    },
     "sandbox": {
         "local": {
             "label": "Local Tezos Sandbox",
@@ -50,6 +56,12 @@
                     "address": "KT1H6UfH8pAzg8A5umKbsoZ1M3d7f8DTZwcp"
                 }
             }
+        },
+        "testing": {
+            "networks": [
+                "ghostnet"
+            ],
+            "sandboxes": []
         }
     },
     "accounts": {
