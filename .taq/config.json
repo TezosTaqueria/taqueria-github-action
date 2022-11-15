@@ -25,5 +25,11 @@
         "john": "3_000_000_000",
         "jane": "3_000_000_000",
         "joe": "3_000_000_000"
-    }
+    },
+    "plugins": [
+        {
+            "name": "@taqueria/plugin-core",
+            "type": "npm"
+        }
+    ]
 }
