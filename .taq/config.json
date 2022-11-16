@@ -1,13 +1,25 @@
 {
     "language": "en",
+    "plugins": [
+        {
+            "name": "@taqueria/plugin-core",
+            "type": "npm"
+        }
+    ],
     "contractsDir": "contracts",
     "artifactsDir": "artifacts",
-    "network": {},
+    "network": {
+        "ghostnet": {
+            "label": "ghostnet",
+            "rpcUrl": "https://ghostnet.ecadinfra.com",
+            "protocol": "PtKathmankSpLLDALzWw7CGD2j2MtyveTwboEYokqUCP4a1LxMg"
+        }
+    },
     "sandbox": {
         "local": {
             "label": "Local Tezos Sandbox",
             "rpcUrl": "http://172.17.0.1:20000",
-            "protocol": "Psithaca2MLRFYargivpo7YvUr7wUDqyxrdhC5CQq78mRvimz6A"
+            "protocol": "PtKathmankSpLLDALzWw7CGD2j2MtyveTwboEYokqUCP4a1LxMg"
         }
     },
     "environment": {
@@ -17,6 +29,12 @@
             "sandboxes": [
                 "local"
             ]
+        },
+        "testing": {
+            "networks": [
+                "ghostnet"
+            ],
+            "sandboxes": []
         }
     },
     "accounts": {
@@ -25,11 +43,5 @@
         "john": "3_000_000_000",
         "jane": "3_000_000_000",
         "joe": "3_000_000_000"
-    },
-    "plugins": [
-        {
-            "name": "@taqueria/plugin-core",
-            "type": "npm"
-        }
-    ]
+    }
 }
