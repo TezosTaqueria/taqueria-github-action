@@ -18,6 +18,7 @@
     "@taqueria/plugin-jest": "latest",
     "@taqueria/plugin-ligo": "latest",
     "@taqueria/plugin-taquito": "latest",
+    "@taqueria/plugin-core": "latest",
     "jest-cli": "^28.1.0",
     "jest-config": "^28.1.0",
     "jest-environment-jsdom": "^28.1.2"
