@@ -9,7 +9,7 @@ ENV DENO_DIR=/deno
 COPY --from=docker:dind /usr/local/bin/docker /bin/docker
 
 # Download the Taqueria release binary for Linux to /bin/taq
-ADD https://github.com/ecadlabs/taqueria/releases/download/v0.22.2/taq-linux /bin/taq
+ADD https://github.com/ecadlabs/taqueria/releases/download/v0.24.1/taq-linux /bin/taq
 
 # Make the binary executable
 RUN chmod +x /bin/taq
