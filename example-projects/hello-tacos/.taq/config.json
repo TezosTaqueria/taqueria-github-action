@@ -73,10 +73,6 @@
             "type": "npm"
         },
         {
-            "name": "@taqueria/plugin-core",
-            "type": "npm"
-        },
-        {
             "name": "@taqueria/plugin-flextesa",
             "type": "npm"
         }
