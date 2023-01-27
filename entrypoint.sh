@@ -59,10 +59,10 @@ if [ -n "$INPUT_TASK" ] && [ "$INPUT_TASK" != "init" ]; then
 fi
 
 if [ -n "$INPUT_TEST_PLUGIN" ]; then
-    chmod -R 777 ./
+    chmod -R 777 ../**
     echo "Running tests using plugin $INPUT_TEST_PLUGIN"
     taq test --plugin "$INPUT_TEST_PLUGIN"
     exit_code=$?
-    chmod -R 755 ./
+    chmod -R 755 ../**
     exit $exit_code
 fi
