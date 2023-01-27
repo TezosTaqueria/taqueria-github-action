@@ -26,6 +26,7 @@
     "@taqueria/plugin-flextesa": "^0.27.1-rc",
     "@taqueria/plugin-jest": "^0.27.1-rc",
     "@taqueria/plugin-ligo": "^0.27.1-rc",
+    "@taqueria/plugin-smartpy": "^0.28.0",
     "@taqueria/plugin-taquito": "^0.27.1-rc",
     "@types/jest": "^29.0.0"
   },
