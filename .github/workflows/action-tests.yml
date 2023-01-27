@@ -106,10 +106,10 @@ jobs:
           npm update
 
       - name: taqueria compile, deploy, and test
-        uses: ecadlabs/taqueria-github-action@v0.13.0-rc.3
+        uses: ./
         with:
           compile_contracts: hello-tacos.py
-          compile_plugin: Smartpy
+          compile_plugin: smartpy
           deploy_contracts: hello-tacos.tz
           sandbox_name: local
           test_plugin: jest
