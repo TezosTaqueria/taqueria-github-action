@@ -114,3 +114,4 @@ jobs:
           sandbox_name: local
           test_plugin: jest
           environment: development
+          project_directory: 'example-projects/taco-shop'
