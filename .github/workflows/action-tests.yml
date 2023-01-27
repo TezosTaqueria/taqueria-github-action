@@ -40,7 +40,7 @@ jobs:
 
   taco-shop-ligo:
     runs-on: ubuntu-latest
-    name: Hello-tacos project
+    name: Taco Shop Ligo
     steps:
 
       - name: Setup repo
@@ -90,7 +90,7 @@ jobs:
 
   taco-shop-smartpy:
     runs-on: ubuntu-latest
-    name: Hello-tacos project
+    name: Taco Shop smartpy
     steps:
 
       - name: Setup repo
@@ -109,7 +109,7 @@ jobs:
         uses: ecadlabs/taqueria-github-action@v0.13.0-rc.3
         with:
           compile_contracts: hello-tacos.py
-          compile_plugin: smartpy
+          compile_plugin: Smartpy
           deploy_contracts: hello-tacos.tz
           sandbox_name: local
           test_plugin: jest
