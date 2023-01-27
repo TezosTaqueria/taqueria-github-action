@@ -21,7 +21,7 @@ describe('E2E Testing for taqueria action', () => {
 	});
 
     test('Verify that taqueria can compile a previously registered contract with smartpy', async () => {
-		const accounts = await execPromise(`taq compile hello-tacos.mligo --plugin smartpy`, { cwd: `./` });
+		const accounts = await execPromise(`taq compile hello-tacos.py --plugin smartpy`, { cwd: `./` });
 		expect(accounts.stdout).toContain('artifacts/hello-tacos.tz');
 	});
 
