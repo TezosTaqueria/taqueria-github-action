@@ -15,8 +15,13 @@ describe('E2E Testing for taqueria action', () => {
         expect(accounts.stdout).toContain('joe');
 	});
 
-    test('Verify that taqueria can compile a previously registered contract', async () => {
-		const accounts = await execPromise(`taq compile hello-tacos.mligo`, { cwd: `./` });
+    test('Verify that taqueria can compile a previously registered contract with ligo', async () => {
+		const accounts = await execPromise(`taq compile hello-tacos.mligo --plugin ligo`, { cwd: `./` });
+		expect(accounts.stdout).toContain('artifacts/hello-tacos.tz');
+	});
+
+    test('Verify that taqueria can compile a previously registered contract with smartpy', async () => {
+		const accounts = await execPromise(`taq compile hello-tacos.mligo --plugin smartpy`, { cwd: `./` });
 		expect(accounts.stdout).toContain('artifacts/hello-tacos.tz');
 	});
 
@@ -31,11 +36,6 @@ describe('E2E Testing for taqueria action', () => {
         .find(line => line.includes(contractName))
         ?.split('│')[2]
         .trim()
-
-        // TODO: Talk with Alex about this one
-        // const sandboxContractContents = await execPromise(`curl http://localhost:20000/chains/main/blocks/head/context/contracts/${contractHash}`)
-        // expect(sandboxContractContents.stdout).toContain('"storage":{"int":"42"}')
-
 	});
 });
 

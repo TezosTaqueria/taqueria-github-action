@@ -39,9 +39,7 @@
     "environments": {
         "development": {
             "type": "flextesa",
-            "label": "Local Tezos Sandbox",
-            "rpcUrl": "http://localhost:20000",
-            "sandboxName": "local"
+            "label": "Local Tezos Sandbox"
         },
         "testing": {
             "type": "simple",
