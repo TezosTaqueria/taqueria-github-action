@@ -35,7 +35,7 @@ jobs:
       - name: taqueria tasks
         uses: ./
         with:
-          plugins: '@taqueria/plugin-ligo, @taqueria/plugin-flextesa, @taqueria/plugin-taquito, @taqueria/plugin-jest'
+          plugins: '@taqueria/plugin-ligo@v0.27.17-rc, @taqueria/plugin-flextesa@v0.27.17-rc, @taqueria/plugin-taquito@v0.27.17-rc, @taqueria/plugin-jest@v0.27.17-rc'
           compile_contracts: counter.jsligo
           sandbox_name: local
           deploy_contracts: counter.tz
