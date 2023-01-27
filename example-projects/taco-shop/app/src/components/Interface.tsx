@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { TezosToolkit } from "@taquito/taquito";
+import type {Storage} from "../model"
 
 const Interface = ({
   contractStorage,
@@ -8,8 +9,8 @@ const Interface = ({
   contractAddress,
   connected
 }: {
-  contractStorage: number | undefined;
-  setContractStorage: (p: number) => void;
+  contractStorage: Storage | undefined;
+  setContractStorage: (p: Storage) => void;
   Tezos: TezosToolkit;
   contractAddress: string;
   connected: boolean;
@@ -23,16 +24,18 @@ const Interface = ({
     if (
       contractStorage &&
       tacosToOrder > 0 &&
-      tacosToOrder < contractStorage &&
+      tacosToOrder < contractStorage.available_tacos.toNumber() &&
       !insufficientTacos
     ) {
       try {
-        // throw new Error("Test error");
         setOrderingTacos(true);
         const contract = await Tezos.wallet.at(contractAddress);
-        const op = await contract.methods.default(tacosToOrder).send();
+        const op = await contract.methods.buy(tacosToOrder).send();
         await op.confirmation();
-        setContractStorage(contractStorage - tacosToOrder);
+        setContractStorage({
+          ...contractStorage,
+          available_tacos: contractStorage.available_tacos.minus(tacosToOrder)
+        });
         setTacosToOrder(0);
       } catch (error) {
         console.error(error);
@@ -50,7 +53,7 @@ const Interface = ({
         <>
           <div className="amount-of-tacos">
             <div>There are</div>
-            <div className="amount-of-tacos__storage">{contractStorage}</div>
+            <div className="amount-of-tacos__storage">{contractStorage.available_tacos.toNumber()}</div>
             <div>tacos in the Taqueria</div>
           </div>
           <br />
@@ -64,7 +67,7 @@ const Interface = ({
               onChange={ev => {
                 const val = Math.floor(+ev.target.value);
                 setTacosToOrder(val);
-                if (val <= contractStorage) {
+                if (val <= contractStorage.available_tacos.toNumber()) {
                   setInsufficientTacos(false);
                 } else {
                   setInsufficientTacos(true);

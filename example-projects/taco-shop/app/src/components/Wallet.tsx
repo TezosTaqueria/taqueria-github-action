@@ -1,27 +1,27 @@
 import { useEffect, useState } from "react";
 import { BeaconWallet } from "@taquito/beacon-wallet";
 import type { TezosToolkit } from "@taquito/taquito";
-import { NetworkType } from "@airgap/beacon-sdk";
+import { NetworkType, Network } from "@airgap/beacon-sdk";
 
 const Wallet = ({
   Tezos,
-  rpcUrl,
+  network,
   setConnected,
   connected
 }: {
   Tezos: TezosToolkit | undefined;
-  rpcUrl: string;
+  network: Network;
   setConnected: (p: boolean) => void;
   connected: boolean;
 }) => {
   const [wallet, setWallet] = useState<BeaconWallet | undefined>(undefined);
-  const [userAddress, setUserAddress] = useState<string | undefined>(undefined);
+  const [_, setUserAddress] = useState<string | undefined>(undefined);
 
   const createWallet = (): BeaconWallet => {
     const walletOptions = {
       name: "Hello Tacos",
-      preferredNetwork: NetworkType.HANGZHOUNET
-    };
+      preferredNetwork: network.type
+    }
     return new BeaconWallet(walletOptions);
   };
 
@@ -31,12 +31,7 @@ const Wallet = ({
 
     if (Tezos) {
       try {
-        await w.requestPermissions({
-          network: {
-            type: NetworkType.HANGZHOUNET,
-            rpcUrl
-          }
-        });
+        await w.requestPermissions({network});
         const userPkh = await w.getPKH();
         setUserAddress(userPkh);
         Tezos.setWalletProvider(wallet);
@@ -79,7 +74,7 @@ const Wallet = ({
         }
       }
     })();
-  }, [Tezos]);
+  }, [Tezos, setConnected]);
 
   return connected ? (
     <button className="wallet" onClick={disconnect}>

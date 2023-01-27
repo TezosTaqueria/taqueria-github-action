@@ -2,7 +2,7 @@ const Footer = ({ contractAddress }: { contractAddress: string }) => (
   <footer>
     <div>
       <a
-        href="https://github.com/ecadlabs/taquito"
+        href="https://github.com/ecadlabs/taqueria"
         target="_blank"
         rel="noopener noreferrer nofollow"
       >
@@ -11,16 +11,17 @@ const Footer = ({ contractAddress }: { contractAddress: string }) => (
     </div>
     <div>
       <a
-        href={`https://better-call.dev/hangzhou2net/${contractAddress}/operations`}
+        href={`https://better-call.dev/ghostnet/${contractAddress}/operations`}
         target="_blank"
         rel="noopener noreferrer nofollow"
+        title={contractAddress}
       >
-        <img src="images/file-text.svg" alt="contract-link" />
+        <img src="images/file-text.svg" title={contractAddress} alt={contractAddress} />
       </a>
     </div>
     <div>
       <a
-        href="https://twitter.com/TezosTaquito"
+        href="https://twitter.com/ecadlabs"
         target="_blank"
         rel="noopener noreferrer nofollow"
       >
