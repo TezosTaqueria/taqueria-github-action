@@ -15,13 +15,8 @@ describe('E2E Testing for taqueria action', () => {
         expect(accounts.stdout).toContain('joe');
 	});
 
-    // test('Verify that taqueria can compile a previously registered contract with ligo', async () => {
-	// 	const accounts = await execPromise(`taq compile hello-tacos.mligo --plugin ligo`, { cwd: `./` });
-	// 	expect(accounts.stdout).toContain('artifacts/hello-tacos.tz');
-	// });
-
-    test('Verify that taqueria can compile a previously registered contract with smartpy', async () => {
-		const accounts = await execPromise(`taq compile hello-tacos.py --plugin smartpy`, { cwd: `./` });
+    test('Verify that taqueria can compile a previously registered contract with ligo', async () => {
+		const accounts = await execPromise(`taq compile hello-tacos.mligo --plugin ligo`, { cwd: `./` });
 		expect(accounts.stdout).toContain('artifacts/hello-tacos.tz');
 	});
 
