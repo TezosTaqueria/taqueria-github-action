@@ -3,7 +3,7 @@ module.exports = {
     "automock": false,
     "bail": 0,
     "cache": true,
-    "cacheDirectory": "/private/var/folders/l8/0h1j5nqx7_qb7jnm0fzlxg700000gn/T/jest_dx",
+    "cacheDirectory": "/tmp/jest_rs",
     "changedFilesWithAncestor": false,
     "ci": false,
     "clearMocks": false,
