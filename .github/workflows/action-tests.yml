@@ -53,7 +53,7 @@ jobs:
       - name: install modules
         run: |
           cd example-projects/taco-shop
-          npm update
+          npm install
 
       - name: compile contracts
         uses: ./
@@ -103,7 +103,7 @@ jobs:
       - name: install modules
         run: |
           cd example-projects/taco-shop
-          npm update
+          npm install
 
       - name: taqueria compile, deploy, and test
         uses: ./
