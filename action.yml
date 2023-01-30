@@ -8,7 +8,7 @@ inputs:
     description: 'A comma separated list of contracts compiled'
     required: false
   compile_plugin:
-    description: 'The plugin used to compile the contracts. Can be "ligo" or "smartpy". The defaultis "ligo"'
+    description: 'The plugin used to compile the contracts. Can be "ligo" or "smartpy". The default is "ligo"'
     required: false
     default: 'ligo'
   deploy_contracts:

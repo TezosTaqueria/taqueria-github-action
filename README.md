@@ -11,6 +11,10 @@ A docker action that helps simplify and standardize the use of [Taqueria](https:
 
 A list of contract file names to be compiled into Michelson. The artifacts are saved to the `artifacts` directory with the `.tz` extension.
 
+### `compile_plugin`
+
+The plugin used to compile the contracts. Can be `ligo` or `smartpy`. The default is `ligo`
+
 ### `deploy_contracts`
 
 A list of Michelson smart contract files including the `.tz` extension to be deployed to a specified environment. The Taquito plugin needs to be installed.
