@@ -21,9 +21,9 @@ jobs:
     steps:
 
       - name: Setup repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           node-version: 16
 
@@ -44,9 +44,9 @@ jobs:
     steps:
 
       - name: Setup repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           node-version: 16
 
@@ -88,15 +88,20 @@ jobs:
             example-projects/taco-shop/.taq/state.json
           retention-days: 1
 
+      - name: check ownership of artifact
+        run: |
+          ls -lha ./artifacts
+          ls -lha ./artifacts/.smartpy
+
   taco-shop-smartpy:
     runs-on: ubuntu-latest
     name: Taco Shop smartpy
     steps:
 
       - name: Setup repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           node-version: 16
 
@@ -115,3 +120,8 @@ jobs:
           test_plugin: jest
           environment: development
           project_directory: 'example-projects/taco-shop'
+
+      - name: check ownership of artifact
+        run: |
+          ls -lha ./artifacts
+          ls -lha ./artifacts/.smartpy

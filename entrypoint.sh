@@ -60,7 +60,7 @@ fi
 
 if [ -n "$INPUT_TEST_PLUGIN" ]; then
     chmod -R 777 ./.taq
-    # chmod -R 777 ./artifacts
+    chmod -R 777 ./artifacts
     echo "Running tests using plugin $INPUT_TEST_PLUGIN"
     taq test --plugin "$INPUT_TEST_PLUGIN"
     exit_code=$?
