@@ -38,7 +38,7 @@ if [ -n "$INPUT_COMPILE_CONTRACTS" ]; then
         echo "Compiling $contract"
         taq compile "$contract" --plugin "$INPUT_COMPILE_PLUGIN"
     done
-    chmod -R 766 ./artifacts
+    chmod -R 777 ./artifacts
 fi
 
 if [ -n "$INPUT_SANDBOX_NAME" ]; then
