@@ -90,8 +90,7 @@ jobs:
 
       - name: check ownership of artifact
         run: |
-          ls -lha ./artifacts
-          ls -lha ./artifacts/.smartpy
+          ls -lha 
 
   taco-shop-smartpy:
     runs-on: ubuntu-latest
@@ -123,5 +122,4 @@ jobs:
 
       - name: check ownership of artifact
         run: |
-          ls -lha ./artifacts
-          ls -lha ./artifacts/.smartpy
+          ls -lha 
