@@ -48,10 +48,11 @@ When set to true, all tests in the `tests` directory will be run using the Jest 
 ### Single step action
 ```yaml
 - name: taqueria tasks
-    uses: ecadlabs/taqueria-github-action@v0.12.0
+    uses: ecadlabs/taqueria-github-action@v0.13.0
     with:
-        plugins: '@taqueria/plugin-ligo, @taqueria/plugin-flextesa, @taqueria/plugin-taquito, @taqueria/plugin-jest'
+        plugins: '@taqueria/plugin-ligo, @taqueria/plugin-flextesa, @taqueria/plugin-taquito, @taqueria/plugin-jest, @taqueria/plugin-smartpy'
         compile_contracts: counter.jsligo
+        compile_plugin: ligo
         sandbox_name: local
         deploy_contracts: counter.tz
         tests: 'true'
@@ -60,20 +61,21 @@ When set to true, all tests in the `tests` directory will be run using the Jest 
 ### Multiple step action
 ```yaml
 - name: compile contracts
-    uses: ecadlabs/taqueria-github-action@v0.12.0
+    uses: ecadlabs/taqueria-github-action@v0.13.0
     with:
-        project_directory: 'example-projects/hello-tacos'
-        compile_contracts: 'hello-tacos.mligo'
+        project_directory: example-projects/taco-shop
+        compile_contracts: hello-tacos.mligo
+        compile_plugin: smartpy
 
 - name: start local sandbox
-    uses: ecadlabs/taqueria-github-action@v0.12.0
+    uses: ecadlabs/taqueria-github-action@v0.13.0
     with:
-        project_directory: 'example-projects/hello-tacos'
-        sandbox_name: 'local'
+        project_directory: example-projects/taco-shop
+        sandbox_name: local
 
 - name: deploy contracts
-    uses: ecadlabs/taqueria-github-action@v0.12.0
+    uses: ecadlabs/taqueria-github-action@v0.13.0
     with:
-        project_directory: 'example-projects/hello-tacos'
+        project_directory: example-projects/taco-shop
         deploy_contracts: hello-tacos.tz
 ```
