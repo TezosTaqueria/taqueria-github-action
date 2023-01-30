@@ -7,7 +7,8 @@ jest.setTimeout(30000);
 describe('E2E Testing for taqueria action', () => {
 	test('Verify that taqueria flextesa plugin can return list of accounts from the local sandbox', async () => {
 		const accounts = await execPromise(`taq list accounts local`);
-
+        console.log(accounts.stdout);
+        console.log(accounts.stderr);
 		expect(accounts.stdout).toContain('bob');
         expect(accounts.stdout).toContain('alice');
         expect(accounts.stdout).toContain('john');
@@ -17,11 +18,15 @@ describe('E2E Testing for taqueria action', () => {
 
     test('Verify that taqueria can compile a previously registered contract with ligo', async () => {
 		const accounts = await execPromise(`taq compile hello-tacos.mligo --plugin ligo`, { cwd: `./` });
+        console.log(accounts.stdout);
+        console.log(accounts.stderr);
 		expect(accounts.stdout).toContain('artifacts/hello-tacos.tz');
 	});
 
     test('Verify that taqueria can compile a previously registered contract with smartpy', async () => {
 		const accounts = await execPromise(`taq compile hello-tacos.py --plugin smartpy`, { cwd: `./` });
+        console.log(accounts.stdout);
+        console.log(accounts.stderr);
 		expect(accounts.stdout).toContain('artifacts/hello-tacos.tz');
 	});
 
