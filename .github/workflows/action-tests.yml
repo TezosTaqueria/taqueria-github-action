@@ -21,9 +21,9 @@ jobs:
     steps:
 
       - name: Setup repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           node-version: 16
 
@@ -35,57 +35,48 @@ jobs:
       - name: taqueria tasks
         uses: ./
         with:
-          plugins: '@taqueria/plugin-ligo@v0.27.17-rc, @taqueria/plugin-flextesa@v0.27.17-rc, @taqueria/plugin-taquito@v0.27.17-rc, @taqueria/plugin-jest@v0.27.17-rc'
-          compile_contracts: counter.jsligo
+          plugins: '@taqueria/plugin-ligo, @taqueria/plugin-flextesa, @taqueria/plugin-taquito, @taqueria/plugin-jest, @taqueria/plugin-smartpy'
           sandbox_name: local
-          deploy_contracts: counter.tz
 
-      - name: upload artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: artifacts
-          path: artifacts/*
-          retention-days: 1
-
-  hello-tacos:
+  taco-shop-ligo:
     runs-on: ubuntu-latest
-    name: Hello-tacos project
+    name: Taco Shop Ligo
     steps:
 
       - name: Setup repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           node-version: 16
 
       - name: install modules
         run: |
-          cd example-projects/hello-tacos
-          npm update
+          cd example-projects/taco-shop
+          npm install
 
       - name: compile contracts
         uses: ./
         with:
-          project_directory: 'example-projects/hello-tacos'
+          project_directory: 'example-projects/taco-shop'
           compile_contracts: 'hello-tacos.mligo'
 
       - name: start local sandbox
         uses: ./
         with:
-          project_directory: 'example-projects/hello-tacos'
+          project_directory: 'example-projects/taco-shop'
           sandbox_name: 'local'
 
       - name: deploy contracts
         uses: ./
         with:
-          project_directory: 'example-projects/hello-tacos'
+          project_directory: 'example-projects/taco-shop'
           deploy_contracts: hello-tacos.tz
 
       - name: run tests
         uses: ./
         with:
-          project_directory: 'example-projects/hello-tacos'
+          project_directory: 'example-projects/taco-shop'
           test_plugin: jest
 
       - name: upload artifacts
@@ -93,6 +84,34 @@ jobs:
         with:
           name: artifacts
           path: |
-            example-projects/hello-tacos/artifacts/*
-            example-projects/hello-tacos/.taq/state.json
+            example-projects/taco-shop/artifacts/*
+            example-projects/taco-shop/.taq/state.json
           retention-days: 1
+
+  taco-shop-smartpy:
+    runs-on: ubuntu-latest
+    name: Taco Shop smartpy
+    steps:
+
+      - name: Setup repo
+        uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: install modules
+        run: |
+          cd example-projects/taco-shop
+          npm install
+
+      - name: taqueria compile, deploy, and test
+        uses: ./
+        with:
+          compile_contracts: hello-tacos.py
+          compile_plugin: smartpy
+          deploy_contracts: hello-tacos.tz
+          sandbox_name: local
+          test_plugin: jest
+          environment: development
+          project_directory: 'example-projects/taco-shop'

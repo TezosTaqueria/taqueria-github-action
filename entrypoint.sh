@@ -33,36 +33,35 @@ if [ -n "$INPUT_CONTRACTS" ]; then
 fi
 
 if [ -n "$INPUT_COMPILE_CONTRACTS" ]; then
-    echo "PROJECT_DIR: $PROJECT_DIR"
     # for each contract in the comma separated INPUT_CONTRACTS register the contract
     for contract in $(echo $INPUT_COMPILE_CONTRACTS | tr "," "\n"); do
         echo "Compiling $contract"
-        taq compile "$contract"
+        taq compile "$contract" --plugin "$INPUT_COMPILE_PLUGIN"
     done
+    chmod -R 777 ./artifacts
 fi
 
 if [ -n "$INPUT_SANDBOX_NAME" ]; then
-    taq start sandbox $INPUT_SANDBOX_NAME
+    taq start sandbox "$INPUT_SANDBOX_NAME"
 fi
 
 if [ -n "$INPUT_DEPLOY_CONTRACTS" ]; then
-    taq deploy $INPUT_DEPLOY_CONTRACTS --env $INPUT_ENVIRONMENT
     # for each contract in the comma separated INPUT_CONTRACTS register the contract
-    for contract in $(echo $INPUT_DEPLOY_CONTRACTS | tr "," "\n"); do
+    for contract in $(echo "$INPUT_DEPLOY_CONTRACTS" | tr "," "\n"); do
         echo "Deploying $contract"
-        taq deploy "$contract"
+        taq deploy "$contract" --env "$INPUT_ENVIRONMENT"
     done
 fi
 
 if [ -n "$INPUT_TASK" ] && [ "$INPUT_TASK" != "init" ]; then
     echo "Running task: $INPUT_TASK"
-    taq $INPUT_TASK
+    taq "$INPUT_TASK"
 fi
 
 if [ -n "$INPUT_TEST_PLUGIN" ]; then
     chmod -R 777 ./.taq
     echo "Running tests using plugin $INPUT_TEST_PLUGIN"
-    taq test --plugin $INPUT_TEST_PLUGIN
+    taq test --plugin "$INPUT_TEST_PLUGIN"
     exit_code=$?
     chmod -R 755 ./.taq
     exit $exit_code

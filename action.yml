@@ -7,6 +7,10 @@ inputs:
   compile_contracts:
     description: 'A comma separated list of contracts compiled'
     required: false
+  compile_plugin:
+    description: 'The plugin used to compile the contracts. Can be "ligo" or "smartpy". The default is "ligo"'
+    required: false
+    default: 'ligo'
   deploy_contracts:
     description: 'A comma seperated list of contracts to deploy to a specific environment. The Taquito plugin needs to be installed'
     required: false
@@ -35,6 +39,7 @@ runs:
   image: 'Dockerfile'
   args:
     - ${{ inputs.compile_contracts }}
+    - ${{ inputs.compile_plugin }}
     - ${{ inputs.deploy_contracts }}
     - ${{ inputs.environment }}
     - ${{ inputs.plugins }}
