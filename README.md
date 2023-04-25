@@ -27,6 +27,10 @@ This input is used to select the configured environment for `taqueria` to origin
 
 A comma separated list of plugins to install.
 
+### `ligo_libraries`
+
+A comma seperated list. If compile plugin is "ligo" this parameter can be used to install ligo libraries. Example ligo/fa
+
 ### `taq_ligo_image`
 
 A string representing ligo image to use. If compile plugin is "ligo" this parameter can be used to override the ligo image used. Example `ligolang/ligo_ci:next`

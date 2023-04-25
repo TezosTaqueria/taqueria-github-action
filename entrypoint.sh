@@ -9,11 +9,12 @@ else
     cd $INPUT_PROJECT_DIRECTORY || exit 1
 fi
 
-
-if [ "$TAQ_LIGO_IMAGE=ligolang/ligo:0.63.2" == "init" ] || [ -n "$INPUT_TAQ_LIGO_IMAGE" ]; then
+if [ "$INPUT_TASK" == "init" ]; then
     echo "Initializing project..."
     taq init
 fi
+
+echo $TAQ_LIGO_IMAGE
 
 if [ -n "$INPUT_TAQ_LIGO_IMAGE" ]; then
     echo "overriding Ligo version with $INPUT_TAQ_LIGO_IMAGE"
@@ -25,6 +26,14 @@ if [ -n "$INPUT_PLUGINS" ]; then
     for plugin in $(echo $INPUT_PLUGINS | tr "," "\n"); do
         echo "Installing plugin $plugin"
         taq install $plugin
+    done
+fi
+
+if [ -n "$INPUT_LIGO_LIBRARIES" ]; then
+    # for each ligo lib in the comma separated INPUT_LIGO_LIBRARIES install the library
+    for ligo_lib in $(echo $INPUT_LIGO_LIBRARIES | tr "," "\n"); do
+        echo "Installing ligo lib $ligo_lib"
+        docker run --rm -v "$PWD":"$PWD" -w "$PWD" $TAQ_LIGO_IMAGE install ${ligo_lib}
     done
 fi
 
@@ -45,10 +54,6 @@ if [ -n "$INPUT_COMPILE_CONTRACTS" ]; then
     chmod -R 777 ./artifacts
 fi
 
-if [ -n "$INPUT_SANDBOX_NAME" ]; then
-    taq start sandbox "$INPUT_SANDBOX_NAME"
-fi
-
 if [ -n "$INPUT_DEPLOY_CONTRACTS" ]; then
     # for each contract in the comma separated INPUT_CONTRACTS register the contract
     for contract in $(echo "$INPUT_DEPLOY_CONTRACTS" | tr "," "\n"); do
@@ -60,6 +65,10 @@ fi
 if [ -n "$INPUT_TASK" ] && [ "$INPUT_TASK" != "init" ]; then
     echo "Running task: $INPUT_TASK"
     taq "$INPUT_TASK"
+fi
+
+if [ -n "$INPUT_SANDBOX_NAME" ]; then
+    taq start sandbox "$INPUT_SANDBOX_NAME"
 fi
 
 if [ -n "$INPUT_TEST_PLUGIN" ]; then

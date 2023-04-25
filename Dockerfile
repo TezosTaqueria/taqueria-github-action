@@ -1,4 +1,3 @@
-
 FROM debian:bullseye
 FROM node:18
 
@@ -7,7 +6,6 @@ RUN mkdir deno
 ENV DENO_DIR=/deno
 
 COPY --from=docker:dind /usr/local/bin/docker /bin/docker
-
 # Download the Taqueria release binary for Linux to /bin/taq
 ADD https://github.com/ecadlabs/taqueria/releases/download/v0.28.4/taq-linux /bin/taq
 
