@@ -1,20 +1,24 @@
 #!/bin/bash
 ## Because of the docker-in-docker setup for the action we need to set 'localhost' to the host docker IP
-echo "172.17.0.1       localhost" > /etc/hosts
+echo "172.17.0.1       localhost" >/etc/hosts
 
 if [ -z "$INPUT_PROJECT_DIRECTORY" ]; then
-    export PROJECT_DIR=$RUNNER_WORKSPACE/${GITHUB_REPOSITORY#*/}   
+    export PROJECT_DIR=$RUNNER_WORKSPACE/${GITHUB_REPOSITORY#*/}
 else
     export PROJECT_DIR=$RUNNER_WORKSPACE/${GITHUB_REPOSITORY#*/}/$INPUT_PROJECT_DIRECTORY
     cd $INPUT_PROJECT_DIRECTORY || exit 1
 fi
 
 
-if [ "$INPUT_TASK" == "init" ]; then
-        echo "Initializing project..."
-        taq init
+if [ "$TAQ_LIGO_IMAGE=ligolang/ligo:0.63.2" == "init" ] || [ -n "$INPUT_TAQ_LIGO_IMAGE" ]; then
+    echo "Initializing project..."
+    taq init
 fi
 
+if [ -n "$INPUT_TAQ_LIGO_IMAGE" ]; then
+    echo "overriding Ligo version with $INPUT_TAQ_LIGO_IMAGE"
+    export TAQ_LIGO_IMAGE=$INPUT_TAQ_LIGO_IMAGE
+fi
 
 if [ -n "$INPUT_PLUGINS" ]; then
     # for each plugin in the comma separated INPUT_PLUGINS install the plugin

@@ -23,10 +23,15 @@ A list of Michelson smart contract files including the `.tz` extension to be dep
 
 This input is used to select the configured environment for `taqueria` to originate to. The default is set to `development`.
 
-
 ### `plugins`
 
 A comma separated list of plugins to install.
+
+### `taq_ligo_image`
+
+A string representing ligo image to use. If compile plugin is "ligo" this parameter can be used to override the ligo image used. Example `ligolang/ligo_ci:next`
+
+
 ### `project_directory`
 
 The name of the project directory. If nothing is specified the repository root directory is used.

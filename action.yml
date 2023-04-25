@@ -33,6 +33,8 @@ inputs:
   test_plugin:
     description: If set, taqueria will run tests with using the specified plugin. Ensure that the specified plugin is installed. These test will always be run after all other jobs.
     required: false
+  taq_ligo_image:
+    description: 'If compile plugin is "ligo" this parameter can be used to override the ligo image used.'
 
 runs:
   using: 'docker'
@@ -47,3 +49,4 @@ runs:
     - ${{ inputs.sandbox_name }}
     - ${{ inputs.task }}
     - ${{ inputs.test_plugin }}
+    - ${{ inputs.taq_ligo_image }}
