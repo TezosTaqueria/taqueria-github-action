@@ -48,9 +48,14 @@ The name of the Flextesa sandbox to use. A sandbox will only be created if this 
 
 The name of a specific task to run. This input is mainly used for testing purposes.
 
-### `tests`
+### `test_plugin`
 
-When set to true, all tests in the `tests` directory will be run using the Jest plugin. This option makes use of the `jest` plugin so please make sure to install it. 
+When set to jest, all tests in the `tests` directory will be run using the Jest plugin. This option makes use of the `jest` plugin so please make sure to install it. 
+
+### `test_files`
+
+When set to jest, all tests in the `tests` directory will be run using same plugin than the compile one. 
+
 
 ## Example usage
 

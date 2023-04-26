@@ -12,14 +12,14 @@ inputs:
     required: false
     default: 'ligo'
   deploy_contracts:
-    description: 'A comma seperated list of contracts to deploy to a specific environment. The Taquito plugin needs to be installed'
+    description: 'A comma separated list of contracts to deploy to a specific environment. The Taquito plugin needs to be installed'
     required: false
   environment:
     description: 'The environment to execute commands on. The default is "development"'
     required: false
     default: 'development'
   plugins:
-    description: 'A comma seperated list of plugins to install'
+    description: 'A comma separated list of plugins to install'
     required: false
   project_directory:
     description: 'The name of the project to create'
@@ -34,10 +34,12 @@ inputs:
     description: If set, taqueria will run tests with using the specified plugin. Ensure that the specified plugin is installed. These test will always be run after all other jobs.
     required: false
   ligo_libraries:
-    description: 'A comma seperated list. If compile plugin is "ligo" this parameter can be used to install ligo libraries. Example ligo/fa'
+    description: 'A comma separated list. If compile plugin is "ligo" this parameter can be used to install ligo libraries. Example ligo/fa'
     required: false
   taq_ligo_image:
     description: 'If compile plugin is "ligo" this parameter can be used to override the ligo image used.'
+  test_files:
+    description: 'A comma separated list. Represent files to run test on them'
 
 runs:
   using: 'docker'
@@ -54,3 +56,4 @@ runs:
     - ${{ inputs.test_plugin }}
     - ${{ inputs.ligo_libraries }}
     - ${{ inputs.taq_ligo_image }}
+    - ${{ inputs.test_files }}
