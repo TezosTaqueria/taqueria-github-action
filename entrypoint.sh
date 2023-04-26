@@ -59,7 +59,7 @@ fi
 if [ -n "$INPUT_TEST_FILES" ] && [ -n "$INPUT_COMPILE_PLUGIN" ]; then
     for file in $(echo $INPUT_TEST_FILES | tr "," "\n"); do
         echo "Testing $file"
-        taq test $file --plugin "$INPUT_COMPILE_PLUGIN" >results.log
+        taq test $file --plugin "$INPUT_COMPILE_PLUGIN" > results.log
         cat results.log
         if grep -q "Some tests failed" results.log; then
             exit_code=$(($exit_code + 1))
@@ -67,12 +67,15 @@ if [ -n "$INPUT_TEST_FILES" ] && [ -n "$INPUT_COMPILE_PLUGIN" ]; then
     done
 fi
 
-if [ -n "$INPUT_DEPLOY_CONTRACTS" ]; then
+if [ -n "$INPUT_DEPLOY_CONTRACTS" ] && [ $exit_code == 0 ]; then
     # for each contract in the comma separated INPUT_CONTRACTS register the contract
     for contract in $(echo "$INPUT_DEPLOY_CONTRACTS" | tr "," "\n"); do
         echo "Deploying $contract"
-        taq deploy "$contract" --env "$INPUT_ENVIRONMENT"
-        result=$?
+        taq deploy "$contract" --env "$INPUT_ENVIRONMENT" > results.log
+        cat results.log
+        if grep -q "No operations performed" results.log; then
+            exit_code=$(($exit_code + 1))
+        fi
         exit_code=$(($exit_code + $result))
     done
 fi
