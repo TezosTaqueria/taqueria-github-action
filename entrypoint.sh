@@ -33,7 +33,7 @@ if [ -n "$INPUT_LIGO_LIBRARIES" ]; then
     # for each ligo lib in the comma separated INPUT_LIGO_LIBRARIES install the library
     for ligo_lib in $(echo $INPUT_LIGO_LIBRARIES | tr "," "\n"); do
         echo "Installing ligo lib $ligo_lib"
-        taq ligo --command "install @ligo/fa"
+        taq ligo --command "install $ligo_lib"
     done
 fi
 
