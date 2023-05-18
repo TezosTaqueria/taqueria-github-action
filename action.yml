@@ -12,14 +12,14 @@ inputs:
     required: false
     default: 'ligo'
   deploy_contracts:
-    description: 'A comma seperated list of contracts to deploy to a specific environment. The Taquito plugin needs to be installed'
+    description: 'A comma separated list of contracts to deploy to a specific environment. The Taquito plugin needs to be installed'
     required: false
   environment:
     description: 'The environment to execute commands on. The default is "development"'
     required: false
     default: 'development'
   plugins:
-    description: 'A comma seperated list of plugins to install'
+    description: 'A comma separated list of plugins to install'
     required: false
   project_directory:
     description: 'The name of the project to create'
