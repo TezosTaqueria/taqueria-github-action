@@ -23,10 +23,19 @@ A list of Michelson smart contract files including the `.tz` extension to be dep
 
 This input is used to select the configured environment for `taqueria` to originate to. The default is set to `development`.
 
-
 ### `plugins`
 
 A comma separated list of plugins to install.
+
+### `ligo_libraries`
+
+A comma seperated list. If compile plugin is "ligo" this parameter can be used to install ligo libraries. Example ligo/fa
+
+### `taq_ligo_image`
+
+A string representing ligo image to use. If compile plugin is "ligo" this parameter can be used to override the ligo image used. Example `ligolang/ligo_ci:next`
+
+
 ### `project_directory`
 
 The name of the project directory. If nothing is specified the repository root directory is used.
@@ -39,9 +48,14 @@ The name of the Flextesa sandbox to use. A sandbox will only be created if this 
 
 The name of a specific task to run. This input is mainly used for testing purposes.
 
-### `tests`
+### `test_plugin`
 
-When set to true, all tests in the `tests` directory will be run using the Jest plugin. This option makes use of the `jest` plugin so please make sure to install it. 
+When set to jest, all tests in the `tests` directory will be run using the Jest plugin. This option makes use of the `jest` plugin so please make sure to install it. 
+
+### `test_files`
+
+When set to jest, all tests in the `tests` directory will be run using same plugin than the compile one. 
+
 
 ## Example usage
 
